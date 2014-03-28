@@ -159,9 +159,30 @@ define(
                             }
                             else if (typeof content === 'string')
                             {
-                                $dl.append(
-                                    crel('tr', crel('th', object.title), crel('td', data[object.name] || 'N/A'))
-                                );
+                                if(content === 'High')
+                                {
+                                    $dl.append(
+                                        crel('tr', crel('th', object.title), crel('td', crel('span', {class: 'label label-important'}, data[object.name]) || 'N/A'))
+                                    );
+                                }
+                                else  if(content === 'Medium')
+                                {
+                                    $dl.append(
+                                        crel('tr', crel('th', object.title), crel('td', crel('span', {class: 'label label-warning'}, data[object.name]) || 'N/A'))
+                                    );
+                                }
+                                else  if(content === 'Low')
+                                {
+                                    $dl.append(
+                                        crel('tr', crel('th', object.title), crel('td', crel('span', {class: 'label label-primary'}, data[object.name]) || 'N/A'))
+                                    );
+                                }
+                                else
+                                {
+                                    $dl.append(
+                                        crel('tr', crel('th', object.title), crel('td', data[object.name] || 'N/A'))
+                                    );
+                                }
                             }
                             else if (content.length)
                             {
@@ -174,6 +195,7 @@ define(
                                     {
                                         innerContent = object.cvssVector;
                                         _.each(innerContent, function (obj) {
+                                            console.log(innerObj[obj]);
                                             $dl.append(
                                                 crel('tr', crel('th', innerObj[obj.name] + ':'), crel('td', innerObj[obj.value] || 'N/A'))
                                             );
