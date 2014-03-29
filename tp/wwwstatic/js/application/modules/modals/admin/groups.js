@@ -4,14 +4,14 @@ define(
         'use strict';
         var exports = {
             Collection: Backbone.Collection.extend({
-                baseUrl: 'api/groups',
+                baseUrl: 'api/v1/groups',
                 params: {},
                 url: function () {
                     return this.baseUrl + '?' + $.param(this.params);
                 }
             }),
             PermissionCollection: Backbone.Collection.extend({
-                url: 'api/permissions'
+                url: 'api/v1/permissions'
             }),
             View: Backbone.View.extend({
                 initialize: function () {
@@ -53,7 +53,7 @@ define(
                 deleteGroup: function (event) {
                     var $button = $(event.currentTarget),
                         groupId = $button.attr('value'),
-                        url = 'api/groups/delete',
+                        url = 'api/v1/groups/delete',
                         params = {
                             id: groupId,
                             customer_context: this.customerContext
@@ -74,7 +74,7 @@ define(
                         $submitButton = $(event.currentTarget),
                         $alert = $submitButton.siblings('.alert'),
                         groupName = $submitButton.siblings('input').val(),
-                        url = 'api/groups/create';
+                        url = 'api/v1/groups/create';
                     params = {
                         name: groupName,
                         customer_context: this.customerContext
@@ -101,7 +101,7 @@ define(
                     });
                 },
                 toggleUser: function (event) {
-                    var url = 'api/groups/edit',
+                    var url = 'api/v1/groups/edit',
                         $input = $(event.currentTarget),
                         group = $input.data('group'),
                         $alert = this.$el.find('div.alert'),
@@ -121,7 +121,7 @@ define(
                     var $input = $(event.currentTarget),
                         $item = $input.parents('.accordion-group'),
                         $alert = this.$el.find('div.alert'),
-                        url = 'api/groups/edit',
+                        url = 'api/v1/groups/edit',
                         group = $item.data('id'),
                         params = {
                             id: group,

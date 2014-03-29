@@ -3,7 +3,7 @@ define(
     function ($, _, Backbone, app, crel, DeleteModal) {
         'use strict';var exports = {
             Collection: Backbone.Collection.extend({
-                baseUrl: '/api/customers',
+                baseUrl: '/api/v1/customers',
                 url: function () {
                     return this.baseUrl;
                 },
@@ -57,7 +57,7 @@ define(
                 },
                 submitCustomer: function () {
                     var customer = this.$('#customerInput').val(),
-                        url = '/api/customers/create',
+                        url = '/api/v1/customers/create',
                         that = this,
                         params = {
                             name: customer
@@ -90,7 +90,7 @@ define(
                 deleteCustomer: function () {
                     var $button = this.$('button.btn-danger'),
                         customer = this.name,
-                        url = '/api/customers/delete',
+                        url = '/api/v1/customers/delete',
                         that = this,
                         params = {
                             name: customer

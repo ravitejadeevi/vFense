@@ -4,14 +4,14 @@ define(
         'use strict';
         var exports = {
             Collection: Backbone.Collection.extend({
-                baseUrl: 'api/users',
+                baseUrl: 'api/v1/users',
                 params: {},
                 url: function () {
                     return this.baseUrl + '?' + $.param(this.params);
                 }
             }),
             GroupCollection: Backbone.Collection.extend({
-                baseUrl: 'api/groups',
+                baseUrl: 'api/v1/groups',
                 filter: '',
                 url: function () {
                     return this.baseUrl + this.filter;
@@ -20,7 +20,8 @@ define(
             View: Backbone.View.extend({
                 initialize: function () {
                     this.template = myTemplate;
-                    this.customerContext = app.user.toJSON().current_customer.name;
+                    this.customerContext = app.user;
+                    console.log(this.customer_context);
                     this.collection = new exports.Collection();
                     this.collection.params = {};
                     this.listenTo(this.collection, 'sync', this.render);

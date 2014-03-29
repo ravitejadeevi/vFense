@@ -334,7 +334,7 @@ define(
                 var modal;
 
                 // Check for proper admin permissions
-                if (app.user.hasPermission('admin')) {
+                if (app.user.hasPermission('administrator')) {
                     modal = app.views.modals.admin;
 
                     if (modal) {
