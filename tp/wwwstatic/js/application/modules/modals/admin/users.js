@@ -20,8 +20,7 @@ define(
             View: Backbone.View.extend({
                 initialize: function () {
                     this.template = myTemplate;
-                    this.customerContext = app.user;
-                    console.log(this.customer_context);
+                    this.customerContext = app.user.toJSON().current_customer;
                     this.collection = new exports.Collection();
                     this.collection.params = {};
                     this.listenTo(this.collection, 'sync', this.render);
@@ -46,7 +45,7 @@ define(
                     'submit form':                      'submit'
                 },
                 changeCustomerContext: function (event) {
-                    this.collection.params.customer_context = this.customerContext = event.val;
+                    this.collection.params.customer_name = this.customerContext = event.val;
                     this.collection.fetch();
                 },
                 toggleAclAccordion: function (event) {
@@ -77,7 +76,7 @@ define(
                         params = {
                             username: user
                         };
-                    $.post('api/users/delete', params, function (json) {
+                    $.post('api/v1/users/delete', params, function (json) {
                         if (json.pass) {
                             $userRow.remove();
                             $alert.removeClass('alert-error').addClass('alert-success').show().find('span').html(json.message);
@@ -114,7 +113,7 @@ define(
                     if (customers && customers.length) {
                         params.customer_id = customers;
                     }
-                    $.post('/api/users/create', params, function (json) {
+                    $.post('/api/v1/users/create', params, function (json) {
                         if (json.pass) {
                             that.collection.fetch();
                         } else {
@@ -130,7 +129,7 @@ define(
                         params = {
                             user: user,
                             name: event.added ? event.added.text : event.removed.text,
-                            customer_context: this.customerContext
+                            customer_name: this.customerContext
                         };
                     $.post(url, params, function (response) {
                         if (response.pass) {
@@ -155,8 +154,9 @@ define(
                             var data = JSON.parse(element.val()),
                                 results = [];
                             _.each(data, function (object) {
-                                results.push({id: object.id || object.name, text: object.name});
+                                results.push({id: object.group_id || object.customer_name, text: object.group_name ? object.group_name : object.customer_name});
                             });
+                            console.log(results);
                             callback(results);
                         },
                         ajax: {
@@ -165,14 +165,14 @@ define(
                             },
                             data: function () {
                                 return {
-                                    customer_context: that.customerContext
+                                    customer_name: that.customerContext
                                 };
                             },
                             results: function (data) {
                                 var results = [];
                                 if (data.pass) {
                                     _.each(data.data, function (object) {
-                                        results.push({id: object.id || object.name, text: object.name});
+                                        results.push({id: object.group_id || object.customer_name, text: object.group_name ? object.group_name : object.customer_name});
                                     });
                                     return {results: results, more: false, context: results};
                                 }
@@ -188,7 +188,7 @@ define(
                         groups = this.groupCollection.toJSON()[0],
                         customers = app.user.toJSON(),
                         payload;
-                    if (data && data.pass && groups && groups.pass) {
+                    if (data && true /*data.pass*/ && groups && true /*groups.pass*/) {
                         payload = {
                             data: data.data,
                             groups: groups.data,
@@ -200,10 +200,10 @@ define(
                                     selected = selected || false;
                                     if (options.length) {
                                         _.each(options, function (option) {
-                                            if (_.isUndefined(option.admin) || option.admin) {
-                                                attributes = {value: option.id || option.name};
-                                                if (selected && option.name === selected) {attributes.selected = selected;}
-                                                select.appendChild(crel('option', attributes, option.name));
+                                            if (_.isUndefined(option.administrator) || option.administrator) {
+                                                attributes = {value: option.id || option.customer_name};
+                                                if (selected && option.customer_name === selected) {attributes.selected = selected;}
+                                                select.appendChild(crel('option', attributes, option.customer_name));
                                             }
                                         });
                                     }
@@ -211,7 +211,7 @@ define(
                                 },
                                 renderDeleteButton: function (user) {
                                     var fragment;
-                                    if (user.username !== 'admin') {
+                                    if (user.user_name !== 'administrator') {
                                         fragment = crel('div');
                                         fragment.appendChild(
                                             crel('button', {class: 'btn btn-link noPadding', name: 'toggleDelete'},
@@ -222,16 +222,16 @@ define(
                                 },
                                 renderUserLink: function (user) {
                                     var fragment = crel('div');
-                                    if (user.username !== 'admin') {
+                                    if (user.user_name !== 'administrator') {
                                         fragment.appendChild(
                                             crel('button', {name: 'toggleAcl', class: 'btn btn-link noPadding'},
                                                 crel('i', {class: 'icon-circle-arrow-down'}, ' '),
-                                                crel('span', user.username)
+                                                crel('span', user.user_name)
                                             )
                                         );
                                     } else {
                                         fragment.appendChild(
-                                            crel('strong', user.username)
+                                            crel('strong', user.user_name)
                                         );
                                     }
                                     return fragment.innerHTML;

@@ -57,10 +57,8 @@ define(
             },
             url: '/api/v1/user/admin',
             parse: function (response) {
-                console.log(response);
                 this.apiMessage = response.message;
                 this.apiPass = true;
-                console.log(response.data);
                 return response.data;
             },
             hasPermission: function (need) {
