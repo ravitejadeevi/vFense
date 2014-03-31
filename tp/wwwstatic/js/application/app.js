@@ -58,7 +58,7 @@ define(
             url: '/api/v1/user/admin',
             parse: function (response) {
                 this.apiMessage = response.message;
-                this.apiPass = true;
+                this.apiPass = response.rv_status_code === 1001;
                 return response.data;
             },
             hasPermission: function (need) {

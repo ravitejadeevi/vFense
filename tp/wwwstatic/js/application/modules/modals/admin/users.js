@@ -76,8 +76,8 @@ define(
                         params = {
                             username: user
                         };
-                    $.post('api/v1/users/delete', params, function (json) {
-                        if (json.pass) {
+                    $.post('api/v1/users', params, function (json) {
+                        if (json.rv_status_code) {
                             $userRow.remove();
                             $alert.removeClass('alert-error').addClass('alert-success').show().find('span').html(json.message);
                         } else {
@@ -113,8 +113,8 @@ define(
                     if (customers && customers.length) {
                         params.customer_id = customers;
                     }
-                    $.post('/api/v1/users/create', params, function (json) {
-                        if (json.pass) {
+                    $.post('/api/v1/users', params, function (json) {
+                        if (json.rv_status_code) {
                             that.collection.fetch();
                         } else {
                             $alert.removeClass('alert-success').addClass('alert-error').html(json.message).show();
@@ -132,7 +132,7 @@ define(
                             customer_name: this.customerContext
                         };
                     $.post(url, params, function (response) {
-                        if (response.pass) {
+                        if (response.rv_status_code) {
                             $alert.hide();
                         } else {
                             $alert.removeClass('alert-success').addClass('alert-error').show().find('span').html(response.message);
@@ -141,8 +141,8 @@ define(
                 },
                 beforeRender: $.noop,
                 onRender: function () {
-                    var $groups = this.$('select[name="groups"]'),
-                        $customers = this.$('select[name="customers"]'),
+                    var $groups = this.$('select[name=groups]'),
+                        $customers = this.$('select[name=customers]'),
                         $select = this.$el.find('input[name=groupSelect], input[name=customerSelect]'),
                         that = this;
                     $groups.select2({width: '100%'});
@@ -156,12 +156,11 @@ define(
                             _.each(data, function (object) {
                                 results.push({id: object.group_id || object.customer_name, text: object.group_name ? object.group_name : object.customer_name});
                             });
-                            console.log(results);
                             callback(results);
                         },
                         ajax: {
                             url: function () {
-                                return $(this).data('url');
+                                return $(that).data('url');
                             },
                             data: function () {
                                 return {
@@ -170,7 +169,7 @@ define(
                             },
                             results: function (data) {
                                 var results = [];
-                                if (data.pass) {
+                                if (data.rv_status_code === 1001) {
                                     _.each(data.data, function (object) {
                                         results.push({id: object.group_id || object.customer_name, text: object.group_name ? object.group_name : object.customer_name});
                                     });
@@ -188,7 +187,7 @@ define(
                         groups = this.groupCollection.toJSON()[0],
                         customers = app.user.toJSON(),
                         payload;
-                    if (data && true /*data.pass*/ && groups && true /*groups.pass*/) {
+                    if (data && data.rv_status_code === 1001 && groups && groups.rv_status_code === 1001) {
                         payload = {
                             data: data.data,
                             groups: groups.data,

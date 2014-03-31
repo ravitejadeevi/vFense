@@ -16,7 +16,7 @@ define(
             View: Backbone.View.extend({
                 initialize: function () {
                     this.template = myTemplate;
-                    this.customerContext = app.user.toJSON().current_customer.name;
+                    this.customerContext = app.user.toJSON().current_customer;
                     this.collection = new exports.Collection();
                     this.collection.params = {};
                     this.permissions = new exports.PermissionCollection();
@@ -26,8 +26,8 @@ define(
                     this.permissions.fetch();
                 },
                 events: {
-                    'click button[name=addGroup]':          'toggleAddGroup',
-                    'click button[name=cancelNewGroup]':    'toggleAddGroup',
+                    'click button[name=addGroup]':          'toggleCreateGroup',
+                    'click button[name=cancelNewGroup]':    'toggleCreateGroup',
                     'click button[name=submitGroup]':       'submitGroup',
                     'click a.accordion-toggle':             'toggleAccordion',
                     'click button[name=toggleDelete]':      'toggleDelete',
@@ -53,19 +53,19 @@ define(
                 deleteGroup: function (event) {
                     var $button = $(event.currentTarget),
                         groupId = $button.attr('value'),
-                        url = 'api/v1/groups/delete',
+                        url = 'api/v1/groups',
                         params = {
                             id: groupId,
                             customer_context: this.customerContext
                         },
                         that = this;
                     $.post(url, params, function (json) {
-                        if (json.pass) {
+                        if (json.rv_status_code) {
                             that.collection.fetch();
                         }
                     });
                 },
-                toggleAddGroup: function () {
+                toggleCreateGroup: function () {
                     var $newGroupDiv = this.$el.find('#newGroupDiv');
                     $newGroupDiv.toggle();
                 },
@@ -74,13 +74,13 @@ define(
                         $submitButton = $(event.currentTarget),
                         $alert = $submitButton.siblings('.alert'),
                         groupName = $submitButton.siblings('input').val(),
-                        url = 'api/v1/groups/create';
+                        url = 'api/v1/groups';
                     params = {
                         name: groupName,
                         customer_context: this.customerContext
                     };
                     $.post(url, params, function (json) {
-                        if (json.pass) {
+                        if (json.rv_status_code) {
                             $alert.hide();
                             that.collection.fetch();
                         } else {
@@ -110,7 +110,7 @@ define(
                             user: event.added ? event.added.id : event.removed.id
                         };
                     $.post(url, params, function (response) {
-                        if (response.pass) {
+                        if (response.rv_status_code) {
                             $alert.hide();
                         } else {
                             $alert.removeClass('alert-success').addClass('alert-error').show().find('span').html(response.message);
@@ -129,7 +129,7 @@ define(
                             customer_context: this.customerContext
                         };
                     $.post(url, params, function (response) {
-                        if (response.pass) {
+                        if (response.rv_status_code) {
                             $alert.hide();
                         } else {
                             $alert.removeClass('alert-success').addClass('alert-error').show().find('span').html(response.message);
@@ -173,7 +173,7 @@ define(
                         that = this;
                     if (groups) {
                         _.each(groups.data, function (group) {
-                            if (group.name !== 'Administrator') {
+                            if (group.group_name !== 'Administrator') {
                                 var permissions = group.permissions,
                                     $groupDiv = that.$el.find('div[data-id=' + group.id + ']');
                                 _.each(permissions, function (permission) {
@@ -189,9 +189,9 @@ define(
                         fragment = document.createDocumentFragment(),
                         data = this.collection.toJSON()[0],
                         deleteButton;
-                    if (data && data.pass) {
+                    if (data && data.rv_status_code === 1001) {
                         _.each(data.data, function (group) {
-                            if (group.name === 'Administrator') {
+                            if (group.group_name === 'Administrator') {
                                 deleteButton = '';
                             } else {
                                 deleteButton = crel('button', {class: 'btn btn-link noMargin', name: 'toggleDelete'},
@@ -199,17 +199,17 @@ define(
                                 );
                             }
                             fragment.appendChild(
-                                crel('div', {class: 'accordion-group item clearfix', 'data-id': group.id, 'data-name': group.name},
+                                crel('div', {class: 'accordion-group item clearfix', 'data-id': group.id, 'data-name': group.group_name},
                                     crel('div', {class: 'accordion-heading row-fluid'},
                                         crel('span', {class: 'span4'},
                                             crel('a', {class: 'accordion-toggle'},
-                                                crel('i', {class: 'icon-circle-arrow-down'}), ' ' + group.name
+                                                crel('i', {class: 'icon-circle-arrow-down'}), ' ' + group.group_name
                                             )
                                         ),
                                         crel('span', {class: 'pull-right'},
                                             deleteButton,
                                             crel('span', {class: 'hide'},
-                                                crel('button', {class: 'btn btn-mini btn-danger', name: 'deleteGroup', value: group.id, 'data-groupname': group.name}, 'Delete'),
+                                                crel('button', {class: 'btn btn-mini btn-danger', name: 'deleteGroup', value: group.id, 'data-groupname': group.group_name}, 'Delete'),
                                                 crel('button', {class: 'btn btn-mini', name: 'toggleDelete'}, 'Cancel')
                                             )
                                         )
@@ -229,9 +229,10 @@ define(
 
                     var template = _.template(this.template),
                         data = this.collection.toJSON()[0],
-                        customers = app.user.toJSON().customers, payload;
+                        customers = app.user.toJSON().customers,
+                        payload;
 
-                    if (data && data.pass) {
+                    if (data && data.rv_status_code === 1001) {
                         payload = {
                             data: data.data,
                             customers: customers,
@@ -242,10 +243,10 @@ define(
                                     selected = selected || false;
                                     if (options.length) {
                                         _.each(options, function (option) {
-                                            if (option.admin) {
-                                                attributes = {value: option.id || option.name};
-                                                if (selected && option.name === selected) {attributes.selected = selected;}
-                                                select.appendChild(crel('option', attributes, option.name));
+                                            if (option.administrator) {
+                                                attributes = {value: option.id || option.customer_name};
+                                                if (selected && option.customer_name === selected) {attributes.selected = selected;}
+                                                select.appendChild(crel('option', attributes, option.customer_name));
                                             }
                                         });
                                     }

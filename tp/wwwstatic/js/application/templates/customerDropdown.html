@@ -1,15 +1,15 @@
 <% if (customers.length > 1) { %>
 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
     <i class="icon-group"></i>
-    <span id="activeCustomer"><%= current_customer.name || default_customer.name %></span>
+    <span id="activeCustomer"><%= current_customer || default_customer %></span>
     <i class="icon-caret-down"></i>
 </a>
 <ul class="dropdown-menu">
-    <%= viewHelpers.renderCustomers(customers, current_customer.name) %>
+    <%= viewHelpers.renderCustomers(customers, current_customer) %>
 </ul>
 <% } else if (customers.length === 1) { %>
     <a href="javascript:;">
         <i class="icon-group"></i>
-        <span><%= current_customer.name || default_customer.name %></span>
+        <span><%= current_customer || default_customer %></span>
     </a>
 <% } %>
