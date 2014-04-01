@@ -6,8 +6,8 @@ from vFense.core.user._constants import *
 from vFense.core.group import *
 from vFense.core.group._constants import *
 from vFense.core.customer import *
-from vFense.core.permissions._constants import *
 from vFense.core.customer._constants import *
+from vFense.core.permissions._constants import *
 from vFense.core.decorators import return_status_tuple, time_it
 from vFense.db.client import db_create_close, r
 
@@ -412,7 +412,7 @@ def fetch_users(
                 .eq_join(
                     lambda x:
                     x[CustomerPerUserKeys.UserName],
-                    r.table(UsersCollection)
+                    r.table(UserCollections.Users)
                 )
                 .zip()
                 .without(without_fields)
@@ -433,7 +433,7 @@ def fetch_users(
                 .eq_join(
                     lambda x:
                     x[CustomerPerUserKeys.UserName],
-                    r.table(UsersCollection)
+                    r.table(UserCollections.Users)
                 )
                 .zip()
                 .without(without_fields)
@@ -450,7 +450,7 @@ def fetch_users(
                 .eq_join(
                     lambda x:
                     x[CustomerPerUserKeys.UserName],
-                    r.table(UsersCollection)
+                    r.table(UserCollections.Users)
                 )
                 .zip()
                 .run(conn)
@@ -466,7 +466,7 @@ def fetch_users(
                 .eq_join(
                     lambda x:
                     x[CustomerPerUserKeys.UserName],
-                    r.table(UsersCollection)
+                    r.table(UserCollections.Users)
                 )
                 .zip()
                 .without(without_fields)
@@ -487,7 +487,7 @@ def fetch_users(
                 .eq_join(
                     lambda x:
                     x[CustomerPerUserKeys.UserName],
-                    r.table(UsersCollection)
+                    r.table(UserCollections.Users)
                 )
                 .zip()
                 .run(conn)
@@ -591,6 +591,39 @@ def delete_user(username, conn=None):
             r
             .table(UserCollections.Users)
             .get(username)
+            .delete()
+            .run(conn)
+        )
+
+    except Exception as e:
+        logger.exception(e)
+
+    return(data)
+
+
+@time_it
+@db_create_close
+@return_status_tuple
+def delete_users(usernames, conn=None):
+    """ Delete a user and all of its properties
+    Args:
+        username (str): username of the user you are deleteing.
+
+    Basic Usage::
+        >>> from vFense.user._db import delete_users
+        >>> usernames = ['admin', 'foo', 'bar']
+        >>> delete_users(usernames)
+
+    Return:
+        Tuple (status_code, count, error, generated ids)
+        >>> (2001, 1, None, [])
+    """
+    data = {}
+    try:
+        data = (
+            r
+            .table(UserCollections.Users)
+            .get_all(usernames)
             .delete()
             .run(conn)
         )

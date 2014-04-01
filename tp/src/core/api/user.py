@@ -3,9 +3,9 @@ import logging
 import logging.config
 
 from vFense.utils.security import check_password
-from vFense.server.handlers import BaseHandler
-from vFense.server.hierarchy.decorators import convert_json_to_arguments
-from vFense.server.hierarchy.decorators import authenticated_request
+from vFense.cora.api.base import BaseHandler
+from vFense.core.decorators import convert_json_to_arguments
+from vFense.core.decorators import authenticated_request
 
 from vFense.core.permissions._constants import *
 from vFense.core.permissions.permissions import verify_permission_for_user, \
@@ -184,6 +184,33 @@ class UserHandler(BaseHandler):
             self.write(json.dumps(results, indent=4))
 
 
+    @authenticated_request
+    @convert_json_to_arguments
+    @check_permissions(Permissions.ADMINISTRATOR)
+    def delete(self, username):
+        active_user = self.get_current_user()
+        uri = self.request.uri
+        method = self.request.method
+        try:
+            results = remove_user(
+                username, active_user, uri, method
+            )
+            self.set_status(results['http_status'])
+            self.set_header('Content-Type', 'application/json')
+            self.write(json.dumps(results, indent=4))
+
+        except Exception as e:
+            results = (
+                GenericResults(
+                    active_user, uri, method
+                ).something_broke(active_user, 'User', e)
+            )
+            logger.exception(e)
+            self.set_status(results['http_status'])
+            self.set_header('Content-Type', 'application/json')
+            self.write(json.dumps(results, indent=4))
+
+
 
 
 class UsersHandler(BaseHandler):
@@ -304,5 +331,35 @@ class UsersHandler(BaseHandler):
             self.set_header('Content-Type', 'application/json')
             self.write(json.dumps(results, indent=4))
 
+
+    @authenticated_request
+    @convert_json_to_arguments
+    @check_permissions(Permissions.ADMINISTRATOR)
+    def delete(self):
+        active_user = self.get_current_user()
+        uri = self.request.uri
+        method = self.request.method
+        usernames = self.arguments.get('username')
+        try:
+            if not isinstance(usernames, list):
+                usernames = usernames.split()
+
+            results = remove_users(
+                usernames, active_user, uri, method
+            )
+            self.set_status(results['http_status'])
+            self.set_header('Content-Type', 'application/json')
+            self.write(json.dumps(results, indent=4))
+
+        except Exception as e:
+            results = (
+                GenericResults(
+                    active_user, uri, method
+                ).something_broke(active_user, 'User', e)
+            )
+            logger.exception(e)
+            self.set_status(results['http_status'])
+            self.set_header('Content-Type', 'application/json')
+            self.write(json.dumps(results, indent=4))
 
 

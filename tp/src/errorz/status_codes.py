@@ -25,6 +25,76 @@ class GenericCodes(object):
     MissingPassword = 1024
 
 
+class GenericFailureCodes(object):
+    FailedToCreateObject = 11000
+    FailedToUpdateObject = 11001
+    FailedToDeleteObject = 11002
+    FailedToRetrieveObject = 11003
+
+class GroupCodes(object):
+    GroupCreated = 12000
+    GroupUpdated = 12001
+    GroupDeleted = 12002
+    GroupUnchanged = 12003
+    GroupsAddedToUser = 12004
+    GroupsRemovedFromUser = 12005
+
+
+class GroupFailureCodes(object):
+    GroupIdExists = 12500
+    InvalidPermissions = 12501
+    FailedToRemoveGroup = 12502
+    FailedToRemoveGroupFromUser = 12503
+    FailedToCreateGroup = 12504
+    FailedToAddGroupToUser = 12505
+    FailedToUpdateGroup = 12506
+    InvalidGroupName = 12507
+    InvalidGroupId = 12508
+    GroupExistForUser = 12509
+
+
+class UserCodes(object):
+    UserCreated = 13000
+    UserUpdated = 13001
+    UserDeleted = 13002
+    UserUnchanged = 13003
+    PasswordChanged = 13004
+
+
+class UserFailureCodes(object):
+    UserNameExists = 13000
+    UserNameDoesNotExists = 13501
+    FailedToCreateUser = 13502
+    FailedToRemoveUser = 13503
+    FailedToUpdateUser = 13504
+    InvalidUserName = 13505
+    InvalidPassword = 13506
+    WeakPassword = 13507
+    NewPasswordSameAsOld = 13508
+    AdminUserCanNotBeDeleted = 13509
+
+
+class CustomerCodes(object):
+    CustomerCreated = 14000
+    CustomerUpdated = 14001
+    CustomerDeleted = 14002
+    CustomerUnchanged = 14003
+    CustomersAddedToUser = 14004
+    CustomersRemovedFromUser = 14005
+
+
+class CustomerFailureCodes(object):
+    CustomerExists = 14000
+    CustomerDoesNotExists = 14501
+    FailedToCreateCustomer = 14502
+    FailedToRemoveCustomer = 14503
+    FailedToRemoveUserFromCustomer = 14504
+    FailedToUpdateCustomer = 14505
+    InvalidCustomerName = 14506
+    UsersExistForCustomer = 14507
+    UsersDoNotExistForCustomer = 14508
+
+
 class DbCodes(object):
     Down = 2000
     Updated = 2001

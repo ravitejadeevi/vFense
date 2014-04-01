@@ -1,6 +1,7 @@
 from BeautifulSoup import BeautifulSoup
 import requests
 import re
+import gc
 import sys
 import logging
 import logging.config
@@ -320,5 +321,5 @@ def begin_usn_home_page_processing(next_page=None, full_parse=False):
 
     except Exception as e:
         logger.exception(e)
-
+    gc.collect()
     logger.info('finished ubuntu usn update process')

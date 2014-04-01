@@ -6,8 +6,11 @@ from functools import wraps
 
 from tornado.web import HTTPError
 
-from vFense.errorz.status_codes import DbCodes
-from vFense.errorz.error_messages import GenericResults
+from vFense.errorz._constants import *
+from vFense.core._constants import *
+from vFense.errorz.status_codes import *
+from vFense.errorz.error_messages import *
+from vFense.errorz.results import Results
 
 
 logging.config.fileConfig('/opt/TopPatch/conf/logging.config')
@@ -60,62 +63,90 @@ def results_message(fn):
     """Return the results in the vFense API standard"""
     def db_wrapper(*args, **kwargs):
         data = fn(*args, **kwargs)
-        status_code = data[0]
-        object_id = data[1]
-        object_type = data[2]
-        object_data = data[3]
-        object_error = data[4]
-        username = data[5]
-        uri = data[6]
-        method = data[7]
+        status_code = data.get(ApiResultKeys.DB_STATUS_CODE, None)
+        generic_status_code = data.get(ApiResultKeys.GENERIC_STATUS_CODE, None)
+        uri = data.get(ApiResultKeys.HTTP_METHOD)
+        method = data.get(ApiResultKeys.HTTP_METHOD)
+        username = data.get(ApiResultKeys.USERNAME)
 
-        if status_code == DbCodes.Inserted:
+
+        if generic_status_code == GenericCodes.InformationRetrieved:
             status = (
-                GenericResults(
+                Results(
                     username, uri, method
-                ).object_created(object_id, object_type, object_data)
+                ).data_retrieved(**data)
             )
 
-        if status_code == DbCodes.Deleted:
+        elif generic_status_code == GenericCodes.ObjectCreated:
             status = (
-                GenericResults(
+                Results(
                     username, uri, method
-                ).object_deleted(object_id, object_type)
+                ).objects_created(**data)
             )
 
-        if status_code == DbCodes.Replaced:
+        elif generic_status_code == GenericFailureCodes.FailedToCreateObject:
             status = (
-                GenericResults(
+                Results(
                     username, uri, method
-                ).object_updated(object_id, object_type, object_data)
+                ).objects_failed_to_create(**data)
             )
 
-        elif status_code == DbCodes.Unchanged:
+        elif generic_status_code == GenericCodes.ObjectUpdated:
             status = (
-                GenericResults(
+                Results(
                     username, uri, method
-                ).object_unchanged(object_id, object_type, object_data)
+                ).objects_updated(**data)
             )
 
-        elif status_code == DbCodes.Skipped:
+        elif generic_status_code == GenericFailureCodes.FailedToUpdateObject:
             status = (
-                GenericResults(
+                Results(
                     username, uri, method
-                ).invalid_id(object_id, object_type)
+                ).objects_failed_to_update(**data)
             )
 
-        elif status_code == DbCodes.Errors:
+        elif generic_status_code == GenericCodes.ObjectDeleted:
             status = (
-                GenericResults(
+                Results(
                     username, uri, method
-                ).something_broke(object_id, object_type, object_error)
+                ).objects_deleted(**data)
             )
 
-        elif status_code == DbCodes.DoesntExist:
+        elif generic_status_code == GenericFailureCodes.FailedToDeleteObject:
             status = (
-                GenericResults(
+                Results(
                     username, uri, method
-                ).does_not_exists(object_id, object_type)
+                ).objects_failed_to_delete(**data)
+            )
+
+        elif generic_status_code == GenericCodes.ObjectUnchanged:
+            status = (
+                Results(
+                    username, uri, method
+                ).objects_unchanged(**data)
+            )
+
+
+        elif generic_status_code == GenericCodes.InvalidId:
+            status = (
+                Results(
+                    username, uri, method
+                ).invalid_id(**data)
+            )
+
+        elif generic_status_code == GenericCodes.DoesNotExists:
+            status = (
+                Results(
+                    username, uri, method
+                ).does_not_exist(**data)
+            )
+
+
+        if status_code == DbCodes.Errors:
+            status = (
+                Results(
+                    username, uri, method
+                ).something_broke(**data)
             )
 
         return(status)

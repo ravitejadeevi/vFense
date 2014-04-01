@@ -11,7 +11,8 @@ from vFense.core.customer._db import insert_customer, fetch_customer, \
     fetch_properties_for_all_customers, fetch_properties_for_customer
 
 from vFense.core.decorators import results_message, time_it
-from vFense.errorz.status_codes import DbCodes
+from vFense.errorz.status_codes import *
+from vFense.errorz._constants import *
 
 logging.config.fileConfig('/opt/TopPatch/conf/logging.config')
 logger = logging.getLogger('rvapi')
@@ -252,6 +253,10 @@ def add_user_to_customers(
     user_exist = retrieve_object(username, UserCollections.Users)
     data_list = []
     status = add_user_to_customers.func_name + ' - '
+    msg = ''
+    status_code = 0
+    generic_status_code = 0
+    vfense_status_code = 0
     if customers_are_valid[0]:
         data_list = []
         for customer_name in customer_names:
@@ -265,39 +270,50 @@ def add_user_to_customers(
                 data_list.append(data_to_add)
 
         if user_exist and data_list:
-            status = status + 'customers added to %s' % (', '.join(customer_names))
-            object_status, object_count, error, generated_ids = (
+            status_code, object_count, error, generated_ids = (
                 insert_user_per_customer(data_list)
             )
-            results = (
-                object_status, generated_ids, status,
-                data_list, error, user_name, uri, method
-            )
+            if status_code_status == DbCodes.Inserted:
+                msg = (
+                    'user :%s added to %s' % (
+                        username, ', '.join(customer_names)
+                    )
+                )
+                generic_status_code = GenericCodes.ObjectCreated
+                vfense_status_code = CustomerCodes.CustomersAddedToUser
 
         elif user_exist and not data_list:
-            status = status + 'customer names existed'
-            results = (
-                DbCodes.Unchanged, ', '.join(customer_names), status,
-                data_list, status, user_name, uri, method
-            )
+            status_code = DbCodes.Unchanged
+            msg = 'customer names existed for user %s' % (username)
+            generic_status_code = GenericCodes.ObjectExists
+            vfense_status_code = CustomerFailureCodes.UsersExistForCustomer
 
         elif not user_exist:
             status_code = DbCodes.Errors
-            error = 'User name is invalid: %s' % (username)
-            results = (
-                status_code, username, status,
-                ', '.join(customer_names), error, user_name, uri, method
-            )
+            msg = 'User name is invalid: %s' % (username)
+            generic_status_code = GenericCodes.InvalidId
+            vfense_status_code = UserFailureCodes.UserNameDoesNotExists
 
     elif not customers_are_valid[0]:
         status_code = DbCodes.Errors
-        error = (
-            'Customer names are invalid: %s' % (customers_are_valid[2])
+        msg = (
+            'Customer names are invalid: %s' % (
+                ' and '.join(customers_are_valid[2])
+            )
         )
-        results = (
-            status_code, customer_names, status,
-            ', '.join(customer_names), error, user_name, uri, method
-        )
+        generic_status_code = GenericCodes.InvalidId
+        vfense_status_code = CustomerFailureCodes.InvalidCustomerName
+
+    results = {
+        ApiResultKeys.DB_STATUS_CODE: status_code,
+        ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
+        ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+        ApiResultKeys.MESSAGE: status + msg,
+        ApiResultKeys.DATA: [],
+        ApiResultKeys.USERNAME: user_name,
+        ApiResultKeys.URI: uri,
+        ApiResultKeys.HTTP_METHOD: method
+    }
 
     return(results)
 
@@ -366,6 +382,12 @@ def create_customer(
         }
     """
     customer_exist = get_customer(customer_name)
+    status = create_customer.func_name + ' - '
+    msg = ''
+    status_code = 0
+    generic_status_code = 0
+    vfense_status_code = 0
+    data = {}
     if not customer_exist:
         if not http_application_url_location:
             http_application_url_location = (
@@ -385,6 +407,11 @@ def create_customer(
         object_status, object_count, error, generated_ids = (
             insert_customer(data)
         )
+        if object_status == DbCodes.Inserted:
+            msg = 'customer %s created - ' % (customer_name)
+            generic_status_code = GenericCodes.ObjectCreated
+            vfense_status_code = CustomerCodes.CustomerCreated
+
         if object_status == DbCodes.Inserted and not init and username:
             add_user_to_customers(
                 username, customer_name, user_name, uri, method
@@ -408,17 +435,23 @@ def create_customer(
                     DefaultCustomers.DEFAULT, customer_name, user_name, uri, method
                 )
 
-        results = (
-            object_status, customer_name, 'customer', data, error,
-            user_name, uri, method
-        )
 
     else:
-        error = 'customer_name %s already exists' % (customer_name)
-        results = (
-            DbCodes.Unchanged, customer_name, error, [], None,
-            user_name, uri, method
-        )
+        status_code = DbCodes.Unchanged
+        msg = 'customer_name %s already exists' % (customer_name)
+        generic_status_code = GenericCodes.ObjectExists
+        vfense_status_code = CustomerFailureCodes.CustomerExists
+
+    results = {
+        ApiResultKeys.DB_STATUS_CODE: status_code,
+        ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
+        ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+        ApiResultKeys.MESSAGE: status + msg,
+        ApiResultKeys.DATA: [data],
+        ApiResultKeys.USERNAME: user_name,
+        ApiResultKeys.URI: uri,
+        ApiResultKeys.HTTP_METHOD: method
+    }
 
     return(results)
 
@@ -477,24 +510,53 @@ def edit_customer(customer_name, **kwargs):
     else:
         method = kwargs.pop('method')
 
+    status = edit_customer.func_name + ' - '
     try:
         status_code, count, error, generated_ids = (
             update_customer(customer_name, kwargs)
         )
+        if status_code == DbCodes.Replaced:
+            msg = 'customer %s updated - ' % (customer_name)
+            generic_status_code = GenericCodes.ObjectUpdated
+            vfense_status_code = CustomerCodes.CustomerUpdated
 
-        status = 'customer modified - '
-        results = (
-            status_code, customer_name, status, kwargs, error,
-            user_name, uri, method
-        )
+        elif status_code == DbCodes.Unchanged:
+            msg = 'customer %s unchanged - ' % (customer_name)
+            generic_status_code = GenericCodes.ObjectUnchanged
+            vfense_status_code = CustomerCodes.CustomerUnchanged
+
+        elif status_code == DbCodes.Skipped:
+            msg = 'customer %s does not exist - ' % (customer_name)
+            generic_status_code = GenericCodes.Invalid
+            vfense_status_code = CustomerFailureCodes.InvalidCustomerName
+        results = {
+            ApiResultKeys.DB_STATUS_CODE: status_code,
+            ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
+            ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+            ApiResultKeys.MESSAGE: status + msg,
+            ApiResultKeys.DATA: [kwargs],
+            ApiResultKeys.USERNAME: user_name,
+            ApiResultKeys.URI: uri,
+            ApiResultKeys.HTTP_METHOD: method
+        }
 
     except Exception as e:
         logger.exception(e)
-        status = 'Failed to modify customer %s: - ' % (customer_name)
-        results = (
-            DbCodes.Errors, customer_name, status, [], e,
-            user_name, uri, method
-        )
+        msg = 'Failed to modify customer %s: %s' % (customer_name, str(e))
+        status_code = DbCodes.Errors
+        generic_status_code = GenericFailureCodes.FailedToUpdateObject
+        vfense_status_code = CustomerFailureCodes.FailedToRemoveCustomer
+
+        results = {
+            ApiResultKeys.DB_STATUS_CODE: status_code,
+            ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
+            ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+            ApiResultKeys.MESSAGE: status + msg,
+            ApiResultKeys.DATA: [kwargs],
+            ApiResultKeys.USERNAME: user_name,
+            ApiResultKeys.URI: uri,
+            ApiResultKeys.HTTP_METHOD: method
+        }
 
     return(results)
 
@@ -537,19 +599,52 @@ def remove_customers_from_user(
         status_code, count, errors, generated_ids = (
             delete_user_in_customers(username, customer_names)
         )
-        status = status + 'removed customers from user %s:' % (username)
-        results = (
-            status_code, ' and '.join(customer_names), status, [], None,
-            user_name, uri, method
-        )
+        if status_code == DbCodes.Deleted:
+            msg = 'removed customers %s from user %s' % (username)
+            generic_status_code = GenericCodes.ObjectDeleted
+            vfense_status_code = CustomerCodes.CustomersRemovedFromUser
+
+        elif status_code == DbCodes.Skipped:
+            msg = 'invalid customer name or invalid username'
+            generic_status_code = GenericCodes.InvalidId
+            vfense_status_code = CustomerFailureCodes.InvalidCustomerName
+
+        elif status_code == DbCodes.DoesntExist:
+            msg = 'customer name or username does not exist'
+            generic_status_code = GenericCodes.DoesNotExists
+            vfense_status_code = CustomerFailureCodes.UsersDoNotExistForCustomer
+
+        results = {
+            ApiResultKeys.DB_STATUS_CODE: status_code,
+            ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
+            ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+            ApiResultKeys.MESSAGE: status + msg,
+            ApiResultKeys.DATA: [],
+            ApiResultKeys.USERNAME: user_name,
+            ApiResultKeys.URI: uri,
+            ApiResultKeys.HTTP_METHOD: method
+        }
 
     except Exception as e:
         logger.exception(e)
-        status = status + 'Failed to remove customers from user %s' % (username)
-        results = (
-            DbCodes.Errors, ' and '.join(customer_names), status, [], e,
-            user_name, uri, method
+        msg = (
+            'Failed to remove customers from user %s: %s' % 
+            (username, str(e))
         )
+        status_code = DbCodes.Errors
+        generic_status_code = GenericFailureCodes.FailedToDeleteObject
+        vfense_status_code = CustomerFailureCodes.FailedToRemoveCustomer
+
+        results = {
+            ApiResultKeys.DB_STATUS_CODE: status_code,
+            ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
+            ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+            ApiResultKeys.MESSAGE: status + msg,
+            ApiResultKeys.DATA: [],
+            ApiResultKeys.USERNAME: user_name,
+            ApiResultKeys.URI: uri,
+            ApiResultKeys.HTTP_METHOD: method
+        }
 
     return(results)
 
@@ -583,6 +678,9 @@ def remove_customer(customer_name, user_name=None, uri=None, method=None):
         }
     """
     status = remove_customer.func_name + ' - '
+    status_code = 0
+    generic_status_code = 0
+    vfense_status_code = 0
     try:
         customer_exist = get_customer(customer_name)
         users_exist = fetch_users_for_customer(customer_name)
@@ -596,31 +694,53 @@ def remove_customer(customer_name, user_name=None, uri=None, method=None):
                 status_code, customer_name, status, [], errors,
                 user_name, uri, method
             )
+            if status_code == DbCodes.Inserted:
+                msg = 'customer %s removed' % customer_name
+                generic_status_code = GenericCodes.ObjectDeleted
+                vfense_status_code = CustomerCodes.CustomerDeleted
 
 
         elif customer_exist and users_exist:
             msg = (
                 'users still exist for customer %s' % customer_name
             )
-
-            results = (
-                DbCodes.Unchanged, customer_name, status + msg, [], None,
-                user_name, uri, method
-            )
+            status_code = DbCodes.Unchanged
+            generic_status_code = GenericFailureCodes.FailedToDeleteObject
+            vfense_status_code = CustomerFailureCodes.UsersExistForCustomer
 
         else:
             msg = 'customer %s does not exist' % (customer_name)
-            results = (
-                DbCodes.Skipped, customer_name, status + msg, [], None,
-                user_name, uri, method
-            )
+            status_code = DbCodes.Skipped
+            generic_status_code = GenericCodes.InvalidId
+            vfense_status_code = CustomerFailureCodes.InvalidCustomerName
+
+        results = {
+            ApiResultKeys.DB_STATUS_CODE: status_code,
+            ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
+            ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+            ApiResultKeys.MESSAGE: status + msg,
+            ApiResultKeys.DATA: [],
+            ApiResultKeys.USERNAME: user_name,
+            ApiResultKeys.URI: uri,
+            ApiResultKeys.HTTP_METHOD: method
+        }
 
     except Exception as e:
         logger.exception(e)
-        msg = 'Failed to remove customer'
-        results = (
-            DbCodes.Errors, customer_name, status + msg, [], e,
-            user_name, uri, method
-        )
+        msg = 'Failed to remove customer %s: e' % (customer_name, str(e))
+        status_code = DbCodes.Errors
+        generic_status_code = GenericFailureCodes.FailedToDeleteObject
+        vfense_status_code = CustomerFailureCodes.FailedToRemoveCustomer
+
+        results = {
+            ApiResultKeys.DB_STATUS_CODE: status_code,
+            ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
+            ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+            ApiResultKeys.MESSAGE: status + msg,
+            ApiResultKeys.DATA: [],
+            ApiResultKeys.USERNAME: user_name,
+            ApiResultKeys.URI: uri,
+            ApiResultKeys.HTTP_METHOD: method
+        }
 
     return(results)

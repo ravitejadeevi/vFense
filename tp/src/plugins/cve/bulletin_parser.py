@@ -1,6 +1,7 @@
 import os
 import re
 import sys
+import gc
 from time import mktime
 from datetime import datetime
 import logging
@@ -97,5 +98,6 @@ def parse_bulletin_and_updatedb():
         insert_into_bulletin_collection_for_windows(bulletin_data)
 
     logger.info('finished microsoft security bulletin update process')
+    gc.collect()
 
 #parse_bulletin_and_updatedb()

@@ -1,4 +1,5 @@
 from vFense.errorz.status_codes import *
+from vFense.errorz._constants import *
 from vFense.core.agent import *
 
 status = 'http_status'
@@ -195,10 +196,11 @@ class GenericResults(object):
     def object_unchanged(self, object_id, object_type, object_data=[]):
         return(
             {
-                status: 200,
-                code: GenericCodes.ObjectUnchanged,
-                uri: self.uri,
-                method: self.method,
+                ApiResultKeys.HTTP_STATUS_CODE: 200,
+                ApiResultKeys.VFENSE_STATUS_CODE: GenericCodes.ObjectUnchanged,
+                ApiResultKeys.URI: self.uri,
+                ApiResultKeys.HTTP_METHOD: self.method,
+                ApiResultKeys.UNCHANGED_IDS: object_id,
                 message: (
                     '%s - %s %s unchanged'
                     % (self.username, object_type, object_id)
@@ -210,16 +212,18 @@ class GenericResults(object):
     def object_exists(self, object_id, object_type):
         return(
             {
-                status: 200,
-                code: GenericCodes.ObjectExists,
-                uri: self.uri,
-                method: self.method,
+                ApiResultKeys.HTTP_STATUS_CODE: 200,
+                ApiResultKeys.VFENSE_STATUS_CODE: GenericCodes.ObjectExists,
+                ApiResultKeys.URI: self.uri,
+                ApiResultKeys.HTTP_METHOD: self.method,
+                ApiResultKeys.UNCHANGED_IDS: object_id,
                 message: (
                     '%s - %s %s already exists'
                     % (self.username, object_type, object_id)
                 ),
             }
         )
+
 
     def does_not_exists(self, object_id, object_type):
         return(

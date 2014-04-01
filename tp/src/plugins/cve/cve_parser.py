@@ -229,6 +229,7 @@ def load_up_all_xml_into_db():
             parse_cve_and_udpatedb(False, nvd_file)
     update_cve_categories()
     logger.info('finished cve/nvd update process') 
+    gc.collect()
 
 #update_cve_categories()
 #load_up_all_xml_into_db()
