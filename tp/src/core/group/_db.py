@@ -364,6 +364,42 @@ def fetch_groups_for_user(username, fields_to_pluck=None, conn=None):
 
     return(data)
 
+@time_it
+@db_create_close
+def user_exist_in_group(username, group_id, conn=None):
+    """Return True if and user is part of group_id
+    Args:
+        username (str): username.
+        group_id (str): 36 Character UUID
+
+    Basic Usage:
+        >>> from vFense.group._db import user_exist_in_group
+        >>> username = 'alien'
+        >>> group_id = '0834e656-27a5-4b13-ba56-635797d0d1fc'
+        >>> user_exist_in_group(username)
+
+    Returns:
+        Returns a boolean True or False
+    """
+    exist = False
+    try:
+        is_empty = (
+            r
+            .table(GroupCollections.GroupsPerUser)
+            .get_all(username, index=GroupsPerUserIndexes.UserName)
+            .filter({GroupsPerUserKeys.GroupId: group_id})
+            .is_empty()
+            .run(conn)
+        )
+
+        if not is_empty:
+            exist = True
+
+    except Exception as e:
+        logger.exception(e)
+
+    return(exist)
+
 
 @time_it
 @db_create_close

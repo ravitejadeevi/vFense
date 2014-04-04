@@ -129,7 +129,7 @@ class Results(object):
         )
 
 
-    def objects_deleted(self, deleted_ids, unchanged_ids, message):
+    def objects_deleted(self, **kwargs):
         deleted_ids = kwargs.get(ApiResultKeys.DELETED_IDS, [])
         unchanged_ids = kwargs.get(ApiResultKeys.UNCHANGED_IDS, [])
         msg = kwargs.get(ApiResultKeys.MESSAGE, '')
@@ -231,7 +231,7 @@ class Results(object):
         )
         return(
             {
-                ApiResultKeys.HTTP_STATUS_CODE: 304,
+                ApiResultKeys.HTTP_STATUS_CODE: 200,
                 ApiResultKeys.VFENSE_STATUS_CODE: status_code,
                 ApiResultKeys.URI: self.uri,
                 ApiResultKeys.HTTP_METHOD: self.method,
@@ -257,6 +257,27 @@ class Results(object):
                 ApiResultKeys.VFENSE_STATUS_CODE: status_code,
                 ApiResultKeys.URI: self.uri,
                 ApiResultKeys.HTTP_METHOD: self.method,
+                ApiResultKeys.MESSAGE: msg,
+                ApiResultKeys.DATA: data,
+            }
+        )
+
+    def object_exists(self, **kwargs):
+        msg = kwargs.get(ApiResultKeys.MESSAGE, '')
+        data = kwargs.get(ApiResultKeys.DATA, [])
+        status_code = (
+            kwargs.get(
+                ApiResultKeys.VFENSE_STATUS_CODE,
+                GenericCodes.ObjectExists
+            )
+        )
+        return(
+            {
+                ApiResultKeys.HTTP_STATUS_CODE: 200,
+                ApiResultKeys.VFENSE_STATUS_CODE: status_code,
+                ApiResultKeys.URI: self.uri,
+                ApiResultKeys.HTTP_METHOD: self.method,
+                ApiResultKeys.UNCHANGED_IDS: object_id,
                 ApiResultKeys.MESSAGE: msg,
                 ApiResultKeys.DATA: data,
             }

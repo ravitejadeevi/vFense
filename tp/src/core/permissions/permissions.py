@@ -6,6 +6,7 @@ from vFense.errorz.error_messages import GenericResults
 
 from vFense.core._constants import *
 from vFense.core.user import *
+from vFense.core.user._constants import DefaultUser
 from vFense.core.user.users import get_user
 
 from vFense.core.permissions import *
@@ -93,6 +94,11 @@ def verify_permission_for_user(
     """
     granted = False
     status_code = GenericCodes.PermissionDenied
+    if username == DefaultUser.ADMIN:
+        granted = True
+        status_code = GenericCodes.PermissionGranted
+        return(granted, status_code)
+
     try:
         user_exist = get_user(username)
         if permission in Permissions().VALID_PERMISSIONS and user_exist:

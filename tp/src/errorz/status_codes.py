@@ -26,10 +26,10 @@ class GenericCodes(object):
 
 
 class GenericFailureCodes(object):
-    FailedToCreateObject = 11000
-    FailedToUpdateObject = 11001
-    FailedToDeleteObject = 11002
-    FailedToRetrieveObject = 11003
+    FailedToCreateObject = 1500
+    FailedToUpdateObject = 1501
+    FailedToDeleteObject = 1502
+    FailedToRetrieveObject = 1503
 
 class GroupCodes(object):
     GroupCreated = 12000
@@ -51,6 +51,8 @@ class GroupFailureCodes(object):
     InvalidGroupName = 12507
     InvalidGroupId = 12508
     GroupExistForUser = 12509
+    GroupDoesNotExistForUser = 12510
+    CantRemoveAdminFromGroup = 12511
 
 
 class UserCodes(object):
@@ -59,10 +61,12 @@ class UserCodes(object):
     UserDeleted = 13002
     UserUnchanged = 13003
     PasswordChanged = 13004
+    UsersAddedToCustomer = 13005
+    UsersRemovedFromCustomer = 13006
 
 
 class UserFailureCodes(object):
-    UserNameExists = 13000
+    UserNameExists = 13500
     UserNameDoesNotExists = 13501
     FailedToCreateUser = 13502
     FailedToRemoveUser = 13503
@@ -72,6 +76,10 @@ class UserFailureCodes(object):
     WeakPassword = 13507
     NewPasswordSameAsOld = 13508
     AdminUserCanNotBeDeleted = 13509
+    FailedToAddUsersToCustomer = 13510
+    FailedToRemoveUsersFromCustomer = 13511
+    CantDeleteAdminFromCustomer = 13512
+    CantDeleteAdminUser = 13513
 
 
 class CustomerCodes(object):
@@ -84,7 +92,7 @@ class CustomerCodes(object):
 
 
 class CustomerFailureCodes(object):
-    CustomerExists = 14000
+    CustomerExists = 14500
     CustomerDoesNotExists = 14501
     FailedToCreateCustomer = 14502
     FailedToRemoveCustomer = 14503
@@ -93,6 +101,10 @@ class CustomerFailureCodes(object):
     InvalidCustomerName = 14506
     UsersExistForCustomer = 14507
     UsersDoNotExistForCustomer = 14508
+    CantDeleteDefaultCustomer = 124509
+    InvalidNetworkThrottle = 124509
+    InvalidCpuThrottle = 124510
+    InvalidOperationTTL = 124511
 
 
 class DbCodes(object):
@@ -119,6 +131,16 @@ class AgentCodes(object):
     InstallSupportedAppResults = 3008
     InstallCustomAppResults = 3009
     InstallAgentAppResults = 3010
+    AgentsDeleted = 3011
+    AgentsUpdated = 3012
+
+
+class AgentFailureCodes(object):
+    AgentsFailedToDelete = 3500
+    AgentsFailedToUpdate = 3501
+    AgentsDoNotExist = 3502
+    AgentsDoesNotExist = 3503
+    AgentsExist = 3504
 
 
 class TagCodes(object):

@@ -843,7 +843,7 @@ def update_vulnerability_info_app(
     if vuln_info:
         app[AppsKey.CveIds] = vuln_info[SecurityBulletinKey.CveIds]
         for cve_id in app[AppsKey.CveIds]:
-            cve_id = cve_id.replace('CVE-', '')
+            #cve_id = cve_id.replace('CVE-', '')
             app[AppsKey.VulnerabilityCategories] += (
                 get_vulnerability_categories(cve_id)
             )

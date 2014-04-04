@@ -21,7 +21,6 @@ def return_status_tuple(fn):
     """Return the status of the db_call, plus the number of documents"""
     def db_wrapper(*args, **kwargs):
         status = fn(*args, **kwargs)
-        return_code = (DbCodes.Nothing, 0, None, [])
         if status['deleted'] > 0:
             return_code = (DbCodes.Deleted, status['deleted'], None, [])
 
@@ -65,9 +64,10 @@ def results_message(fn):
         data = fn(*args, **kwargs)
         status_code = data.get(ApiResultKeys.DB_STATUS_CODE, None)
         generic_status_code = data.get(ApiResultKeys.GENERIC_STATUS_CODE, None)
-        uri = data.get(ApiResultKeys.HTTP_METHOD)
+        uri = data.get(ApiResultKeys.URI)
         method = data.get(ApiResultKeys.HTTP_METHOD)
         username = data.get(ApiResultKeys.USERNAME)
+        status = None
 
 
         if generic_status_code == GenericCodes.InformationRetrieved:
@@ -142,12 +142,20 @@ def results_message(fn):
             )
 
 
-        if status_code == DbCodes.Errors:
+        elif generic_status_code == GenericCodes.ObjectExists:
+            status = (
+                Results(
+                    username, uri, method
+                ).does_not_exist(**data)
+            )
+
+        elif status_code == DbCodes.Errors:
             status = (
                 Results(
                     username, uri, method
                 ).something_broke(**data)
             )
+
 
         return(status)
 

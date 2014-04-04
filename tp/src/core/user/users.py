@@ -6,13 +6,22 @@ from vFense.core.user import *
 from vFense.core.user._constants import *
 from vFense.core.group import *
 from vFense.core.group._constants import *
+from vFense.core.customer import *
+
+from vFense.core.customer._db import users_exists_in_customer, \
+    insert_user_per_customer, delete_users_in_customer
+
 from vFense.core.user._db import insert_user, fetch_user, fetch_users, \
     delete_user, update_user, fetch_user_and_all_properties, \
-    fetch_users_and_all_properties
+    fetch_users_and_all_properties, delete_users, user_status_toggle
+
 from vFense.core.group.groups import validate_group_ids, \
     add_user_to_groups, remove_groups_from_user
+
 from vFense.core.customer.customers import get_customer, \
-    add_user_to_customers, remove_customers_from_user
+    add_user_to_customers, remove_customers_from_user, \
+    validate_customer_names
+
 from vFense.utils.security import Crypto, check_password
 from vFense.core.decorators import results_message, time_it
 from vFense.errorz.status_codes import *
@@ -189,6 +198,318 @@ def get_users(customer_name=None, username=None, without_fields=None):
 
 
 @time_it
+def validate_user_names(user_names):
+    """Validate a list of user names exist in the database.
+    Args:
+        user_names (list): List of user names
+
+    Basic Usage:
+        >>> from vFense.group.groups import validate_user_names
+        >>> user_names = ['tester1', 'tester2']
+        >>> validate_user_names(user_names)
+
+    Return:
+        Tuple (Boolean, [valid_user_names], [invalid_user_names])
+        (True, ['tester1', 'tester2'], [])
+    """
+    validated = True
+    invalid_user_names = []
+    valid_user_names = []
+    if isinstance(user_names, list):
+        for user_name in user_names:
+            user = get_user(user_name)
+            if user:
+                valid_user_names.append(user_name)
+            else:
+                invalid_user_names.append(user_name)
+                validated = False
+
+    return(validated, valid_user_names, invalid_user_names)
+
+
+@time_it
+@results_message
+def add_users_to_customer(
+    usernames, customer_name,
+    user_name=None, uri=None, method=None
+    ):
+    """Add a multiple customers to a user
+    Args:
+        usernames (list):  Name of the users already in vFense.
+        customer_name (str): The name of the customer,
+            these users will be added to.
+
+    Kwargs:
+        user_name (str): The name of the user who called this function.
+        uri (str): The uri that was used to call this function.
+        method (str): The HTTP methos that was used to call this function.
+
+    Basic Usage:
+        >>> from vFense.core.user.users import add_users_to_customer
+        >>> usernames = ['tester1', 'tester2']
+        >>> customer_names = 'default'
+        >>> add_users_to_customer(usernames, customer_name)
+
+    Returns:
+        Dictionary of the status of the operation.
+        {
+            'uri': None,
+            'rv_status_code': 1017,
+            'http_method': None,
+            'http_status': 200,
+            'message': "None - add_user_to_customers - customer names existed 'default', 'TopPatch', 'vFense' unchanged",
+            'data': []
+
+        }
+    """
+    users_are_valid = validate_user_names(usernames)
+    customer_is_valid = validate_customer_names([customer_name])
+    results = None
+    data_list = []
+    status = add_users_to_customer.func_name + ' - '
+    msg = ''
+    status_code = 0
+    generic_status_code = 0
+    vfense_status_code = 0
+    generated_ids = []
+    data_list = []
+    if users_are_valid[0] and customer_is_valid[0]:
+        for username in usernames:
+            if not users_exists_in_customer(username, customer_name):
+                data_to_add = (
+                    {
+                        CustomerPerUserKeys.CustomerName: customer_name,
+                        CustomerPerUserKeys.UserName: username,
+                    }
+                )
+                data_list.append(data_to_add)
+
+        if len(data_list) == len(usernames):
+            status_code, object_count, error, generated_ids = (
+                insert_user_per_customer(data_list)
+            )
+
+            if status_code == DbCodes.Inserted:
+                msg = (
+                    'user %s added to %s' % (
+                       ' and '.join(usernames), customer_name
+                    )
+                )
+                generic_status_code = GenericCodes.ObjectCreated
+                vfense_status_code = UserCodes.UsersAddedToCustomer
+
+        else:
+            status_code = DbCodes.Unchanged
+            msg = (
+                'user names %s existed for customer %s' %
+                (' and '.join(usernames), customer_name)
+            )
+            generic_status_code = GenericCodes.ObjectExists
+            vfense_status_code = CustomerFailureCodes.UsersExistForCustomer
+
+    elif not customer_is_valid[0]:
+        status_code = DbCodes.Errors
+        msg = (
+            'customer names are invalid: %s' % (
+                ' and '.join(customer_is_valid[2])
+            )
+        )
+        generic_status_code = GenericCodes.InvalidId
+        vfense_status_code = CustomerFailureCodes.InvalidCustomerName
+
+    elif not users_are_valid[0]:
+        status_code = DbCodes.Errors
+        msg = (
+            'user names are invalid: %s' % (
+                ' and '.join(users_are_valid[2])
+            )
+        )
+        generic_status_code = GenericCodes.InvalidId
+        vfense_status_code = UserFailureCodes.InvalidUserName
+
+    results = {
+        ApiResultKeys.DB_STATUS_CODE: status_code,
+        ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
+        ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+        ApiResultKeys.GENERATED_IDS: generated_ids,
+        ApiResultKeys.MESSAGE: status + msg,
+        ApiResultKeys.DATA: [],
+        ApiResultKeys.USERNAME: user_name,
+        ApiResultKeys.URI: uri,
+        ApiResultKeys.HTTP_METHOD: method
+    }
+
+    return(results)
+
+
+@time_it
+@results_message
+def remove_users_from_customer(
+    usernames, customer_name,
+    user_name=None, uri=None, method=None
+    ):
+    """Remove users from a customer
+    Args:
+        usernames (list): List of usernames, you are
+            removing from the customer.
+        customer_name (str): Name of the customer,
+            you want to remove the users from
+
+    Kwargs:
+        user_name (str): The name of the user who called this function.
+        uri (str): The uri that was used to call this function.
+        method (str): The HTTP methos that was used to call this function.
+
+    Basic Usage:
+        >>> from vFense.customer.customers remove_users_from_customer
+        >>> usernames = ['tester1', 'tester2']
+        >>> customer_name = 'Tester'
+        >>> remove_users_from_customer(usernames, customer_name)
+
+    Return:
+        Dictionary of the status of the operation.
+    {
+        'rv_status_code': 1004,
+        'message': 'None - remove_users_from_customer - removed customers from user alien: TopPatch and vFense does not exist',
+        'http_method': None,
+        'uri': None,
+        'http_status': 409
+    }
+    """
+    status = remove_users_from_customer.func_name + ' - '
+    admin_in_list = DefaultUser.ADMIN in usernames
+    try:
+        if not admin_in_list:
+            status_code, count, errors, generated_ids = (
+                delete_users_in_customer(usernames, customer_name)
+            )
+            if status_code == DbCodes.Deleted:
+                msg = (
+                    'removed users %s from customer %s' %
+                    (' and '.join(usernames), customer_name)
+                )
+                generic_status_code = GenericCodes.ObjectDeleted
+                vfense_status_code = UserCodes.UsersRemovedFromCustomer
+
+            elif status_code == DbCodes.Skipped:
+                msg = 'invalid customer name or invalid username'
+                generic_status_code = GenericCodes.InvalidId
+                vfense_status_code = CustomerFailureCodes.InvalidCustomerName
+
+            elif status_code == DbCodes.DoesntExist:
+                msg = 'customer name or username does not exist'
+                generic_status_code = GenericCodes.DoesNotExists
+                vfense_status_code = CustomerFailureCodes.UsersDoNotExistForCustomer
+
+        else:
+            msg = 'can not remove the admin user from any customer'
+            generic_status_code = GenericCodes.InvalidId
+            vfense_status_code = UserFailureCodes.CantDeleteAdminFromCustomer
+
+
+        results = {
+            ApiResultKeys.DB_STATUS_CODE: status_code,
+            ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
+            ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+            ApiResultKeys.MESSAGE: status + msg,
+            ApiResultKeys.DATA: [],
+            ApiResultKeys.USERNAME: user_name,
+            ApiResultKeys.URI: uri,
+            ApiResultKeys.HTTP_METHOD: method
+        }
+
+    except Exception as e:
+        logger.exception(e)
+        msg = (
+            'Failed to remove users %s from customer %s: %s' % 
+            (' and '.join(usernames), customer_name, str(e))
+        )
+        status_code = DbCodes.Errors
+        generic_status_code = GenericFailureCodes.FailedToDeleteObject
+        vfense_status_code = UserFailureCodes.FailedToRemoveUsersFromCustomer
+
+        results = {
+            ApiResultKeys.DB_STATUS_CODE: status_code,
+            ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
+            ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+            ApiResultKeys.MESSAGE: status + msg,
+            ApiResultKeys.DATA: [],
+            ApiResultKeys.USERNAME: user_name,
+            ApiResultKeys.URI: uri,
+            ApiResultKeys.HTTP_METHOD: method
+        }
+
+    return(results)
+
+
+@time_it
+@results_message
+def toggle_user_status(username, user_name=None, uri=None, method=None):
+    """Enable or disable a user
+    Args:
+        username (str): The username you are enabling or disabling
+
+    Kwargs:
+        user_name (str): The name of the user who called this function.
+        uri (str): The uri that was used to call this function.
+        method (str): The HTTP methos that was used to call this function.
+
+    Basic Usage:
+        >>> from vFense.user.users import toggle_user_status
+        >>> username = 'tester'
+        >>> toggle_user_status(username)
+
+    Return:
+        Dictionary of the status of the operation.
+        {
+            "rv_status_code": 13001, 
+            "http_method": null, 
+            "updated_ids": [
+                "tester"
+            ], 
+            "http_status": 200, 
+            "unchanged_ids": [], 
+            "message": "toggle_user_status - user tester is enabled", 
+            "data": [], 
+            "uri": null
+        }
+    """
+    status = toggle_user_status.func_name + ' - '
+    status_code, object_count, error, generated_ids = (
+        user_status_toggle(username)
+    )
+    if status_code == DbCodes.Replaced:
+        user_exist = get_user(username)
+        if user_exist[UserKeys.Enabled] == CommonKeys.YES:
+            msg = 'user %s is enabled' % (username)
+
+        else:
+            msg = 'user %s is disabled' % (username)
+
+        generic_status_code = GenericCodes.ObjectUpdated
+        vfense_status_code = UserCodes.UserUpdated
+
+    elif status_code == DbCodes.Skipped:
+        msg = 'user %s is invalid' % (username)
+        generic_status_code = GenericCodes.InvalidId
+        vfense_status_code = UserFailureCodes.InvalidUserName
+
+
+    results = {
+        ApiResultKeys.DB_STATUS_CODE: status_code,
+        ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
+        ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+        ApiResultKeys.MESSAGE: status + msg,
+        ApiResultKeys.UPDATED_IDS: [username],
+        ApiResultKeys.DATA: [],
+        ApiResultKeys.USERNAME: user_name,
+        ApiResultKeys.URI: uri,
+        ApiResultKeys.HTTP_METHOD: method
+    }
+
+    return(results)
+
+@time_it
 @results_message
 def create_user(
     username, fullname, password, group_ids,
@@ -251,29 +572,30 @@ def create_user(
     generated_ids = []
     generic_status_code = 0
     vfense_status_code = 0
+    user_data = (
+        {
+            UserKeys.CurrentCustomer: customer_name,
+            UserKeys.DefaultCustomer: customer_name,
+            UserKeys.FullName: fullname,
+            UserKeys.UserName: username,
+            UserKeys.Enabled: enabled,
+            UserKeys.Email: email
+        }
+    )
     if enabled != CommonKeys.YES or enabled != CommonKeys.NO:
         enabled = CommonKeys.NO
     try:
         if not user_exist and pass_strength[0]:
             encrypted_password = Crypto().hash_bcrypt(password)
+            user_data[UserKeys.Password] = encrypted_password
             customer_is_valid = get_customer(customer_name)
             groups_are_valid = validate_group_ids(group_ids, customer_name)
 
             if customer_is_valid and groups_are_valid[0]:
-                user_data = (
-                    {
-                        UserKeys.CurrentCustomer: customer_name,
-                        UserKeys.DefaultCustomer: customer_name,
-                        UserKeys.FullName: fullname,
-                        UserKeys.Password: encrypted_password,
-                        UserKeys.UserName: username,
-                        UserKeys.Enabled: enabled,
-                        UserKeys.Email: email
-                    }
-                )
                 object_status, object_count, error, generated_ids = (
                     insert_user(user_data)
                 )
+                generated_ids.append(username)
 
                 add_user_to_customers(
                     username, [customer_name],
@@ -288,16 +610,17 @@ def create_user(
                     msg = 'user name %s created' % (username)
                     generic_status_code = GenericCodes.ObjectCreated
                     vfense_status_code = UserCodes.UserCreated
+                    user_data.pop(UserKeys.Password)
 
             elif not customer_is_valid and groups_are_valid[0]:
                 msg = 'customer name %s does not exist' % (customer_name)
-                object_status = GenericFailureCodes.FailedToCreateObject
+                object_status = DbCodes.Skipped
                 generic_status_code = GenericCodes.InvalidId
                 vfense_status_code = CustomerFailureCodes.CustomerDoesNotExists
 
             elif not groups_are_valid[0] and customer_is_valid:
                 msg = 'group ids %s does not exist' % (groups_are_valid[2])
-                object_status = GenericCodes.FailedToCreateObject
+                object_status = DbCodes.Skipped
                 generic_status_code = GenericCodes.InvalidId
                 vfense_status_code = GroupFailureCodes.InvalidGroupId
 
@@ -309,9 +632,9 @@ def create_user(
                     'customer name %s does not exist' % (customer_name)
                 )
                 msg = group_error + ' and ' + customer_error
-                object_status = GenericFailureCodes.FailedToCreateObject
+                object_status = DbCodes.Errors
                 generic_status_code = GenericFailureCodes.FailedToCreateObject
-                vfense_status_code = UserFailureCodes.UserNameExists
+                vfense_status_code = UserFailureCodes.FailedToCreateUser
 
         elif user_exist:
             msg = 'username %s already exists' % (username)
@@ -334,7 +657,7 @@ def create_user(
             ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
             ApiResultKeys.MESSAGE: status + msg,
             ApiResultKeys.GENERATED_IDS: generated_ids,
-            ApiResultKeys.DATA: [],
+            ApiResultKeys.DATA: [user_data],
             ApiResultKeys.USERNAME: user_name,
             ApiResultKeys.URI: uri,
             ApiResultKeys.HTTP_METHOD: method
@@ -353,7 +676,7 @@ def create_user(
             ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
             ApiResultKeys.MESSAGE: status + msg,
             ApiResultKeys.GENERATED_IDS: [],
-            ApiResultKeys.DATA: [],
+            ApiResultKeys.DATA: [user_data],
             ApiResultKeys.USERNAME: user_name,
             ApiResultKeys.URI: uri,
             ApiResultKeys.HTTP_METHOD: method
@@ -392,7 +715,7 @@ def remove_user(username, user_name=None, uri=None, method=None):
                 delete_user(username)
             )
 
-            if object_status == DbCodes.Inserted:
+            if object_status == DbCodes.Deleted:
                 generic_status_code = GenericCodes.ObjectDeleted
                 vfense_status_code = UserCodes.UserDeleted
                 msg = 'User removed %s' % (username)
@@ -469,6 +792,7 @@ def remove_users(usernames, user_name=None, uri=None, method=None):
     usernames_to_delete = []
     generic_status_code = 0
     vfense_status_code = 0
+    msg = ''
     try:
         if not isinstance(usernames, list):
             usernames = usernames.split(',')
@@ -485,22 +809,29 @@ def remove_users(usernames, user_name=None, uri=None, method=None):
                 usernames_not_to_delete.append(username)
                 generic_status_code = GenericCodes.CouldNotBeDeleted
                 vfense_status_code = UserFailureCodes.AdminUserCanNotBeDeleted
+                object_status = DbCodes.Skipped
 
             else:
                 msg = 'User does not exist %s' % (username)
                 usernames_not_to_delete.append(username)
                 generic_status_code = GenericCodes.InvalidId
                 vfense_status_code = UserFailureCodes.UserNameDoesNotExists
+                object_status = DbCodes.Skipped
 
         if len(usernames_to_delete) > 0:
             object_status, object_count, error, generated_ids = (
                 delete_users(usernames_to_delete)
             )
 
-            if object_status == DbCodes.Inserted:
+            if object_status == DbCodes.Deleted:
                 generic_status_code = GenericCodes.ObjectDeleted
                 vfense_status_code = UserCodes.UserDeleted
                 msg = 'Users removed %s' % (' and '.join(usernames_to_delete))
+
+            if object_status == DbCodes.DoesntExist:
+                generic_status_code = GenericCodes.DoesNotExists
+                vfense_status_code = UserFailureCodes.UserNameDoesNotExists
+                msg = 'Users  %s do not exist' % (' and '.join(usernames_to_delete))
 
         else:
             object_status = DbCodes.Unchanged
@@ -625,6 +956,7 @@ def change_password(
                 ApiResultKeys.DB_STATUS_CODE: object_status,
                 ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
                 ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+                ApiResultKeys.UPDATED_IDS: [username],
                 ApiResultKeys.MESSAGE: status + msg,
                 ApiResultKeys.DATA: [],
                 ApiResultKeys.USERNAME: user_name,
@@ -700,20 +1032,20 @@ def edit_user_properties(username, **kwargs):
         }
     """
 
-    if not kwargs.get('user_name'):
+    if not kwargs.get(ApiResultKeys.USERNAME):
         user_name = None
     else:
-        user_name = kwargs.pop('user_name')
+        user_name = kwargs.pop(ApiResultKeys.USERNAME)
 
-    if not kwargs.get('uri'):
+    if not kwargs.get(ApiResultKeys.URI):
         uri = None
     else:
-        uri = kwargs.pop('uri')
+        uri = kwargs.pop(ApiResultKeys.URI)
 
-    if not kwargs.get('method'):
+    if not kwargs.get(ApiResultKeys.HTTP_METHOD):
         method = None
     else:
-        method = kwargs.pop('method')
+        method = kwargs.pop(ApiResultKeys.HTTP_METHOD)
 
     if kwargs.get(UserKeys.Password):
         kwargs.pop(UserKeys.Password)
@@ -728,10 +1060,12 @@ def edit_user_properties(username, **kwargs):
                 update_user(username, kwargs)
             )
             if object_status == DbCodes.Replaced:
+                msg = 'User %s was updated - ' % (username)
                 generic_status_code = GenericCodes.ObjectUpdated
                 vfense_status_code = UserCodes.UserUpdated
 
             elif object_status == DbCodes.Unchanged:
+                msg = 'User %s was not updated - ' % (username)
                 generic_status_code = GenericCodes.ObjectUnchanged
                 vfense_status_code = UserCodes.UserUnchanged
 
@@ -739,13 +1073,14 @@ def edit_user_properties(username, **kwargs):
             object_status = DbCodes.Skipped
             generic_status_code = GenericCodes.InvalidId
             vfense_status_code = UserFailureCodes.UserNameDoesNotExists
-            error = 'User %s does not exist - ' % (username)
+            msg = 'User %s does not exist - ' % (username)
 
         results = {
             ApiResultKeys.DB_STATUS_CODE: object_status,
             ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
             ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
-            ApiResultKeys.MESSAGE: status + str(error),
+            ApiResultKeys.UPDATED_IDS: username,
+            ApiResultKeys.MESSAGE: status + msg,
             ApiResultKeys.DATA: [kwargs],
             ApiResultKeys.USERNAME: user_name,
             ApiResultKeys.URI: uri,

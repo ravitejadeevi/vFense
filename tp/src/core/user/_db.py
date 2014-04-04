@@ -321,7 +321,21 @@ def fetch_users_and_all_properties(customer_name=None, conn=None):
 
 @time_it
 @db_create_close
-def status_toggle(username, conn=None):
+@return_status_tuple
+def user_status_toggle(username, conn=None):
+    """Enable or disable a user
+    Args:
+        username (str): The username you are enabling or disabling
+
+    Basic Usage:
+        >>> from vFense.user._db import status_toggle
+        >>> username = 'tester'
+        >>> status_toggle(username)
+
+    Return:
+        Tuple (status_code, count, error, generated ids)
+        >>> (2001, 1, None, [])
+    """
     try:
         toggled = (
             r
@@ -607,7 +621,7 @@ def delete_user(username, conn=None):
 def delete_users(usernames, conn=None):
     """ Delete a user and all of its properties
     Args:
-        username (str): username of the user you are deleteing.
+        usernames (list): username of the user you are deleteing.
 
     Basic Usage::
         >>> from vFense.user._db import delete_users
@@ -622,9 +636,14 @@ def delete_users(usernames, conn=None):
     try:
         data = (
             r
-            .table(UserCollections.Users)
-            .get_all(usernames)
-            .delete()
+            .expr(usernames)
+            .for_each(
+                lambda username:
+                r
+                .table(UserCollections.Users)
+                .get(username)
+                .delete()
+            )
             .run(conn)
         )
 

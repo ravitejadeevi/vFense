@@ -11,7 +11,8 @@ from vFense.core._db import retrieve_object
 from vFense.core.group._db import insert_group, fetch_group, fetch_groups, \
     insert_group_per_user, fetch_group_by_name, delete_groups_from_user, \
     fetch_users_in_group, fetch_groups_for_user, delete_group, \
-    fetch_properties_for_all_groups, fetch_group_properties
+    fetch_properties_for_all_groups, fetch_group_properties, \
+    user_exist_in_group
 
 from vFense.core.decorators import results_message, time_it
 from vFense.errorz.status_codes import *
@@ -361,7 +362,7 @@ def add_user_to_groups(
         for group_id in group_ids:
             group_exist = get_group(group_id)
             user_in_group = (
-                get_users_in_group(group_id, GroupsPerUserKeys.GroupName)
+                user_exist_in_group(username, group_id)
             )
             if not user_in_group:
                 data_to_add = (
@@ -375,18 +376,14 @@ def add_user_to_groups(
                 data_list.append(data_to_add)
 
             else:
-                users_group_exist.append(user_in_group.get(GroupName))
-
+                users_group_exist.append(group_id)
         if len(data_list) == len(group_ids):
-            object_status, object_count, error, generated_ids = (
-                insert_group_per_user(data_to_add)
+            status_code, object_count, error, generated_ids = (
+                insert_group_per_user(data_list)
             )
-            if object_status == DbCodes.Inserted:
-                msg = (
-                    'user %s add to groups' % (
-                        username, ' and '.join(generated_ids)
-                    )
-                )
+
+            if status_code == DbCodes.Inserted:
+                msg = 'user %s add to groups' % (username)
                 generic_status_code = GenericCodes.ObjectCreated
                 vfense_status_code = GroupCodes.GroupCreated
 
@@ -397,6 +394,7 @@ def add_user_to_groups(
                     username, ' and '.join(users_group_exist)
                 )
             )
+            status_code = DbCodes.Skipped
             generic_status_code = GenericCodes.ObjectExists
             vfense_status_code = GroupFailureCodes.GroupExistForUser
 
@@ -427,10 +425,9 @@ def add_user_to_groups(
         ApiResultKeys.DB_STATUS_CODE: status_code,
         ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
         ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
-        ApiResultKeys.USERNAME: username,
         ApiResultKeys.GENERATED_IDS: generated_ids,
         ApiResultKeys.MESSAGE: status + msg,
-        ApiResultKeys.DATA: group_data,
+        ApiResultKeys.DATA: [],
         ApiResultKeys.USERNAME: user_name,
         ApiResultKeys.URI: uri,
         ApiResultKeys.HTTP_METHOD: method
@@ -483,27 +480,24 @@ def create_group(
 
     status = create_group.func_name + ' - '
     generated_ids = []
+    group_data = (
+        {
+            GroupKeys.CustomerName: customer_name,
+            GroupKeys.GroupName: group_name,
+            GroupKeys.Permissions: permissions,
+        }
+    )
     try:
         group_exist = get_group_by_name(group_name, customer_name)
         permissions_valid = set(permissions).issubset(set(Permissions.VALID_PERMISSIONS))
         if not group_exist and permissions_valid:
-            group_data = (
-                {
-                    GroupKeys.CustomerName: customer_name,
-                    GroupKeys.GroupName: group_name,
-                    GroupKeys.Permissions: permissions,
-                }
-            )
 
             status_code, status_count, error, generated_ids = (
                 insert_group(group_data)
             )
 
-            results = (
-                status_code, generated_ids, status,
-                group_data, error, user_name, uri, method
-            )
-            if object_status == DbCodes.Inserted:
+            if status_code == DbCodes.Inserted:
+                msg = 'group %s created' % (group_name)
                 generic_status_code = GenericCodes.ObjectCreated
                 vfense_status_code = GroupCodes.GroupCreated
 
@@ -518,13 +512,12 @@ def create_group(
             msg = 'group %s exists' % (group_name)
             status_code = DbCodes.Unchanged
             generic_status_code = GenericCodes.ObjectExists
-            vfense_status_code = GroupCodes.GroupIdExists
+            vfense_status_code = GroupFailureCodes.GroupIdExists
 
         results = {
             ApiResultKeys.DB_STATUS_CODE: status_code,
             ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
             ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
-            ApiResultKeys.USERNAME: username,
             ApiResultKeys.GENERATED_IDS: generated_ids,
             ApiResultKeys.MESSAGE: status + msg,
             ApiResultKeys.DATA: group_data,
@@ -588,14 +581,32 @@ def remove_groups_from_user(
         }
     """
     status = remove_groups_from_user.func_name + ' - '
-    user_exist = retrieve_object(username, UserCollections.Users)
+    user_does_not_exist_in_group = False
     try:
         if group_ids:
             msg = 'group ids: ' + 'and '.join(group_ids)
+            for gid in group_ids:
+                user_in_group = user_exist_in_group(username, gid)
+                if not user_in_group:
+                    user_does_not_exist_in_group = True
         else:
-            msg = 'all groups'
+            msg = 'all groups removed from user %s' %(username)
+            group_ids = (
+                map(lambda x:
+                    x[GroupsPerUserKeys.GroupId],
+                    get_groups_for_user(username, GroupsPerUserKeys.GroupId)
+                )
+            )
 
-        if user_exist:
+            if group_ids:
+                for gid in group_ids:
+                    user_in_group = user_exist_in_group(username, gid)
+                    if not user_in_group:
+                        user_does_not_exist_in_group = True
+            else:
+                user_does_not_exist_in_group = True
+
+        if not user_does_not_exist_in_group:
             status_code, count, errors, generated_ids = (
                 delete_groups_from_user(username, group_ids)
             )
@@ -607,10 +618,18 @@ def remove_groups_from_user(
                 generic_status_code = GenericCodes.ObjectUnchanged
                 vfense_status_code = GroupCodes.GroupUnchanged
 
+            elif status_code == DbCodes.Skipped:
+                generic_status_code = GenericCodes.InvalidId
+                vfense_status_code = GroupFailureCodes.InvalidGroupId
+
         else:
+            msg = (
+                'groups %s do not exist for user %s' %
+                (' and '.join(group_ids), username)
+            )
             status_code = DbCodes.Skipped
             generic_status_code = GenericCodes.InvalidId
-            vfense_status_code = GroupFailureCodes.InvalidGroupId
+            vfense_status_code = GroupFailureCodes.GroupDoesNotExistForUser
 
         results = {
             ApiResultKeys.DB_STATUS_CODE: status_code,
@@ -698,7 +717,6 @@ def remove_group(group_id, user_name=None, uri=None, method=None):
 
         results = {
             ApiResultKeys.DB_STATUS_CODE: status_code,
-            ApiResultKeys.DB_STATUS_CODE: object_status,
             ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
             ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
             ApiResultKeys.MESSAGE: status + msg,

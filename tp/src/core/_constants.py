@@ -10,9 +10,26 @@ class CommonKeys():
     URI = 'uri'
     METHOD = 'method'
 
+class DefaultStringLength():
+    CUSTOMER_NAME = 36
+
 class HTTPMethods():
     PUT = 'put'
     POST = 'post'
     DELETE = 'delete'
     GET = 'get'
     HEAD = 'head'
+
+class CPUThrottleValues():
+    IDLE = 'idle'
+    BELOW_NORMAL = 'below_normal'
+    NORMAL = 'normal'
+    ABOVE_NORMAL = 'above_normal'
+    HIGH = 'high'
+    VALID_VALUES = (IDLE, BELOW_NORMAL, NORMAL, ABOVE_NORMAL, HIGH)
+
+class RebootValues():
+    NONE = 'none' #Do not reboot
+    NEEDED = 'needed' #Reboot only if the system is asking for a reboot
+    FORCE = 'force'   #Force the reboot
+    VALID_VALUES = (NONE, NEEDED, FORCE)

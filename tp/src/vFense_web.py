@@ -15,8 +15,9 @@ import tornado.options
 from redis import StrictRedis
 from rq import Connection, Queue
 
-from vFense.server.handlers import RootHandler, LoginHandler, LogoutHandler
-from vFense.server.handlers import WebSocketHandler, AdminHandler
+from vFense.core.api.base import RootHandler, LoginHandler, LogoutHandler, \
+    WebSocketHandler, AdminHandler
+
 from vFense.server.api.scheduler_api import ScheduleListerHandler
 #from server.api.scheduler_api import ScheduleRemoveHandler
 from vFense.server.api.scheduler_api import ScheduleAppDetailHandler
@@ -52,9 +53,9 @@ from vFense.server.api.transactions_api import *
 from vFense.server.api.log_api import *
 from vFense.server.api.email_api import *
 from vFense.server.api.tag_api import *
-from vFense.server.api.users_api import *
-from vFense.server.api.groups_api import *
-from vFense.server.api.customer_api import *
+#from vFense.server.api.users_api import *
+#from vFense.server.api.groups_api import *
+#from vFense.server.api.customer_api import *
 from vFense.server.api.monit_api import *
 from vFense.core.api.user import UserHandler, UsersHandler
 from vFense.core.api.group import GroupHandler, GroupsHandler
@@ -92,10 +93,10 @@ class Application(tornado.web.Application):
             (r"/adminForm", AdminHandler),
 
             ##### User and Groups API
-            (r"/api/user/?", GetUserApi),
-            (r"/api/users/?", GetUsersApi),
+            #(r"/api/user/?", GetUserApi),
+            #(r"/api/users/?", GetUsersApi),
 
-            (r"/api/groups/?", GetGroupApi),
+            #(r"/api/groups/?", GetGroupApi),
 
             ##### New User API
             (r"/api/v1/user/([a-zA-Z0-9_ ]+)?", UserHandler),
@@ -106,7 +107,9 @@ class Application(tornado.web.Application):
             (r"/api/v1/groups?", GroupsHandler),
 
             ##### New Customer API
-            (r"/api/v1/customer/([a-zA-Z0-9_ ]+)?", CustomerHandler),
+            (r'/api/v1/customer/((?:\w(?!%20+")|%20(?!%20*")){1,36})?', CustomerHandler),
+            #(r'/api/v1/customer/((?:\w(?!\s+")+|\s(?!\s*"))+\w)?', CustomerHandler),
+            #(r"/api/v1/customer/([a-zA-Z0-9_ ]+)?", CustomerHandler),
             (r"/api/v1/customers?", CustomersHandler),
 
             ##### Notification API

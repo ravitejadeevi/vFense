@@ -12,7 +12,6 @@ import tornado.web
 import tornado.websocket
 import tornadoredis
 from vFense.db.client import *
-from vFense.errorz.error_messages import GenericResults
 from vFense.core._constants import *
 from vFense.core.permissions.permissions import authenticate_user
 
