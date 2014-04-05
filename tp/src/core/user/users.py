@@ -1,3 +1,4 @@
+import re
 import logging                                                                                                     
 
 from vFense.core._constants import *
@@ -805,7 +806,7 @@ def create_user(
         re.search('([A-Za-z0-9_-]{1,24})', username)
     )
     valid_user_length = (
-        len(group_name) <= DefaultStringLength.USER_NAME
+        len(username) <= DefaultStringLength.USER_NAME
     )
     try:
         if (not user_exist and pass_strength[0] and

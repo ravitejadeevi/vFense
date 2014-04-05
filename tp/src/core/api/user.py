@@ -356,12 +356,14 @@ class UsersHandler(BaseHandler):
         email = self.arguments.get('email', None)
         enabled = self.arguments.get('enabled', 'no')
         try:
-            if not isinstance(group_ids, list):
-                group_ids = group_ids.split()
+            if group_ids:
+                if not isinstance(group_ids, list):
+                    group_ids = group_ids.split()
 
             if customer_names:
-                if not isinstance(customer_names, list):
-                    customer_names = customer_names.split(',')
+                if customer_names:
+                    if not isinstance(customer_names, list):
+                        customer_names = customer_names.split(',')
 
             results = create_user(
                 username, fullname, password,
