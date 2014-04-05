@@ -53,6 +53,8 @@ class GroupFailureCodes(object):
     GroupExistForUser = 12509
     GroupDoesNotExistForUser = 12510
     CantRemoveAdminFromGroup = 12511
+    UsersExistForGroup = 14512
+    UsersDoNotExistForGroup = 14513
 
 
 class UserCodes(object):
@@ -63,6 +65,8 @@ class UserCodes(object):
     PasswordChanged = 13004
     UsersAddedToCustomer = 13005
     UsersRemovedFromCustomer = 13006
+    UsersAddedToGroup = 13007
+    UsersRemovedFromGroup = 13008
 
 
 class UserFailureCodes(object):
@@ -80,6 +84,8 @@ class UserFailureCodes(object):
     FailedToRemoveUsersFromCustomer = 13511
     CantDeleteAdminFromCustomer = 13512
     CantDeleteAdminUser = 13513
+    FailedToAddUsersToGroup = 13514
+    FailedToRemoveUsersFromGroup = 13515
 
 
 class CustomerCodes(object):

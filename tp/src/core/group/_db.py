@@ -376,7 +376,7 @@ def user_exist_in_group(username, group_id, conn=None):
         >>> from vFense.group._db import user_exist_in_group
         >>> username = 'alien'
         >>> group_id = '0834e656-27a5-4b13-ba56-635797d0d1fc'
-        >>> user_exist_in_group(username)
+        >>> user_exist_in_group(username, group_id)
 
     Returns:
         Returns a boolean True or False
@@ -394,6 +394,77 @@ def user_exist_in_group(username, group_id, conn=None):
 
         if not is_empty:
             exist = True
+
+    except Exception as e:
+        logger.exception(e)
+
+    return(exist)
+
+
+@time_it
+@db_create_close
+def usernames_exist_in_group_id(usernames, group_id, conn=None):
+    """Return True if and user is part of group_id
+    Args:
+        usernames (list): List of usernames.
+        group_id (str): 36 Character UUID
+
+    Basic Usage:
+        >>> from vFense.group._db import users_exist_in_group
+        >>> usernames = ['alien', 'tester']
+        >>> group_id = '0834e656-27a5-4b13-ba56-635797d0d1fc'
+        >>> users_exist_in_group(usernames, group_id)
+
+    Returns:
+        Returns a boolean True or False
+    """
+    exist = False
+    try:
+        for username in usernames:
+            is_empty = (
+                r
+                .table(GroupCollections.GroupsPerUser)
+                .get_all(username, index=GroupsPerUserIndexes.UserName)
+                .filter({GroupsPerUserKeys.GroupId: group_id})
+                .is_empty()
+                .run(conn)
+            )
+            if not is_empty:
+                exist = True
+
+    except Exception as e:
+        logger.exception(e)
+
+    return(exist)
+
+
+@time_it
+@db_create_close
+def users_exist_in_group_ids(group_ids, conn=None):
+    """Return True if and user is part of group_id
+    Args:
+        group_ids (list): List of group ids.
+
+    Basic Usage:
+        >>> from vFense.group._db import users_exist_in_group_ids
+        >>> group_ids = ['0834e656-27a5-4b13-ba56-635797d0d1fc']
+        >>> users_exist_in_group(group_ids)
+
+    Returns:
+        Returns a boolean True or False
+    """
+    exist = False
+    try:
+        for group_id in group_ids:
+            is_empty = (
+                r
+                .table(GroupCollections.GroupsPerUser)
+                .get_all(group_id, index=GroupsPerUserIndexes.GroupId)
+                .is_empty()
+                .run(conn)
+            )
+            if not is_empty:
+                exist = True
 
     except Exception as e:
         logger.exception(e)
@@ -706,6 +777,50 @@ def delete_groups_from_user(username, group_ids=None, conn=None):
 @time_it
 @db_create_close
 @return_status_tuple
+def delete_users_in_group(usernames, group_id, conn=None):
+    """Remove a group from a user or remove all groups for a user.
+    Args:
+        usernames (list): Name of the users.
+        group_id (str): 36 character group UUID
+
+    Basic Usage::
+        >>> from vFense.group._db delete_users_from_group
+        >>> usernames = ['agent_api']
+        >>> delete_users_from_group(usernames, group_id)
+
+    Return:
+        Tuple (status_code, count, error, generated ids)
+        >>> (2001, 1, None, [])
+    """
+    data = {}
+    try:
+        data = (
+            r
+            .expr(usernames)
+            .for_each(
+                lambda username:
+                    r
+                    .table(GroupCollections.GroupsPerUser)
+                    .filter(
+                        {
+                            GroupsPerUserKeys.UserName: username,
+                            GroupsPerUserKeys.GroupId: group_id
+                        }
+                    )
+                    .delete()
+                )
+                .run(conn)
+            )
+
+    except Exception as e:
+        logger.exception(e)
+
+    return(data)
+
+
+@time_it
+@db_create_close
+@return_status_tuple
 def delete_group(group_id, conn=None):
     """Delete a group from the database.
     Args:
@@ -728,6 +843,45 @@ def delete_group(group_id, conn=None):
             .table(GroupCollections.Groups)
             .get(group_id)
             .delete()
+            .run(conn)
+        )
+
+    except Exception as e:
+        logger.exception(e)
+
+    return(data)
+
+
+@time_it
+@db_create_close
+@return_status_tuple
+def delete_groups(group_ids, conn=None):
+    """Delete a group from the database.
+    Args:
+        group_ids (list): group ids of the group you are deleteing
+
+    Basic Usage::
+        >>> from vFense.group._db import delete_groups
+        >>> group_ids = ['d081a343-cc6c-4f08-81d9-62a116fda025']
+        >>> delete_groups(group_ids)
+
+    Return:
+        Tuple (status_code, count, error, generated ids)
+        >>> (2001, 1, None, [])
+    """
+    data = {}
+    try:
+
+        data = (
+            r
+            .expr(group_ids)
+            .for_each(
+                lambda group_id:
+                r
+                .table(GroupCollections.Groups)
+                .get(group_id)
+                .delete()
+            )
             .run(conn)
         )
 

@@ -2,19 +2,27 @@ import json
 import logging
 import logging.config
 
-from vFense.utils.security import check_password
 from vFense.server.handlers import BaseHandler
 from vFense.server.hierarchy.decorators import authenticated_request
 
+from vFense.core.api._constants import ApiArguments, ApiValues
 from vFense.core.permissions._constants import *
 from vFense.core.permissions.permissions import verify_permission_for_user, \
     return_results_for_permissions
+
 from vFense.core.permissions.decorators import check_permissions
+
+from vFense.core.decorators import convert_json_to_arguments
+
 from vFense.core.agent import *
 from vFense.core.user import *
-from vFense.core.user.users import get_user_property
+from vFense.core.user.users import get_user_property, \
+    add_users_to_group, remove_users_from_group
+
 from vFense.core.group.groups import get_group_properties, \
-    get_properties_for_all_groups
+    get_properties_for_all_groups, create_group, remove_group, \
+    remove_groups
+
 from vFense.errorz.error_messages import GenericResults
 
 logging.config.fileConfig('/opt/TopPatch/conf/logging.config')
@@ -54,6 +62,95 @@ class GroupHandler(BaseHandler):
             self.set_status(results['http_status'])
             self.set_header('Content-Type', 'application/json')
             self.write(json.dumps(results, indent=4))
+
+    @authenticated_request
+    @convert_json_to_arguments
+    @check_permissions(Permissions.ADMINISTRATOR)
+    def post(self, group_id):
+        active_user = self.get_current_user()
+        uri = self.request.uri
+        method = self.request.method
+        results = None
+        try:
+            action = self.arguments.get(ApiArguments.ACTION)
+            ###Add Users###
+            usernames = self.arguments.get(ApiArguments.USERNAMES)
+            if usernames and isinstance(usernames, list):
+                if action == ApiValues.ADD:
+                    results = (
+                        add_users_to_group(
+                            group_id, usernames,
+                            active_user, uri, method
+                        )
+                    )
+                if action == ApiValues.DELETE:
+                    results = (
+                        remove_users_from_group(
+                            group_id, usernames,
+                            username, uri, method
+                        )
+                    )
+
+            if results:
+                self.set_status(results['http_status'])
+                self.set_header('Content-Type', 'application/json')
+                self.write(json.dumps(results, indent=4))
+
+            else:
+                results = (
+                    GenericResults(
+                        active_user, uri, method
+                    ).incorrect_arguments()
+                )
+
+                self.set_status(results['http_status'])
+                self.set_header('Content-Type', 'application/json')
+                self.write(json.dumps(results, indent=4))
+
+        except Exception as e:
+            results = (
+                GenericResults(
+                    active_user, uri, method
+                ).something_broke(active_user, 'User', e)
+            )
+            logger.exception(e)
+            self.set_status(results['http_status'])
+            self.set_header('Content-Type', 'application/json')
+            self.write(json.dumps(results, indent=4))
+
+
+    @authenticated_request
+    @convert_json_to_arguments
+    @check_permissions(Permissions.ADMINISTRATOR)
+    def delete(self, group_id):
+        active_user = self.get_current_user()
+        uri = self.request.uri
+        method = self.request.method
+        results = None
+        try:
+            ###Remove GroupId###
+            results = (
+                remove_group(
+                    group_id, active_user, uri, method
+                )
+            )
+
+            self.set_status(results['http_status'])
+            self.set_header('Content-Type', 'application/json')
+            self.write(json.dumps(results, indent=4))
+
+        except Exception as e:
+            results = (
+                GenericResults(
+                    active_user, uri, method
+                ).something_broke(active_user, 'User', e)
+            )
+            logger.exception(e)
+            self.set_status(results['http_status'])
+            self.set_header('Content-Type', 'application/json')
+            self.write(json.dumps(results, indent=4))
+
+
 
 
 class GroupsHandler(BaseHandler):
@@ -119,6 +216,83 @@ class GroupsHandler(BaseHandler):
                 GenericResults(
                     active_user, uri, method
                 ).something_broke(active_user, 'Group', e)
+            )
+            logger.exception(e)
+            self.set_status(results['http_status'])
+            self.set_header('Content-Type', 'application/json')
+            self.write(json.dumps(results, indent=4))
+
+
+    @authenticated_request
+    @convert_json_to_arguments
+    @check_permissions(Permissions.ADMINISTRATOR)
+    def post(self):
+        active_user = self.get_current_user()
+        uri = self.request.uri
+        method = self.request.method
+        results = None
+        active_customer = (
+            get_user_property(active_user, UserKeys.CurrentCustomer)
+        )
+        try:
+            ###Create Group###
+            group_name = self.arguments.get(ApiArguments.GROUP_NAME)
+            permissions = self.arguments.get(ApiArguments.PERMISSIONS)
+            customer_context = (
+                    self.get_argument(
+                        ApiArguments.CUSTOMER_CONTEXT,
+                        active_customer
+                    )
+            )
+            results = (
+                create_group(
+                    group_name, customer_context, permissions,
+                    active_user, uri, method
+                )
+            )
+
+            self.set_status(results['http_status'])
+            self.set_header('Content-Type', 'application/json')
+            self.write(json.dumps(results, indent=4))
+
+        except Exception as e:
+            results = (
+                GenericResults(
+                    active_user, uri, method
+                ).something_broke(active_user, 'User', e)
+            )
+            logger.exception(e)
+            self.set_status(results['http_status'])
+            self.set_header('Content-Type', 'application/json')
+            self.write(json.dumps(results, indent=4))
+
+
+    @authenticated_request
+    @convert_json_to_arguments
+    @check_permissions(Permissions.ADMINISTRATOR)
+    def delete(self):
+        active_user = self.get_current_user()
+        uri = self.request.uri
+        method = self.request.method
+        results = None
+        try:
+            ###Remove GroupId###
+            group_ids = self.arguments.get(ApiArguments.GROUP_IDS)
+            results = (
+                remove_groups(
+                    group_ids, active_user, uri, method
+                )
+            )
+
+            self.set_status(results['http_status'])
+            self.set_header('Content-Type', 'application/json')
+            self.write(json.dumps(results, indent=4))
+
+        except Exception as e:
+            results = (
+                GenericResults(
+                    active_user, uri, method
+                ).something_broke(active_user, 'User', e)
             )
             logger.exception(e)
             self.set_status(results['http_status'])

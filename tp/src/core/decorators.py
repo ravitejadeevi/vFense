@@ -249,7 +249,11 @@ def convert_json_to_arguments(fn):
         content_type = self.request.headers.get("Content-Type", "")
 
         if content_type.startswith("application/json"):
-            self.arguments = json.loads(self.request.body)
+            try:
+                self.arguments = json.loads(self.request.body)
+            except Exception as e:
+                self.arguments = {}
+
             return fn(self, *args, **kwargs)
 
         else:

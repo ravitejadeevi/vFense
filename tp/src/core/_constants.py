@@ -12,6 +12,8 @@ class CommonKeys():
 
 class DefaultStringLength():
     CUSTOMER_NAME = 36
+    GROUP_NAME = 36
+    USER_NAME = 24
 
 class HTTPMethods():
     PUT = 'put'

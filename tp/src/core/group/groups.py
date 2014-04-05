@@ -1,5 +1,7 @@
+import re
 import logging                                                                                                     
 
+from vFense.core._constants import *
 from vFense.core.group import *
 from vFense.core.group._constants import *
 from vFense.core.user import *
@@ -12,7 +14,7 @@ from vFense.core.group._db import insert_group, fetch_group, fetch_groups, \
     insert_group_per_user, fetch_group_by_name, delete_groups_from_user, \
     fetch_users_in_group, fetch_groups_for_user, delete_group, \
     fetch_properties_for_all_groups, fetch_group_properties, \
-    user_exist_in_group
+    user_exist_in_group, users_exist_in_group_ids, delete_groups
 
 from vFense.core.decorators import results_message, time_it
 from vFense.errorz.status_codes import *
@@ -480,6 +482,12 @@ def create_group(
 
     status = create_group.func_name + ' - '
     generated_ids = []
+    valid_group_name = (
+        re.search('((?:[A-Za-z0-9_-](?!\s+")|\s(?!\s*")){1,36})', group_name)
+    )
+    valid_group_length = (
+        len(group_name) <= DefaultStringLength.GROUP_NAME
+    )
     group_data = (
         {
             GroupKeys.CustomerName: customer_name,
@@ -489,8 +497,11 @@ def create_group(
     )
     try:
         group_exist = get_group_by_name(group_name, customer_name)
-        permissions_valid = set(permissions).issubset(set(Permissions.VALID_PERMISSIONS))
-        if not group_exist and permissions_valid:
+        permissions_valid = (
+            set(permissions).issubset(set(Permissions.VALID_PERMISSIONS))
+        )
+        if (not group_exist and permissions_valid and
+            valid_group_length and valid_group_name):
 
             status_code, status_count, error, generated_ids = (
                 insert_group(group_data)
@@ -513,6 +524,17 @@ def create_group(
             status_code = DbCodes.Unchanged
             generic_status_code = GenericCodes.ObjectExists
             vfense_status_code = GroupFailureCodes.GroupIdExists
+
+
+        elif not valid_group_length or not valid_group_name:
+            status_code = DbCodes.Errors
+            msg = (
+                'group name is not within the 36 character range '+
+                'or contains unsupported characters :%s' %
+                (group_name)
+            )
+            generic_status_code = GenericCodes.InvalidId
+            vfense_status_code = GroupFailureCodes.InvalidGroupName
 
         results = {
             ApiResultKeys.DB_STATUS_CODE: status_code,
@@ -690,6 +712,7 @@ def remove_group(group_id, user_name=None, uri=None, method=None):
         }
     """
     status = remove_group.func_name + ' - '
+    ids_deleted = []
     try:
         users_exist = get_users_in_group(group_id)
         group_exist = get_group(group_id)
@@ -697,9 +720,11 @@ def remove_group(group_id, user_name=None, uri=None, method=None):
             status_code, status_count, error, generated_id = (
                 delete_group(group_id)
             )
-            msg = 'group_id %s deleted' % (group_id)
-            generic_status_code = GenericCodes.ObjectDeleted
-            vfense_status_code = GroupCodes.GroupDeleted
+            if status_code == DbCodes.Deleted:
+                msg = 'group_id %s deleted' % (group_id)
+                generic_status_code = GenericCodes.ObjectDeleted
+                vfense_status_code = GroupCodes.GroupDeleted
+                ids_deleted = [group_id]
 
         elif users_exist:
             msg = (
@@ -719,6 +744,7 @@ def remove_group(group_id, user_name=None, uri=None, method=None):
             ApiResultKeys.DB_STATUS_CODE: status_code,
             ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
             ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+            ApiResultKeys.DELETED_IDS: ids_deleted,
             ApiResultKeys.MESSAGE: status + msg,
             ApiResultKeys.DATA: [],
             ApiResultKeys.USERNAME: user_name,
@@ -731,12 +757,103 @@ def remove_group(group_id, user_name=None, uri=None, method=None):
         status_code = DbCodes.Errors
         generic_status_code = GenericFailureCodes.FailedToDeleteObject
         vfense_status_code = GroupFailureCodes.FailedToRemoveGroup
-        status = 'failed to remove group %s: %s' % (group_id, str(e))
+        msg = 'failed to remove group %s: %s' % (group_id, str(e))
 
         results = {
             ApiResultKeys.DB_STATUS_CODE: status_code,
             ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
             ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+            ApiResultKeys.DELETED_IDS: ids_deleted,
+            ApiResultKeys.MESSAGE: status + msg,
+            ApiResultKeys.DATA: [],
+            ApiResultKeys.USERNAME: user_name,
+            ApiResultKeys.URI: uri,
+            ApiResultKeys.HTTP_METHOD: method
+        }
+
+    return(results)
+
+
+@time_it
+@results_message
+def remove_groups(group_ids, user_name=None, uri=None, method=None):
+    """Remove multiple groups in vFense
+    Args:
+        group_ids (list): List of group ids
+
+    Kwargs:
+        user_name (str): The name of the user who called this function.
+        uri (str): The uri that was used to call this function.
+        method (str): The HTTP methos that was used to call this function.
+
+    Basic Usage::
+        >>> from vFense.core.group.groups import remove_groups
+        >>> group_ids = ['b4c29dc2-aa44-4ff7-bfc9-f84d38cc7686']
+        >>> remove_groups(group_ids)
+
+    Returns:
+        Returns the results in a dictionary
+        {
+            'rv_status_code': 1012,
+            'message': 'None - remove_group - b4c29dc2-aa44-4ff7-bfc9-f84d38cc7686 was deleted',
+            'http_method': None,
+            'uri': None,
+            'http_status': 200
+        }
+    """
+    status = remove_groups.func_name + ' - '
+    ids_deleted = []
+    try:
+        users_exist = users_exist_in_group_ids(group_ids)
+        groups_exist = validate_group_ids(group_ids)
+        if not users_exist and groups_exist[0]:
+            status_code, status_count, error, generated_id = (
+                delete_groups(group_ids)
+            )
+            if status_code == DbCodes.Deleted:
+                msg = 'group_id %s deleted' % (group_ids)
+                generic_status_code = GenericCodes.ObjectDeleted
+                vfense_status_code = GroupCodes.GroupDeleted
+                ids_deleted = group_ids
+
+        elif users_exist:
+            msg = (
+                'users exist for groups %s' % (' and'.join(group_ids))
+            )
+            status_code = DbCodes.Unchanged
+            generic_status_code = GenericCodes.ObjectUnchanged
+            vfense_status_code = GroupCodes.GroupUnchanged
+
+        elif not group_exist:
+            msg = 'group_ids %s does not exist' % (' and '.join(group_ids))
+            status_code = DbCodes.Skipped
+            generic_status_code = GenericCodes.ObjectUnchanged
+            vfense_status_code = GroupCodes.GroupUnchanged
+
+        results = {
+            ApiResultKeys.DB_STATUS_CODE: status_code,
+            ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
+            ApiResultKeys.DELETED_IDS: ids_deleted,
+            ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+            ApiResultKeys.MESSAGE: status + msg,
+            ApiResultKeys.DATA: [],
+            ApiResultKeys.USERNAME: user_name,
+            ApiResultKeys.URI: uri,
+            ApiResultKeys.HTTP_METHOD: method
+        }
+
+    except Exception as e:
+        logger.exception(e)
+        status_code = DbCodes.Errors
+        generic_status_code = GenericFailureCodes.FailedToDeleteObject
+        vfense_status_code = GroupFailureCodes.FailedToRemoveGroup
+        msg = 'failed to remove groups %s: %s' % (group_ids, str(e))
+
+        results = {
+            ApiResultKeys.DB_STATUS_CODE: status_code,
+            ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
+            ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+            ApiResultKeys.DELETED_IDS: ids_deleted,
             ApiResultKeys.MESSAGE: status + msg,
             ApiResultKeys.DATA: [],
             ApiResultKeys.USERNAME: user_name,

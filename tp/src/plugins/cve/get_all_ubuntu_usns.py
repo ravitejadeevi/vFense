@@ -155,7 +155,7 @@ def get_details(soup_details):
 def write_content_to_file(file_location, url):
     usn_file = open(file_location, 'wb')
     try:
-        #print write_content_to_file.func_name, url
+        #print write_content_to_file.func_name, file_location, url
         usn_page = requests.get(url)
         usn_page.close()
     except Exception as e:
@@ -174,7 +174,7 @@ def write_content_to_file(file_location, url):
 def get_url_content(usn_uri):
     def get_usn_uri(usn_uri):
         try:
-            usn_page = requests.get(usn_uri, timeout=1)
+            usn_page = requests.get(MAIN_URL + usn_uri, timeout=1)
             usn_page.close()
             if usn_page.ok:
                 content = usn_page.content
@@ -191,24 +191,23 @@ def get_url_content(usn_uri):
     completed = False
     usn = usn_uri.split('/')[-2]
     usn_file_location = HTML_DIR_UBUNTU + usn
+    #print usn_file_location, usn_uri
     if os.path.exists(usn_file_location):
         if os.stat(usn_file_location).st_size > 0:
             content = open(usn_file_location, 'r').read()
             completed = True
         else:
-            if re.search('http', usn_uri):
-                #print get_url_content.func_name, usn_uri
-                completed, content = get_usn_uri(usn_uri)
-
-    elif not os.path.exists(usn_file_location):
-        if re.search('http', usn_uri):
             #print get_url_content.func_name, usn_uri
             completed, content = get_usn_uri(usn_uri)
-            content, completed = (
-                write_content_to_file(
-                    usn_file_location, MAIN_URL + usn_uri
-                )
+
+    elif not os.path.exists(usn_file_location):
+        #print get_url_content.func_name, usn_uri
+        completed, content = get_usn_uri(usn_uri)
+        content, completed = (
+            write_content_to_file(
+                usn_file_location, MAIN_URL + usn_uri
             )
+        )
 
     return(content, completed)
 
