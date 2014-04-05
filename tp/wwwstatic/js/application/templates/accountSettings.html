@@ -6,7 +6,7 @@
                     <strong>Username:</strong>
                 </span>
                 <div class="span10" data-type="content">
-                    <span><%= user.username || 'N/A' %></span>
+                    <span><%= user.user_name || 'N/A' %></span>
                 </div>
             </div>
             <div class="item row-fluid">
@@ -58,7 +58,7 @@
                     <strong>Default Customer:</strong>
                 </span>
                 <div class="span10" data-type="content">
-                    <span><%= user.default_customer.name || 'N/A' %></span>
+                    <span><%= user.default_customer || 'N/A' %></span>
                     <button class="btn btn-link noPadding pull-right" data-id="options">
                         <i class="icon-pencil" style="color: #daa520"></i>
                     </button>
@@ -68,7 +68,7 @@
                         <div class="control-group">
                             <div class="controls">
                                 <select name="default_customer_id" data-id="input">
-                                    <%= viewHelpers.getOptions(user.customers, user.default_customer.name) %>
+                                    <%= viewHelpers.getOptions(user.customers, user.default_customer) %>
                                 </select>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                     <strong>Current Customer:</strong>
                 </span>
                 <div class="span10" data-type="content">
-                    <span><%= user.current_customer.name || 'N/A' %></span>
+                    <span><%= user.current_customer || 'N/A' %></span>
                 </div>
             </div>
             <div class="item row-fluid">

@@ -72,18 +72,27 @@ define(
                     var $deleteButton = $(event.currentTarget),
                         $userRow = $deleteButton.parents('.item'),
                         $alert = this.$el.find('div.alert'),
-                        user = $deleteButton.val(),
-                        params = {
+                        user = $deleteButton.val();
+                       /* params = {
                             username: user
-                        };
-                    $.post('api/v1/users', params, function (json) {
+                        };*/
+                    $.ajax({
+                        type: 'DELETE',
+                        url: '/api/v1/user/' + user,
+                        data: [],
+                        success: function(data){
+                            console.log(data);
+                        },
+                        dataType: 'json'
+                    });
+                   /* $.post('api/v1/users', params, function (json) {
                         if (json.rv_status_code) {
                             $userRow.remove();
                             $alert.removeClass('alert-error').addClass('alert-success').show().find('span').html(json.message);
                         } else {
                             $alert.removeClass('alert-success').addClass('alert-error').show().find('span').html(json.message);
                         }
-                    });
+                    });*/
                 },
                 verifyForm: function (event) {
                     var form = document.getElementById('newUserDiv');
@@ -104,22 +113,49 @@ define(
                             fullname: fullName,
                             email: email,
                             username: username,
-                            password: password
+                            password: password,
+                            customer_context: this.customerContext
                         },
                         that = this;
+
                     if (group && group.length) {
-                        params.group_id = group;
+                        params.group_ids = group;
                     }
                     if (customers && customers.length) {
-                        params.customer_id = customers;
+                        var customerArray = [];
+                        customerArray.push(customers)
+                        params.customer_names = customerArray;
                     }
-                    $.post('/api/v1/users', params, function (json) {
+                    if(group instanceof  Array)
+                    {
+                        console.log('hi');
+                    }
+                    if(customers instanceof  Array)
+                    {
+                        console.log('hello');
+                    }
+                    $.ajax({
+                        type: 'POST',
+                        url: '/api/v1/users',
+                        data: JSON.stringify(params),
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        success: function(response) {
+                            console.log(response);
+                            if (response.rv_status_code === 1010) {
+                                that.collection.fetch();
+                            } else {
+                                $alert.removeClass('alert-success').addClass('alert-error').html(json.message).show();
+                            }
+                        }
+                    }).error(function (e) { window.console.log(e.statusText); });
+                    /*$.post('/api/v1/users', params, function (json) {
                         if (json.rv_status_code) {
                             that.collection.fetch();
                         } else {
                             $alert.removeClass('alert-success').addClass('alert-error').html(json.message).show();
                         }
-                    }).error(function (e) { window.console.log(e.statusText); });
+                    }).error(function (e) { window.console.log(e.statusText); });*/
                 },
                 toggle: function (event) {
                     var $input = $(event.currentTarget),
@@ -217,7 +253,7 @@ define(
                                                 crel('i', {class: 'icon-remove', style: 'color: red'}))
                                         );
                                         return fragment.innerHTML;
-                                    }
+                                    }i
                                 },
                                 renderUserLink: function (user) {
                                     var fragment = crel('div');
@@ -239,6 +275,7 @@ define(
                         };
                         this.$el.empty();
                         this.$el.html(template(payload));
+                        console.log(payload);
 
                         if (this.onRender !== $.noop) { this.onRender(); }
                     }

@@ -74,19 +74,44 @@ define(
                         $submitButton = $(event.currentTarget),
                         $alert = $submitButton.siblings('.alert'),
                         groupName = $submitButton.siblings('input').val(),
-                        url = 'api/v1/groups';
+                        url = 'api/v1/groups',
+                        groupPermissions = [];
+
+                    var checkboxes = this.$el.find('div[name=aclOptions]').find('input[type=checkbox]');
+                    _.each(checkboxes, function(checkbox) {
+                        if($(checkbox).prop('checked'))
+                        {
+                           groupPermissions.push($(checkbox).val());
+                        }
+                    });
                     params = {
-                        name: groupName,
+                        group_name: groupName,
+                        permissions: groupPermissions,
                         customer_context: this.customerContext
                     };
-                    $.post(url, params, function (json) {
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: JSON.stringify(params),
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        success: function(response) {
+                            if (response.rv_status_code) {
+                                $alert.hide();
+                                that.collection.fetch();
+                            } else {
+                                $alert.removeClass('alert-success').addClass('alert-error').show().html(json.message);
+                            }
+                        }
+                    });
+                    /*$.post(url, params, function (json) {
                         if (json.rv_status_code) {
                             $alert.hide();
                             that.collection.fetch();
                         } else {
                             $alert.removeClass('alert-success').addClass('alert-error').show().html(json.message);
                         }
-                    });
+                    });*/
                 },
                 toggleAccordion: function (event) {
                     var $href = $(event.currentTarget),
@@ -101,7 +126,7 @@ define(
                     });
                 },
                 toggleUser: function (event) {
-                    var url = 'api/v1/groups/edit',
+                    var url = 'api/v1/groups',
                         $input = $(event.currentTarget),
                         group = $input.data('group'),
                         $alert = this.$el.find('div.alert'),
@@ -121,7 +146,7 @@ define(
                     var $input = $(event.currentTarget),
                         $item = $input.parents('.accordion-group'),
                         $alert = this.$el.find('div.alert'),
-                        url = 'api/v1/groups/edit',
+                        url = 'api/v1/groups',
                         group = $item.data('id'),
                         params = {
                             id: group,

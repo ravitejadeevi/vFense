@@ -27,7 +27,7 @@ define(
                         reset = $form.data('reset'),
                         $alert = $form.find('span[data-name=result]'),
                         $inputs = $form.find('[data-id=input]'),
-                        url = 'api/users/edit',
+                        url = 'api/v1/user/' + this.username,
                         params = {},
                         valid = true;
                     $inputs.each(function (index, input) {
@@ -51,7 +51,27 @@ define(
                     }
                     if (valid) {
                         $alert.removeClass('alert-error alert-success').addClass('alert-info').html('Submitting...');
-                        $.post(url, params, function (response) {
+                        $.ajax({
+                            type: 'PUT',
+                            url: url,
+                            data: JSON.stringify(params),
+                            dataType: 'json',
+                            contentType: 'application/json',
+                            success: function(response) {
+                                console.log(response);
+                                if (response.rv_status_code === 13001) {
+                                    if (reset) {
+                                        app.user.fetch();
+                                    } else {
+                                        $alert.removeClass('alert-error alert-info').addClass('alert-success').html(response.message);
+                                        $form[0].reset();
+                                    }
+                                } else {
+                                    $alert.removeClass('alert-info alert-success').addClass('alert-error').html(response.message);
+                                }
+                            }
+                        });
+                        /*$.post(url, params, function (response) {
                             if (response.pass) {
                                 if (reset) {
                                     app.user.fetch();
@@ -62,7 +82,7 @@ define(
                             } else {
                                 $alert.removeClass('alert-info alert-success').addClass('alert-error').html(response.message);
                             }
-                        });
+                        });*/
                     }
                 },
                 capitaliseFirstLetter: function (string) {
@@ -70,8 +90,9 @@ define(
                 },
                 render: function () {
                     var template = _.template(this.template),
-                        user = app.user.toJSON(),
-                        payload = {
+                        user = app.user.toJSON();
+                        this.username = user.user_name;
+                    var payload = {
                             user: user,
                             viewHelpers: {
                                 displayBadges: function (permissions, badgeClass) {
@@ -81,7 +102,7 @@ define(
                                             div.appendChild(crel('br'));
                                         }
                                         div.appendChild(
-                                            crel('span', {class: 'badge ' + badgeClass}, permission.name || permission)
+                                            crel('span', {class: 'badge ' + badgeClass}, permission.group_name || permission.customer_name || permission)
                                         )
                                     });
                                     return div.innerHTML;
@@ -116,18 +137,19 @@ define(
                                    var select = crel('select');
                                    if (options.length) {
                                        _.each(options, function (option) {
-                                           var isSelected = option.name === selected ? true : false,
-                                               properties = {value: option.name};
+                                           var isSelected = option.customer_name === selected,
+                                               properties = {value: option.customer_name};
                                            if (isSelected) {
                                                properties.selected = 'selected';
                                            }
-                                           select.appendChild(crel('option', properties, option.name));
+                                           select.appendChild(crel('option', properties, option.customer_name));
                                        });
                                    }
                                    return select.innerHTML;
                                 }
                             }
                         };
+                    console.log(user);
                     this.$el.empty().html(template(payload));
                     this.$el.find('select[name=default_customer_id]').select2({width: '100%'});
 
