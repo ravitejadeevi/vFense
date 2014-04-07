@@ -58,7 +58,6 @@ define(
                             dataType: 'json',
                             contentType: 'application/json',
                             success: function(response) {
-                                console.log(response);
                                 if (response.rv_status_code === 13001) {
                                     if (reset) {
                                         app.user.fetch();
@@ -149,7 +148,6 @@ define(
                                 }
                             }
                         };
-                    console.log(user);
                     this.$el.empty().html(template(payload));
                     this.$el.find('select[name=default_customer_id]').select2({width: '100%'});
 

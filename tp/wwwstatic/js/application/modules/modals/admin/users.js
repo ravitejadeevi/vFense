@@ -79,11 +79,16 @@ define(
                     $.ajax({
                         type: 'DELETE',
                         url: '/api/v1/user/' + user,
-                        data: [],
-                        success: function(data){
-                            console.log(data);
-                        },
-                        dataType: 'json'
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        success: function(response){
+                            if (response.rv_status_code) {
+                                $userRow.remove();
+                                $alert.removeClass('alert-error').addClass('alert-success').show().find('span').html(response.message);
+                            } else {
+                                $alert.removeClass('alert-success').addClass('alert-error').show().find('span').html(response.message);
+                            }
+                        }
                     });
                    /* $.post('api/v1/users', params, function (json) {
                         if (json.rv_status_code) {
@@ -126,14 +131,6 @@ define(
                         customerArray.push(customers)
                         params.customer_names = customerArray;
                     }
-                    if(group instanceof  Array)
-                    {
-                        console.log('hi');
-                    }
-                    if(customers instanceof  Array)
-                    {
-                        console.log('hello');
-                    }
                     $.ajax({
                         type: 'POST',
                         url: '/api/v1/users',
@@ -141,11 +138,10 @@ define(
                         dataType: 'json',
                         contentType: 'application/json',
                         success: function(response) {
-                            console.log(response);
-                            if (response.rv_status_code === 1010) {
+                            if (response.rv_status_code) {
                                 that.collection.fetch();
                             } else {
-                                $alert.removeClass('alert-success').addClass('alert-error').html(json.message).show();
+                                $alert.removeClass('alert-success').addClass('alert-error').html(response.message).show();
                             }
                         }
                     }).error(function (e) { window.console.log(e.statusText); });
@@ -275,7 +271,6 @@ define(
                         };
                         this.$el.empty();
                         this.$el.html(template(payload));
-                        console.log(payload);
 
                         if (this.onRender !== $.noop) { this.onRender(); }
                     }

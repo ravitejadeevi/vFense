@@ -62,14 +62,28 @@ define(
                         params = {
                             name: customer
                         };
-                    $.post(url, params, function (json) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/api/v1/customers',
+                        data: JSON.stringify(params),
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        success: function(response) {
+                            if (response.rv_status_code) {
+                                that.collection.fetch();
+                            } else {
+                                $alert.removeClass('alert-success').addClass('alert-error').html(response.message).show();
+                            }
+                        }
+                    });
+                    /*$.post(url, params, function (json) {
                         if (json.rv_status_code) {
                             app.vent.trigger('customer:change', null);
                             that.collection.fetch();
                         } else {
                             app.notifyOSD.createNotification('!', 'Error', json.message);
                         }
-                    });
+                    });*/
                 },
                 toggleDelete: function (event) {
                     var that = this,

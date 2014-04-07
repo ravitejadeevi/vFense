@@ -52,18 +52,36 @@ define(
                 },
                 deleteGroup: function (event) {
                     var $button = $(event.currentTarget),
+                        $alert = this.$el.find('div.alert'),
+                        $groupRow = $button.parents('.item'),
                         groupId = $button.attr('value'),
                         url = 'api/v1/groups',
-                        params = {
+                        /*params = {
                             id: groupId,
                             customer_context: this.customerContext
-                        },
+                        },*/
                         that = this;
-                    $.post(url, params, function (json) {
+                    $.ajax({
+                        type: 'DELETE',
+                        url: '/api/v1/group/' + groupId,
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        success: function(response){
+                            if (response.rv_status_code) {
+//                                that.collection.fetch();
+                                $groupRow.remove();
+                                $alert.removeClass('alert-success').addClass('alert-error').show().find('span').html(response.message);
+                            }
+                            else {
+                                $alert.removeClass('alert-success').addClass('alert-error').show().find('span').html(response.message);
+                            }
+                        }
+                    });
+                   /* $.post(url, params, function (json) {
                         if (json.rv_status_code) {
                             that.collection.fetch();
                         }
-                    });
+                    });*/
                 },
                 toggleCreateGroup: function () {
                     var $newGroupDiv = this.$el.find('#newGroupDiv');
@@ -100,7 +118,7 @@ define(
                                 $alert.hide();
                                 that.collection.fetch();
                             } else {
-                                $alert.removeClass('alert-success').addClass('alert-error').show().html(json.message);
+                                $alert.removeClass('alert-success').addClass('alert-error').show().html(response.message);
                             }
                         }
                     });
