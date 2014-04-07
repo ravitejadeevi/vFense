@@ -156,20 +156,36 @@ define(
                 toggle: function (event) {
                     var $input = $(event.currentTarget),
                         user = $input.data('user'),
-                        url = $input.data('url') + '/edit',
+                        groupId = $input.data('id'),
+                        url = $input.data('url') + '/' + groupId,
                         $alert = this.$el.find('div.alert'),
-                        params = {
-                            user: user,
-                            name: event.added ? event.added.text : event.removed.text,
-                            customer_name: this.customerContext
-                        };
-                    $.post(url, params, function (response) {
+                        params, groups = [];
+                    groups.push(groupId);
+                    params = {
+                        usernames: groups,//event.added ? event.added.text : event.removed.text,
+                        action: event.added ? 'add' : 'delete'
+                    };
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: JSON.stringify(params),
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        success: function(response) {
+                            if (response.rv_status_code) {
+                                $alert.hide();
+                            } else {
+                                $alert.removeClass('alert-success').addClass('alert-error').show().find('span').html(response.message);
+                            }
+                        }
+                    }).error(function (e) { window.console.log(e.responseText); });
+                    /*$.post(url, params, function (response) {
                         if (response.rv_status_code) {
                             $alert.hide();
                         } else {
                             $alert.removeClass('alert-success').addClass('alert-error').show().find('span').html(response.message);
                         }
-                    }).error(function (e) { window.console.log(e.responseText); });
+                    }).error(function (e) { window.console.log(e.responseText); });*/
                 },
                 beforeRender: $.noop,
                 onRender: function () {
@@ -232,9 +248,18 @@ define(
                                     if (options.length) {
                                         _.each(options, function (option) {
                                             if (_.isUndefined(option.administrator) || option.administrator) {
-                                                attributes = {value: option.id || option.customer_name};
-                                                if (selected && option.customer_name === selected) {attributes.selected = selected;}
-                                                select.appendChild(crel('option', attributes, option.customer_name));
+                                                if(option.group_name)
+                                                {
+                                                    attributes = {value: option.group_name};
+                                                    if (selected && option.group_name === selected) {attributes.selected = selected;}
+                                                    select.appendChild(crel('option', attributes, option.group_name));
+                                                }
+                                                else if(option.customer_name)
+                                                {
+                                                    attributes = {value: option.id || option.customer_name};
+                                                    if (selected && option.customer_name === selected) {attributes.selected = selected;}
+                                                    select.appendChild(crel('option', attributes, option.customer_name));
+                                                }
                                             }
                                         });
                                     }

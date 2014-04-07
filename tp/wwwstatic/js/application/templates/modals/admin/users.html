@@ -91,9 +91,9 @@
                         <div class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <label><small>Groups for customer <%= currentCustomer %>:</small></label>
-                                <input type="hidden" name="groupSelect" data-user="<%= user.user_name %>" data-placeholder="Select a group" data-url="/api/v1/groups" value='<% print(JSON.stringify(user.groups)); %>'>
+                                <input type="hidden" name="groupSelect" data-id="<%= user.groups[0].group_id%>" data-user="<%= user.user_name %>" data-placeholder="Select a group" data-url="/api/v1/group" value='<% print(JSON.stringify(user.groups)); %>'>
                                 <label><small>Customers part of:</small></label>
-                                <input type="hidden" name="customerSelect" data-user="<%= user.user_name %>" data-placeholder="Select a customer" data-url="/api/v1/customers" value='<% print (JSON.stringify(user.customers)); %>'>
+                                <input type="hidden" name="customerSelect" data-user="<%= user.user_name %>" data-placeholder="Select a customer" data-url="/api/v1/customer" value='<% print (JSON.stringify(user.customers)); %>'>
                             </div>
                         </div>
                     </div>

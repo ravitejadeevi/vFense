@@ -200,7 +200,7 @@ define(
                                         crel('div', {class: 'span3 noMargin'},
                                             crel('label', {class: 'checkbox'},
                                                 crel('small', permission),
-                                                crel('input', {type: 'checkbox', value: permission, 'data-id': 'toggle'})
+                                                crel('input', {type: 'checkbox', name: permission.replace(' ', '_'), value: permission, 'data-id': 'toggle'})
                                             )
                                         )
                                     );
@@ -220,7 +220,7 @@ define(
                                 var permissions = group.permissions,
                                     $groupDiv = that.$el.find('div[data-id=' + group.id + ']');
                                 _.each(permissions, function (permission) {
-                                    var $input = $groupDiv.find('input[value=' + permission + ']');
+                                    var $input = $groupDiv.find('input[name=' + permission.replace(' ', '_') + ']');
                                     $input.prop('checked', true);
                                 });
                             }
