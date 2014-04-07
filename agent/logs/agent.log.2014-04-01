@@ -1,0 +1,1436 @@
+ERROR : 04/01/2014 11:29:19 AM : Unable to save vine password.
+ERROR : 04/01/2014 11:29:19 AM : Exception: [Errno 8] Exec format error
+DEBUG : 04/01/2014 11:29:20 AM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/plugins/ra/vine/__init__.py", line 198, in _vine_set_password
+    stderr=subprocess.PIPE
+  File "/usr/lib/python2.7/subprocess.py", line 679, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1249, in _execute_child
+    raise child_exception
+OSError: [Errno 8] Exec format error
+
+DEBUG : 04/01/2014 11:29:20 AM : Unable to import module utils. Skipping.
+ERROR : 04/01/2014 11:29:20 AM : Exception: __init__() takes at least 3 arguments (1 given)
+DEBUG : 04/01/2014 11:29:20 AM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/core.py", line 103, in load_plugins
+    plug = _class()
+TypeError: __init__() takes at least 3 arguments (1 given)
+
+DEBUG : 04/01/2014 11:29:20 AM : Unable to import module rv.rvsofoperation. Skipping.
+ERROR : 04/01/2014 11:29:20 AM : Exception: __init__() takes exactly 12 arguments (1 given)
+DEBUG : 04/01/2014 11:29:20 AM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/core.py", line 103, in load_plugins
+    plug = _class()
+TypeError: __init__() takes exactly 12 arguments (1 given)
+
+DEBUG : 04/01/2014 11:29:20 AM : Unable to import module rv.rvsofoperation. Skipping.
+ERROR : 04/01/2014 11:29:20 AM : Exception: __new__() takes exactly 4 arguments (1 given)
+DEBUG : 04/01/2014 11:29:20 AM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/core.py", line 103, in load_plugins
+    plug = _class()
+TypeError: __new__() takes exactly 4 arguments (1 given)
+
+DEBUG : 04/01/2014 11:29:20 AM : Unable to import module rv.rvsofoperation. Skipping.
+ERROR : 04/01/2014 11:29:20 AM : Exception: 'str' object has no attribute 'get'
+DEBUG : 04/01/2014 11:29:20 AM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/core.py", line 103, in load_plugins
+    plug = _class()
+  File "/opt/TopPatch/agent/plugins/rv/rvsofoperation.py", line 220, in __init__
+    self.cpu_priority = self._get_cpu_priority()
+  File "/opt/TopPatch/agent/plugins/rv/rvsofoperation.py", line 241, in _get_cpu_priority
+    return self.json_message.get(
+AttributeError: 'str' object has no attribute 'get'
+
+DEBUG : 04/01/2014 11:29:20 AM : Unable to import module rv.rvsofoperation. Skipping.
+ERROR : 04/01/2014 11:29:20 AM : Exception: __new__() takes exactly 7 arguments (1 given)
+DEBUG : 04/01/2014 11:29:20 AM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/core.py", line 103, in load_plugins
+    plug = _class()
+TypeError: __new__() takes exactly 7 arguments (1 given)
+
+DEBUG : 04/01/2014 11:29:21 AM : Using DebianHandler.
+DEBUG : 04/01/2014 11:29:21 AM : Unable to import module rv.rvsofoperation. Skipping.
+ERROR : 04/01/2014 11:29:21 AM : Exception: __init__() takes exactly 12 arguments (1 given)
+DEBUG : 04/01/2014 11:29:21 AM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/core.py", line 103, in load_plugins
+    plug = _class()
+TypeError: __init__() takes exactly 12 arguments (1 given)
+
+DEBUG : 04/01/2014 11:29:21 AM : Unable to import module utils. Skipping.
+ERROR : 04/01/2014 11:29:21 AM : Exception: __init__() takes at least 3 arguments (1 given)
+DEBUG : 04/01/2014 11:29:21 AM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/core.py", line 103, in load_plugins
+    plug = _class()
+TypeError: __init__() takes at least 3 arguments (1 given)
+
+DEBUG : 04/01/2014 11:29:21 AM : Unable to import module rv.rvsofoperation. Skipping.
+ERROR : 04/01/2014 11:29:21 AM : Exception: 'str' object has no attribute 'get'
+DEBUG : 04/01/2014 11:29:21 AM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/core.py", line 103, in load_plugins
+    plug = _class()
+  File "/opt/TopPatch/agent/plugins/rv/rvsofoperation.py", line 220, in __init__
+    self.cpu_priority = self._get_cpu_priority()
+  File "/opt/TopPatch/agent/plugins/rv/rvsofoperation.py", line 241, in _get_cpu_priority
+    return self.json_message.get(
+AttributeError: 'str' object has no attribute 'get'
+
+INFO : 04/01/2014 11:29:21 AM : Starting agent.
+DEBUG : 04/01/2014 11:29:22 AM : Internet connection detected.
+DEBUG : 04/01/2014 11:29:22 AM : Loaded operations: []
+DEBUG : 04/01/2014 11:29:22 AM : Loaded operations: []
+INFO : 04/01/2014 11:29:22 AM : Sending initial data.
+INFO : 04/01/2014 11:29:22 AM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': '', 'type': 'startup', 'raw_result': '', 'raw_operation': '{"operation_id": "1ab75f02-96a4-4f64-85bb-4c709cd42aef-agent", "operation": "startup", "plugin": ""}', 'json_message': {'operation_id': '1ab75f02-96a4-4f64-85bb-4c709cd42aef-agent', 'operation': 'startup', 'plugin': ''}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '1ab75f02-96a4-4f64-85bb-4c709cd42aef-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 04/01/2014 11:29:22 AM : Adding operation 1ab75f02-96a4-4f64-85bb-4c709cd42aef-agent.
+DEBUG : 04/01/2014 11:29:22 AM : System info sent: {"os_code": "linux", "version": "3.2.0-60-generic", "bit_type": "64", "host_name": "", "computer_name": "parallels-Parallels-Virtual-Platform", "os_string": "Ubuntu 12.04"}
+DEBUG : 04/01/2014 11:29:22 AM : Hardware info sent: {'nic': [{'mac': '001c42d5c06a', 'ip_address': '10.211.55.3', 'name': 'eth1'}], 'display': [{'speed_mhz': '66', 'name': 'Parallels, Inc. Accelerated Virtual Video Adapter (prog-if 00 [VGA controller])', 'ram_kb': 32768}], 'storage': [{'free_size_kb': 29865072, 'name': '/dev/sda1', 'size_kb': 61719820, 'file_system': 'ext4'}, {'free_size_kb': 2014424, 'name': 'udev', 'size_kb': 2014428, 'file_system': 'devtmpfs'}], 'cpu': [{'cpu_id': 0, 'speed_mhz': 2294.0, 'bit_type': 64, 'name': 'Intel(R) Core(TM) i7-3615QM CPU @ 2.30GHz', 'cache_kb': 6144.0, 'cores': 4}], 'memory': 4046472.0}
+INFO : 04/01/2014 11:29:22 AM : Checking if agent updated.
+ERROR : 04/01/2014 11:29:22 AM : Could not collect initial data for plugin rv.
+ERROR : 04/01/2014 11:29:22 AM : Exception: 'str' object has no attribute 'get'
+DEBUG : 04/01/2014 11:29:22 AM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/serveroperation/operationmanager.py", line 285, in _initial_data
+    plugin_data = plugin.initial_data(operation.type)
+  File "/opt/TopPatch/agent/plugins/rv/rvplugin.py", line 423, in initial_data
+    self.run_refresh_apps_operation()
+  File "/opt/TopPatch/agent/plugins/rv/rvplugin.py", line 772, in run_refresh_apps_operation
+    operation = RvSofOperation()
+  File "/opt/TopPatch/agent/plugins/rv/rvsofoperation.py", line 220, in __init__
+    self.cpu_priority = self._get_cpu_priority()
+  File "/opt/TopPatch/agent/plugins/rv/rvsofoperation.py", line 241, in _get_cpu_priority
+    return self.json_message.get(
+AttributeError: 'str' object has no attribute 'get'
+
+DEBUG : 04/01/2014 11:29:22 AM : Getting initial monitoring data.
+DEBUG : 04/01/2014 11:29:22 AM : Gathering monitoring data.
+DEBUG : 04/01/2014 11:29:22 AM : Done gathering monitoring data.
+DEBUG : 04/01/2014 11:29:22 AM : Done with initial monitoring data.
+DEBUG : 04/01/2014 11:29:22 AM : Sending initial ra data.
+DEBUG : 04/01/2014 11:29:23 AM : Done with initial ra data.
+DEBUG : 04/01/2014 11:29:23 AM : Added result / c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent to OpQueue.
+INFO : 04/01/2014 11:29:23 AM : Ready up.
+DEBUG : 04/01/2014 11:29:26 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:29:26 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x1aba9e0>]
+DEBUG : 04/01/2014 11:29:26 AM : Sending message to server
+DEBUG : 04/01/2014 11:29:26 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/startup
+DEBUG : 04/01/2014 11:29:26 AM : Logging into server
+DEBUG : 04/01/2014 11:29:26 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:29:27 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:29:27 AM : Agent was unable to login.
+DEBUG : 04/01/2014 11:29:27 AM : Added result / c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent to OpQueue.
+DEBUG : 04/01/2014 11:29:27 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:29:31 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:29:35 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:29:39 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:29:43 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:29:47 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:29:51 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:29:55 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:29:59 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:30:03 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:30:07 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:30:11 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:30:15 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:30:19 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:30:18 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:30:22 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:30:23 AM : Sending message to server
+DEBUG : 04/01/2014 11:30:23 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:30:23 AM : Logging into server
+DEBUG : 04/01/2014 11:30:23 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:30:23 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:30:23 AM : Agent was unable to login.
+ERROR : 04/01/2014 11:30:23 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:30:26 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:30:30 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:30:30 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x1aba9e0>]
+DEBUG : 04/01/2014 11:30:30 AM : Sending message to server
+DEBUG : 04/01/2014 11:30:30 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/startup
+DEBUG : 04/01/2014 11:30:30 AM : Logging into server
+DEBUG : 04/01/2014 11:30:30 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:30:30 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:30:30 AM : Agent was unable to login.
+DEBUG : 04/01/2014 11:30:30 AM : Added result / c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent to OpQueue.
+DEBUG : 04/01/2014 11:30:30 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:30:34 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:30:38 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:30:42 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:30:46 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:30:50 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:30:54 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:30:58 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:31:02 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:31:06 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:31:10 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:31:14 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:31:18 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:31:22 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:31:23 AM : Sending message to server
+DEBUG : 04/01/2014 11:31:23 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:31:23 AM : Logging into server
+DEBUG : 04/01/2014 11:31:23 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:31:23 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:31:23 AM : Agent was unable to login.
+ERROR : 04/01/2014 11:31:23 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:31:26 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:31:30 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:31:34 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:31:34 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x1aba9e0>]
+DEBUG : 04/01/2014 11:31:34 AM : Sending message to server
+DEBUG : 04/01/2014 11:31:34 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/startup
+DEBUG : 04/01/2014 11:31:34 AM : Logging into server
+DEBUG : 04/01/2014 11:31:34 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:31:34 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:31:34 AM : Agent was unable to login.
+DEBUG : 04/01/2014 11:31:34 AM : Added result / c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent to OpQueue.
+DEBUG : 04/01/2014 11:31:34 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:31:38 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:31:42 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:31:46 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:31:50 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:31:54 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:31:58 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:32:02 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:32:06 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:32:10 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:32:14 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:32:18 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:32:22 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:32:23 AM : Sending message to server
+DEBUG : 04/01/2014 11:32:23 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:32:23 AM : Logging into server
+DEBUG : 04/01/2014 11:32:23 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:32:23 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:32:23 AM : Agent was unable to login.
+ERROR : 04/01/2014 11:32:23 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:32:26 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:32:30 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:32:34 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:32:38 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:32:38 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x1aba9e0>]
+DEBUG : 04/01/2014 11:32:38 AM : Sending message to server
+DEBUG : 04/01/2014 11:32:38 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/startup
+DEBUG : 04/01/2014 11:32:38 AM : Logging into server
+DEBUG : 04/01/2014 11:32:38 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:32:38 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:32:38 AM : Agent was unable to login.
+DEBUG : 04/01/2014 11:32:38 AM : Added result / c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent to OpQueue.
+DEBUG : 04/01/2014 11:32:38 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:32:42 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:32:46 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:32:50 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:32:54 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:32:58 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:33:02 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:33:06 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:33:10 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:33:14 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:33:18 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:33:22 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:33:23 AM : Sending message to server
+DEBUG : 04/01/2014 11:33:23 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:33:23 AM : Logging into server
+DEBUG : 04/01/2014 11:33:23 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:33:23 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:33:23 AM : Agent was unable to login.
+ERROR : 04/01/2014 11:33:23 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:33:26 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:33:30 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:33:34 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:33:38 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:33:42 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:33:42 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x1aba9e0>]
+DEBUG : 04/01/2014 11:33:42 AM : Sending message to server
+DEBUG : 04/01/2014 11:33:42 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/startup
+DEBUG : 04/01/2014 11:33:42 AM : Logging into server
+DEBUG : 04/01/2014 11:33:42 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:33:42 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:33:42 AM : Agent was unable to login.
+DEBUG : 04/01/2014 11:33:42 AM : Added result / c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent to OpQueue.
+DEBUG : 04/01/2014 11:33:42 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:33:46 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:33:50 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:33:54 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:33:58 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:34:02 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:34:06 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:34:10 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:34:14 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:34:18 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:34:22 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:34:23 AM : Added {"operation_id": "e4b0ee48-0e5d-4f76-acf9-ecd09816b630-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 04/01/2014 11:34:23 AM : Sending message to server
+DEBUG : 04/01/2014 11:34:23 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:34:23 AM : Logging into server
+DEBUG : 04/01/2014 11:34:23 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:34:23 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:34:23 AM : Agent was unable to login.
+ERROR : 04/01/2014 11:34:23 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:34:26 AM : Popping {"operation_id": "e4b0ee48-0e5d-4f76-acf9-ecd09816b630-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 04/01/2014 11:34:26 AM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "e4b0ee48-0e5d-4f76-acf9-ecd09816b630-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': 'e4b0ee48-0e5d-4f76-acf9-ecd09816b630-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': 'e4b0ee48-0e5d-4f76-acf9-ecd09816b630-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 04/01/2014 11:34:26 AM : Adding operation e4b0ee48-0e5d-4f76-acf9-ecd09816b630-agent.
+DEBUG : 04/01/2014 11:34:26 AM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 04/01/2014 11:34:26 AM : Gathering monitoring data.
+DEBUG : 04/01/2014 11:34:26 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:34:26 AM : Done gathering monitoring data.
+DEBUG : 04/01/2014 11:34:26 AM : Added result / 98ca644a-796e-4d2d-b783-ad5d9502c99f-agent to OpQueue.
+DEBUG : 04/01/2014 11:34:30 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:34:30 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x7ffda002b2d8>]
+DEBUG : 04/01/2014 11:34:30 AM : Sending message to server
+DEBUG : 04/01/2014 11:34:30 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 04/01/2014 11:34:30 AM : Logging into server
+DEBUG : 04/01/2014 11:34:30 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:34:30 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:34:30 AM : Agent was unable to login.
+DEBUG : 04/01/2014 11:34:30 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:34:34 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:34:38 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:34:42 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:34:46 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:34:46 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x1aba9e0>]
+DEBUG : 04/01/2014 11:34:46 AM : Sending message to server
+DEBUG : 04/01/2014 11:34:46 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/startup
+DEBUG : 04/01/2014 11:34:46 AM : Logging into server
+DEBUG : 04/01/2014 11:34:46 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:34:46 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:34:46 AM : Agent was unable to login.
+DEBUG : 04/01/2014 11:34:46 AM : Added result / c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent to OpQueue.
+DEBUG : 04/01/2014 11:34:46 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:34:50 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:34:54 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:34:58 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:35:02 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:35:06 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:35:10 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:35:14 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:35:18 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:35:22 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:35:23 AM : Sending message to server
+DEBUG : 04/01/2014 11:35:23 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:35:23 AM : Logging into server
+DEBUG : 04/01/2014 11:35:23 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:35:23 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:35:23 AM : Agent was unable to login.
+ERROR : 04/01/2014 11:35:23 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:35:26 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:35:30 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:35:34 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:35:38 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:35:42 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:35:46 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:35:50 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:35:50 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x1aba9e0>]
+DEBUG : 04/01/2014 11:35:50 AM : Sending message to server
+DEBUG : 04/01/2014 11:35:50 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/startup
+DEBUG : 04/01/2014 11:35:50 AM : Logging into server
+DEBUG : 04/01/2014 11:35:50 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:35:50 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:35:50 AM : Agent was unable to login.
+DEBUG : 04/01/2014 11:35:50 AM : Added result / c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent to OpQueue.
+DEBUG : 04/01/2014 11:35:50 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:35:54 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:35:58 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:36:02 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:36:06 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:36:10 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:36:14 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:36:18 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:36:22 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:36:23 AM : Sending message to server
+DEBUG : 04/01/2014 11:36:23 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:36:23 AM : Logging into server
+DEBUG : 04/01/2014 11:36:23 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:36:23 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:36:23 AM : Agent was unable to login.
+ERROR : 04/01/2014 11:36:23 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:36:26 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:36:30 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:36:34 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:36:38 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:36:42 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:36:46 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:36:50 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:36:54 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:36:54 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x1aba9e0>]
+DEBUG : 04/01/2014 11:36:54 AM : Sending message to server
+DEBUG : 04/01/2014 11:36:54 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/startup
+DEBUG : 04/01/2014 11:36:54 AM : Logging into server
+DEBUG : 04/01/2014 11:36:54 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:36:54 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:36:54 AM : Agent was unable to login.
+DEBUG : 04/01/2014 11:36:54 AM : Added result / c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent to OpQueue.
+DEBUG : 04/01/2014 11:36:54 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:36:58 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:37:02 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:37:06 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:37:10 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:37:14 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:37:18 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:37:22 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:37:23 AM : Sending message to server
+DEBUG : 04/01/2014 11:37:23 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:37:23 AM : Logging into server
+DEBUG : 04/01/2014 11:37:23 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:37:23 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:37:23 AM : Agent was unable to login.
+ERROR : 04/01/2014 11:37:23 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:37:26 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:37:30 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:37:34 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:37:38 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:37:42 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:37:46 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:37:50 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:37:54 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:37:58 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:37:58 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x1aba9e0>]
+DEBUG : 04/01/2014 11:37:58 AM : Sending message to server
+DEBUG : 04/01/2014 11:37:58 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/startup
+DEBUG : 04/01/2014 11:37:58 AM : Logging into server
+DEBUG : 04/01/2014 11:37:58 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:37:58 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:37:58 AM : Agent was unable to login.
+DEBUG : 04/01/2014 11:37:58 AM : Added result / c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent to OpQueue.
+DEBUG : 04/01/2014 11:37:58 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:38:02 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:38:06 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:38:10 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:38:14 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:38:18 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:38:22 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:38:23 AM : Sending message to server
+DEBUG : 04/01/2014 11:38:23 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:38:23 AM : Logging into server
+DEBUG : 04/01/2014 11:38:23 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:38:23 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:38:23 AM : Agent was unable to login.
+ERROR : 04/01/2014 11:38:23 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:38:26 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:38:30 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:38:34 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:38:38 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:38:42 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:38:46 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:38:50 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:38:54 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:38:58 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:39:02 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:39:02 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x1aba9e0>]
+DEBUG : 04/01/2014 11:39:02 AM : Sending message to server
+DEBUG : 04/01/2014 11:39:02 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/startup
+DEBUG : 04/01/2014 11:39:02 AM : Logging into server
+DEBUG : 04/01/2014 11:39:02 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:39:02 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:39:02 AM : Agent was unable to login.
+DEBUG : 04/01/2014 11:39:02 AM : Added result / c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent to OpQueue.
+DEBUG : 04/01/2014 11:39:02 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:39:06 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:39:10 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:39:14 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:39:18 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:39:22 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:39:23 AM : Added {"operation_id": "7ddbad8b-ce71-4520-a448-c57759764bcf-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 04/01/2014 11:39:23 AM : Sending message to server
+DEBUG : 04/01/2014 11:39:23 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:39:23 AM : Logging into server
+DEBUG : 04/01/2014 11:39:23 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:39:23 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:39:23 AM : Agent was unable to login.
+ERROR : 04/01/2014 11:39:23 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:39:26 AM : Popping {"operation_id": "7ddbad8b-ce71-4520-a448-c57759764bcf-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 04/01/2014 11:39:26 AM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "7ddbad8b-ce71-4520-a448-c57759764bcf-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '7ddbad8b-ce71-4520-a448-c57759764bcf-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '7ddbad8b-ce71-4520-a448-c57759764bcf-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 04/01/2014 11:39:26 AM : Adding operation 7ddbad8b-ce71-4520-a448-c57759764bcf-agent.
+DEBUG : 04/01/2014 11:39:26 AM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 04/01/2014 11:39:26 AM : Gathering monitoring data.
+DEBUG : 04/01/2014 11:39:26 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:39:26 AM : Done gathering monitoring data.
+DEBUG : 04/01/2014 11:39:26 AM : Added result / 9263604a-d2a5-4672-96e3-69645502735a-agent to OpQueue.
+DEBUG : 04/01/2014 11:39:30 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:39:30 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x7ffda002ed40>]
+DEBUG : 04/01/2014 11:39:30 AM : Sending message to server
+DEBUG : 04/01/2014 11:39:30 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 04/01/2014 11:39:30 AM : Logging into server
+DEBUG : 04/01/2014 11:39:30 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:39:30 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:39:30 AM : Agent was unable to login.
+DEBUG : 04/01/2014 11:39:30 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:39:34 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:39:38 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:39:42 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:39:46 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:39:50 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:39:54 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:39:58 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:40:02 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:40:06 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:40:06 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x1aba9e0>]
+DEBUG : 04/01/2014 11:40:06 AM : Sending message to server
+DEBUG : 04/01/2014 11:40:06 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/startup
+DEBUG : 04/01/2014 11:40:06 AM : Logging into server
+DEBUG : 04/01/2014 11:40:06 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:40:06 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:40:06 AM : Agent was unable to login.
+DEBUG : 04/01/2014 11:40:06 AM : Added result / c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent to OpQueue.
+DEBUG : 04/01/2014 11:40:06 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:40:10 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:40:14 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:40:18 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:40:22 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:40:23 AM : Sending message to server
+DEBUG : 04/01/2014 11:40:23 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:40:23 AM : Logging into server
+DEBUG : 04/01/2014 11:40:23 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:40:23 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:40:23 AM : Agent was unable to login.
+ERROR : 04/01/2014 11:40:23 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:40:26 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:40:30 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:40:34 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:40:38 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:40:42 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:40:46 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:40:50 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:40:54 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:40:58 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:41:02 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:41:06 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:41:10 AM : c54663f8-c23b-4bf9-92ed-f1a57e2d1cc7-agent / result will not be saved.
+DEBUG : 04/01/2014 11:41:10 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x1aba9e0>]
+DEBUG : 04/01/2014 11:41:10 AM : Sending message to server
+DEBUG : 04/01/2014 11:41:10 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/startup
+DEBUG : 04/01/2014 11:41:10 AM : Logging into server
+DEBUG : 04/01/2014 11:41:11 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:41:11 AM : Login server text:  
+DEBUG : 04/01/2014 11:41:11 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/startup 
+DEBUG : 04/01/2014 11:41:11 AM : Status code: 200 
+DEBUG : 04/01/2014 11:41:11 AM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/startup", "rv_status_code": 3005, "http_method": "PUT", "http_status": 200, "message": "admin - operation startup succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d ", "data": []} 
+DEBUG : 04/01/2014 11:41:11 AM : Adding result_op 1ab75f02-96a4-4f64-85bb-4c709cd42aef-agent.
+DEBUG : 04/01/2014 11:41:23 AM : Sending message to server
+DEBUG : 04/01/2014 11:41:23 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:41:23 AM : Logging into server
+DEBUG : 04/01/2014 11:41:23 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:41:23 AM : Login server text:  
+DEBUG : 04/01/2014 11:41:23 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:41:23 AM : Status code: 200 
+DEBUG : 04/01/2014 11:41:23 AM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 04/01/2014 11:42:23 AM : Sending message to server
+DEBUG : 04/01/2014 11:42:23 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:42:23 AM : Logging into server
+DEBUG : 04/01/2014 11:42:23 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:42:23 AM : Login server text:  
+DEBUG : 04/01/2014 11:42:23 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:42:23 AM : Status code: 200 
+DEBUG : 04/01/2014 11:42:23 AM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 04/01/2014 11:43:23 AM : Sending message to server
+DEBUG : 04/01/2014 11:43:23 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:43:23 AM : Logging into server
+DEBUG : 04/01/2014 11:43:24 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:43:24 AM : Login server text:  
+DEBUG : 04/01/2014 11:43:24 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:43:24 AM : Status code: 200 
+DEBUG : 04/01/2014 11:43:24 AM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 04/01/2014 11:44:23 AM : Added {"operation_id": "76bc364b-091a-4b42-9a5d-f1ba8fcb4516-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 04/01/2014 11:44:23 AM : Popping {"operation_id": "76bc364b-091a-4b42-9a5d-f1ba8fcb4516-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 04/01/2014 11:44:23 AM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "76bc364b-091a-4b42-9a5d-f1ba8fcb4516-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '76bc364b-091a-4b42-9a5d-f1ba8fcb4516-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '76bc364b-091a-4b42-9a5d-f1ba8fcb4516-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 04/01/2014 11:44:23 AM : Adding operation 76bc364b-091a-4b42-9a5d-f1ba8fcb4516-agent.
+DEBUG : 04/01/2014 11:44:23 AM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 04/01/2014 11:44:23 AM : Gathering monitoring data.
+DEBUG : 04/01/2014 11:44:23 AM : Done gathering monitoring data.
+DEBUG : 04/01/2014 11:44:23 AM : Added result / cff6f22f-854f-42b0-8bf1-504c2d4ef433-agent to OpQueue.
+DEBUG : 04/01/2014 11:44:24 AM : Sending message to server
+DEBUG : 04/01/2014 11:44:24 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:44:24 AM : Logging into server
+DEBUG : 04/01/2014 11:44:24 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:44:24 AM : Login server text:  
+DEBUG : 04/01/2014 11:44:24 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:44:24 AM : Status code: 500 
+DEBUG : 04/01/2014 11:44:24 AM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 11:44:24 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:44:27 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x7ffda002b128>]
+DEBUG : 04/01/2014 11:44:27 AM : Sending message to server
+DEBUG : 04/01/2014 11:44:27 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 04/01/2014 11:44:27 AM : Logging into server
+DEBUG : 04/01/2014 11:44:28 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:44:28 AM : Login server text:  
+DEBUG : 04/01/2014 11:44:28 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 04/01/2014 11:44:28 AM : Status code: 200 
+DEBUG : 04/01/2014 11:44:28 AM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 04/01/2014 11:44:28 AM : Adding result_op 76bc364b-091a-4b42-9a5d-f1ba8fcb4516-agent.
+DEBUG : 04/01/2014 11:45:24 AM : Sending message to server
+DEBUG : 04/01/2014 11:45:24 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:45:24 AM : Logging into server
+DEBUG : 04/01/2014 11:45:25 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:45:25 AM : Login server text:  
+DEBUG : 04/01/2014 11:45:25 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:45:25 AM : Status code: 500 
+DEBUG : 04/01/2014 11:45:25 AM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 11:45:25 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:46:25 AM : Sending message to server
+DEBUG : 04/01/2014 11:46:25 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:46:25 AM : Logging into server
+DEBUG : 04/01/2014 11:46:25 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:46:25 AM : Login server text:  
+DEBUG : 04/01/2014 11:46:25 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:46:25 AM : Status code: 500 
+DEBUG : 04/01/2014 11:46:25 AM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 11:46:25 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:47:25 AM : Sending message to server
+DEBUG : 04/01/2014 11:47:25 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:47:25 AM : Logging into server
+DEBUG : 04/01/2014 11:47:25 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:47:25 AM : Login server text:  
+DEBUG : 04/01/2014 11:47:25 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:47:25 AM : Status code: 500 
+DEBUG : 04/01/2014 11:47:25 AM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 11:47:25 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:48:25 AM : Sending message to server
+DEBUG : 04/01/2014 11:48:25 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:48:25 AM : Logging into server
+DEBUG : 04/01/2014 11:48:26 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:48:26 AM : Login server text:  
+DEBUG : 04/01/2014 11:48:26 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:48:26 AM : Status code: 500 
+DEBUG : 04/01/2014 11:48:26 AM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 11:48:26 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:49:23 AM : Added {"operation_id": "4a247525-73c2-4acb-8f23-37328c06db9c-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 04/01/2014 11:49:23 AM : Popping {"operation_id": "4a247525-73c2-4acb-8f23-37328c06db9c-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 04/01/2014 11:49:23 AM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "4a247525-73c2-4acb-8f23-37328c06db9c-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '4a247525-73c2-4acb-8f23-37328c06db9c-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '4a247525-73c2-4acb-8f23-37328c06db9c-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 04/01/2014 11:49:23 AM : Adding operation 4a247525-73c2-4acb-8f23-37328c06db9c-agent.
+DEBUG : 04/01/2014 11:49:23 AM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 04/01/2014 11:49:23 AM : Gathering monitoring data.
+DEBUG : 04/01/2014 11:49:23 AM : Done gathering monitoring data.
+DEBUG : 04/01/2014 11:49:23 AM : Added result / aebba1d4-ceaa-4754-800a-e4e70179d115-agent to OpQueue.
+DEBUG : 04/01/2014 11:49:24 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x7ffda004b050>]
+DEBUG : 04/01/2014 11:49:24 AM : Sending message to server
+DEBUG : 04/01/2014 11:49:24 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 04/01/2014 11:49:24 AM : Logging into server
+DEBUG : 04/01/2014 11:49:24 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:49:24 AM : Login server text:  
+DEBUG : 04/01/2014 11:49:24 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 04/01/2014 11:49:24 AM : Status code: 200 
+DEBUG : 04/01/2014 11:49:24 AM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 04/01/2014 11:49:24 AM : Adding result_op 4a247525-73c2-4acb-8f23-37328c06db9c-agent.
+DEBUG : 04/01/2014 11:49:26 AM : Sending message to server
+DEBUG : 04/01/2014 11:49:26 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:49:26 AM : Logging into server
+DEBUG : 04/01/2014 11:49:26 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:49:26 AM : Login server text:  
+DEBUG : 04/01/2014 11:49:26 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:49:26 AM : Status code: 500 
+DEBUG : 04/01/2014 11:49:26 AM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 11:49:26 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:50:26 AM : Sending message to server
+DEBUG : 04/01/2014 11:50:26 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:50:26 AM : Logging into server
+DEBUG : 04/01/2014 11:50:26 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:50:26 AM : Login server text:  
+DEBUG : 04/01/2014 11:50:26 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:50:26 AM : Status code: 500 
+DEBUG : 04/01/2014 11:50:26 AM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 11:50:26 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:51:26 AM : Sending message to server
+DEBUG : 04/01/2014 11:51:26 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:51:26 AM : Logging into server
+DEBUG : 04/01/2014 11:51:27 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:51:27 AM : Login server text:  
+DEBUG : 04/01/2014 11:51:27 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:51:27 AM : Status code: 500 
+DEBUG : 04/01/2014 11:51:27 AM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 11:51:27 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:52:27 AM : Sending message to server
+DEBUG : 04/01/2014 11:52:27 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:52:27 AM : Logging into server
+DEBUG : 04/01/2014 11:52:27 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:52:27 AM : Login server text:  
+DEBUG : 04/01/2014 11:52:27 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:52:27 AM : Status code: 500 
+DEBUG : 04/01/2014 11:52:27 AM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 11:52:27 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:53:27 AM : Sending message to server
+DEBUG : 04/01/2014 11:53:27 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:53:27 AM : Logging into server
+DEBUG : 04/01/2014 11:53:27 AM : Login status code: 502 
+DEBUG : 04/01/2014 11:53:27 AM : Login server text: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.1.19</center>
+</body>
+</html>
+ 
+ERROR : 04/01/2014 11:53:27 AM : Agent was unable to login.
+ERROR : 04/01/2014 11:53:27 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:54:23 AM : Added {"operation_id": "4037c45a-c633-4e32-af5b-afa400314b3e-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 04/01/2014 11:54:23 AM : Popping {"operation_id": "4037c45a-c633-4e32-af5b-afa400314b3e-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 04/01/2014 11:54:23 AM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "4037c45a-c633-4e32-af5b-afa400314b3e-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '4037c45a-c633-4e32-af5b-afa400314b3e-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '4037c45a-c633-4e32-af5b-afa400314b3e-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 04/01/2014 11:54:23 AM : Adding operation 4037c45a-c633-4e32-af5b-afa400314b3e-agent.
+DEBUG : 04/01/2014 11:54:23 AM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 04/01/2014 11:54:23 AM : Gathering monitoring data.
+DEBUG : 04/01/2014 11:54:23 AM : Done gathering monitoring data.
+DEBUG : 04/01/2014 11:54:23 AM : Added result / 821b86d5-c195-462e-a9c8-9c9c579e2bf0-agent to OpQueue.
+DEBUG : 04/01/2014 11:54:25 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x7ffda004b830>]
+DEBUG : 04/01/2014 11:54:25 AM : Sending message to server
+DEBUG : 04/01/2014 11:54:25 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 04/01/2014 11:54:25 AM : Logging into server
+DEBUG : 04/01/2014 11:54:25 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:54:25 AM : Login server text:  
+DEBUG : 04/01/2014 11:54:25 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 04/01/2014 11:54:25 AM : Status code: 200 
+DEBUG : 04/01/2014 11:54:25 AM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 04/01/2014 11:54:25 AM : Adding result_op 4037c45a-c633-4e32-af5b-afa400314b3e-agent.
+DEBUG : 04/01/2014 11:54:27 AM : Sending message to server
+DEBUG : 04/01/2014 11:54:27 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:54:27 AM : Logging into server
+DEBUG : 04/01/2014 11:54:28 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:54:28 AM : Login server text:  
+DEBUG : 04/01/2014 11:54:28 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:54:28 AM : Status code: 500 
+DEBUG : 04/01/2014 11:54:28 AM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 11:54:28 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:55:28 AM : Sending message to server
+DEBUG : 04/01/2014 11:55:28 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:55:28 AM : Logging into server
+DEBUG : 04/01/2014 11:55:28 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:55:28 AM : Login server text:  
+DEBUG : 04/01/2014 11:55:28 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:55:28 AM : Status code: 500 
+DEBUG : 04/01/2014 11:55:28 AM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 11:55:28 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:56:28 AM : Sending message to server
+DEBUG : 04/01/2014 11:56:28 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:56:28 AM : Logging into server
+DEBUG : 04/01/2014 11:56:28 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:56:28 AM : Login server text:  
+DEBUG : 04/01/2014 11:56:28 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:56:28 AM : Status code: 500 
+DEBUG : 04/01/2014 11:56:28 AM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 11:56:28 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:57:28 AM : Sending message to server
+DEBUG : 04/01/2014 11:57:28 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:57:28 AM : Logging into server
+DEBUG : 04/01/2014 11:57:29 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:57:29 AM : Login server text:  
+DEBUG : 04/01/2014 11:57:29 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:57:29 AM : Status code: 500 
+DEBUG : 04/01/2014 11:57:29 AM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 11:57:29 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:58:29 AM : Sending message to server
+DEBUG : 04/01/2014 11:58:29 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:58:29 AM : Logging into server
+DEBUG : 04/01/2014 11:58:29 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:58:29 AM : Login server text:  
+DEBUG : 04/01/2014 11:58:29 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:58:29 AM : Status code: 500 
+DEBUG : 04/01/2014 11:58:29 AM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 11:58:29 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 11:59:23 AM : Added {"operation_id": "6296479e-238c-465e-9ffa-b28ca4996086-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 04/01/2014 11:59:24 AM : Popping {"operation_id": "6296479e-238c-465e-9ffa-b28ca4996086-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 04/01/2014 11:59:24 AM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "6296479e-238c-465e-9ffa-b28ca4996086-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '6296479e-238c-465e-9ffa-b28ca4996086-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '6296479e-238c-465e-9ffa-b28ca4996086-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 04/01/2014 11:59:24 AM : Adding operation 6296479e-238c-465e-9ffa-b28ca4996086-agent.
+DEBUG : 04/01/2014 11:59:24 AM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 04/01/2014 11:59:24 AM : Gathering monitoring data.
+DEBUG : 04/01/2014 11:59:24 AM : Done gathering monitoring data.
+DEBUG : 04/01/2014 11:59:24 AM : Added result / 727089a6-9506-43e5-bb08-d33919cd4c55-agent to OpQueue.
+DEBUG : 04/01/2014 11:59:25 AM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x7ffda004e200>]
+DEBUG : 04/01/2014 11:59:25 AM : Sending message to server
+DEBUG : 04/01/2014 11:59:25 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 04/01/2014 11:59:25 AM : Logging into server
+DEBUG : 04/01/2014 11:59:26 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:59:26 AM : Login server text:  
+DEBUG : 04/01/2014 11:59:26 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 04/01/2014 11:59:26 AM : Status code: 200 
+DEBUG : 04/01/2014 11:59:26 AM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 04/01/2014 11:59:26 AM : Adding result_op 6296479e-238c-465e-9ffa-b28ca4996086-agent.
+DEBUG : 04/01/2014 11:59:29 AM : Sending message to server
+DEBUG : 04/01/2014 11:59:29 AM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 11:59:29 AM : Logging into server
+DEBUG : 04/01/2014 11:59:29 AM : Login status code: 200 
+DEBUG : 04/01/2014 11:59:29 AM : Login server text:  
+DEBUG : 04/01/2014 11:59:29 AM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 11:59:29 AM : Status code: 500 
+DEBUG : 04/01/2014 11:59:29 AM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 11:59:29 AM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:00:29 PM : Sending message to server
+DEBUG : 04/01/2014 12:00:29 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:00:29 PM : Logging into server
+DEBUG : 04/01/2014 12:00:30 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:00:30 PM : Login server text:  
+DEBUG : 04/01/2014 12:00:30 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:00:30 PM : Status code: 500 
+DEBUG : 04/01/2014 12:00:30 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:00:30 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:01:30 PM : Sending message to server
+DEBUG : 04/01/2014 12:01:30 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:01:30 PM : Logging into server
+DEBUG : 04/01/2014 12:01:30 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:01:30 PM : Login server text:  
+DEBUG : 04/01/2014 12:01:30 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:01:30 PM : Status code: 500 
+DEBUG : 04/01/2014 12:01:30 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:01:30 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:02:30 PM : Sending message to server
+DEBUG : 04/01/2014 12:02:30 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:02:30 PM : Logging into server
+DEBUG : 04/01/2014 12:02:31 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:02:31 PM : Login server text:  
+DEBUG : 04/01/2014 12:02:31 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:02:31 PM : Status code: 500 
+DEBUG : 04/01/2014 12:02:31 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:02:31 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:03:31 PM : Sending message to server
+DEBUG : 04/01/2014 12:03:31 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:03:31 PM : Logging into server
+DEBUG : 04/01/2014 12:03:31 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:03:31 PM : Login server text:  
+DEBUG : 04/01/2014 12:03:31 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:03:31 PM : Status code: 500 
+DEBUG : 04/01/2014 12:03:31 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:03:31 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:04:23 PM : Added {"operation_id": "d686e585-e0d8-4985-b760-8c4fd43826bd-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 04/01/2014 12:04:26 PM : Popping {"operation_id": "d686e585-e0d8-4985-b760-8c4fd43826bd-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 04/01/2014 12:04:26 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "d686e585-e0d8-4985-b760-8c4fd43826bd-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': 'd686e585-e0d8-4985-b760-8c4fd43826bd-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': 'd686e585-e0d8-4985-b760-8c4fd43826bd-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 04/01/2014 12:04:26 PM : Adding operation d686e585-e0d8-4985-b760-8c4fd43826bd-agent.
+DEBUG : 04/01/2014 12:04:26 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 04/01/2014 12:04:26 PM : Gathering monitoring data.
+DEBUG : 04/01/2014 12:04:26 PM : Done gathering monitoring data.
+DEBUG : 04/01/2014 12:04:26 PM : Added result / 15e95822-6b41-4786-bf4c-6696484ba5b8-agent to OpQueue.
+DEBUG : 04/01/2014 12:04:30 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x7ffda004f320>]
+DEBUG : 04/01/2014 12:04:30 PM : Sending message to server
+DEBUG : 04/01/2014 12:04:30 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 04/01/2014 12:04:30 PM : Logging into server
+DEBUG : 04/01/2014 12:04:31 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:04:31 PM : Login server text:  
+DEBUG : 04/01/2014 12:04:31 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 04/01/2014 12:04:31 PM : Status code: 200 
+DEBUG : 04/01/2014 12:04:31 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 04/01/2014 12:04:31 PM : Adding result_op d686e585-e0d8-4985-b760-8c4fd43826bd-agent.
+DEBUG : 04/01/2014 12:04:31 PM : Sending message to server
+DEBUG : 04/01/2014 12:04:31 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:04:31 PM : Logging into server
+DEBUG : 04/01/2014 12:04:32 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:04:32 PM : Login server text:  
+DEBUG : 04/01/2014 12:04:32 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:04:32 PM : Status code: 500 
+DEBUG : 04/01/2014 12:04:32 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:04:32 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:05:32 PM : Sending message to server
+DEBUG : 04/01/2014 12:05:32 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:05:32 PM : Logging into server
+DEBUG : 04/01/2014 12:05:32 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:05:32 PM : Login server text:  
+DEBUG : 04/01/2014 12:05:32 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:05:32 PM : Status code: 500 
+DEBUG : 04/01/2014 12:05:32 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:05:32 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:06:32 PM : Sending message to server
+DEBUG : 04/01/2014 12:06:32 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:06:32 PM : Logging into server
+DEBUG : 04/01/2014 12:06:33 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:06:33 PM : Login server text:  
+DEBUG : 04/01/2014 12:06:33 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:06:33 PM : Status code: 500 
+DEBUG : 04/01/2014 12:06:33 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:06:33 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:07:33 PM : Sending message to server
+DEBUG : 04/01/2014 12:07:33 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:07:33 PM : Logging into server
+DEBUG : 04/01/2014 12:07:33 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:07:33 PM : Login server text:  
+DEBUG : 04/01/2014 12:07:33 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:07:33 PM : Status code: 500 
+DEBUG : 04/01/2014 12:07:33 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:07:33 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:08:33 PM : Sending message to server
+DEBUG : 04/01/2014 12:08:33 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:08:33 PM : Logging into server
+DEBUG : 04/01/2014 12:08:33 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:08:33 PM : Login server text:  
+DEBUG : 04/01/2014 12:08:33 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:08:33 PM : Status code: 500 
+DEBUG : 04/01/2014 12:08:33 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:08:33 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:09:23 PM : Added {"operation_id": "73af35f3-b8d5-4bfc-934d-79f407bf217c-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 04/01/2014 12:09:23 PM : Popping {"operation_id": "73af35f3-b8d5-4bfc-934d-79f407bf217c-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 04/01/2014 12:09:23 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "73af35f3-b8d5-4bfc-934d-79f407bf217c-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '73af35f3-b8d5-4bfc-934d-79f407bf217c-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '73af35f3-b8d5-4bfc-934d-79f407bf217c-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 04/01/2014 12:09:23 PM : Adding operation 73af35f3-b8d5-4bfc-934d-79f407bf217c-agent.
+DEBUG : 04/01/2014 12:09:23 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 04/01/2014 12:09:23 PM : Gathering monitoring data.
+DEBUG : 04/01/2014 12:09:23 PM : Done gathering monitoring data.
+DEBUG : 04/01/2014 12:09:23 PM : Added result / 91bd1733-6dc4-41e7-aac8-4789202e6f33-agent to OpQueue.
+DEBUG : 04/01/2014 12:09:27 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x7ffda0050440>]
+DEBUG : 04/01/2014 12:09:27 PM : Sending message to server
+DEBUG : 04/01/2014 12:09:27 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 04/01/2014 12:09:27 PM : Logging into server
+DEBUG : 04/01/2014 12:09:28 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:09:28 PM : Login server text:  
+DEBUG : 04/01/2014 12:09:28 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 04/01/2014 12:09:28 PM : Status code: 200 
+DEBUG : 04/01/2014 12:09:28 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 04/01/2014 12:09:28 PM : Adding result_op 73af35f3-b8d5-4bfc-934d-79f407bf217c-agent.
+DEBUG : 04/01/2014 12:09:33 PM : Sending message to server
+DEBUG : 04/01/2014 12:09:33 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:09:33 PM : Logging into server
+DEBUG : 04/01/2014 12:09:34 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:09:34 PM : Login server text:  
+DEBUG : 04/01/2014 12:09:34 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:09:34 PM : Status code: 500 
+DEBUG : 04/01/2014 12:09:34 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:09:34 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:10:34 PM : Sending message to server
+DEBUG : 04/01/2014 12:10:34 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:10:34 PM : Logging into server
+DEBUG : 04/01/2014 12:10:34 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:10:34 PM : Login server text:  
+DEBUG : 04/01/2014 12:10:34 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:10:34 PM : Status code: 500 
+DEBUG : 04/01/2014 12:10:34 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:10:34 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:11:34 PM : Sending message to server
+DEBUG : 04/01/2014 12:11:34 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:11:34 PM : Logging into server
+DEBUG : 04/01/2014 12:11:34 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:11:34 PM : Login server text:  
+DEBUG : 04/01/2014 12:11:34 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:11:34 PM : Status code: 500 
+DEBUG : 04/01/2014 12:11:34 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:11:34 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:12:34 PM : Sending message to server
+DEBUG : 04/01/2014 12:12:34 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:12:34 PM : Logging into server
+DEBUG : 04/01/2014 12:12:35 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:12:35 PM : Login server text:  
+DEBUG : 04/01/2014 12:12:35 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:12:35 PM : Status code: 500 
+DEBUG : 04/01/2014 12:12:35 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:12:35 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:13:35 PM : Sending message to server
+DEBUG : 04/01/2014 12:13:35 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:13:35 PM : Logging into server
+DEBUG : 04/01/2014 12:13:35 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:13:35 PM : Login server text:  
+DEBUG : 04/01/2014 12:13:35 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:13:35 PM : Status code: 500 
+DEBUG : 04/01/2014 12:13:35 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:13:35 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:14:23 PM : Added {"operation_id": "ecf61f83-a84c-4011-bed7-f042b7b091eb-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 04/01/2014 12:14:23 PM : Popping {"operation_id": "ecf61f83-a84c-4011-bed7-f042b7b091eb-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 04/01/2014 12:14:23 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "ecf61f83-a84c-4011-bed7-f042b7b091eb-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': 'ecf61f83-a84c-4011-bed7-f042b7b091eb-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': 'ecf61f83-a84c-4011-bed7-f042b7b091eb-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 04/01/2014 12:14:23 PM : Adding operation ecf61f83-a84c-4011-bed7-f042b7b091eb-agent.
+DEBUG : 04/01/2014 12:14:23 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 04/01/2014 12:14:23 PM : Gathering monitoring data.
+DEBUG : 04/01/2014 12:14:23 PM : Done gathering monitoring data.
+DEBUG : 04/01/2014 12:14:23 PM : Added result / 073af63c-861e-4133-945b-88a50210ee0e-agent to OpQueue.
+DEBUG : 04/01/2014 12:14:24 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x7ffda004f518>]
+DEBUG : 04/01/2014 12:14:24 PM : Sending message to server
+DEBUG : 04/01/2014 12:14:24 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 04/01/2014 12:14:24 PM : Logging into server
+DEBUG : 04/01/2014 12:14:24 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:14:24 PM : Login server text:  
+DEBUG : 04/01/2014 12:14:24 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 04/01/2014 12:14:24 PM : Status code: 200 
+DEBUG : 04/01/2014 12:14:24 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 04/01/2014 12:14:24 PM : Adding result_op ecf61f83-a84c-4011-bed7-f042b7b091eb-agent.
+DEBUG : 04/01/2014 12:14:35 PM : Sending message to server
+DEBUG : 04/01/2014 12:14:35 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:14:35 PM : Logging into server
+DEBUG : 04/01/2014 12:14:35 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:14:35 PM : Login server text:  
+DEBUG : 04/01/2014 12:14:35 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:14:35 PM : Status code: 500 
+DEBUG : 04/01/2014 12:14:35 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:14:35 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:15:35 PM : Sending message to server
+DEBUG : 04/01/2014 12:15:35 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:15:35 PM : Logging into server
+DEBUG : 04/01/2014 12:15:36 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:15:36 PM : Login server text:  
+DEBUG : 04/01/2014 12:15:36 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:15:36 PM : Status code: 500 
+DEBUG : 04/01/2014 12:15:36 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:15:36 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:16:36 PM : Sending message to server
+DEBUG : 04/01/2014 12:16:36 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:16:36 PM : Logging into server
+DEBUG : 04/01/2014 12:16:36 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:16:36 PM : Login server text:  
+DEBUG : 04/01/2014 12:16:36 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:16:36 PM : Status code: 500 
+DEBUG : 04/01/2014 12:16:36 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:16:36 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:17:36 PM : Sending message to server
+DEBUG : 04/01/2014 12:17:36 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:17:36 PM : Logging into server
+DEBUG : 04/01/2014 12:17:37 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:17:37 PM : Login server text:  
+DEBUG : 04/01/2014 12:17:37 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:17:37 PM : Status code: 500 
+DEBUG : 04/01/2014 12:17:37 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:17:37 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:18:37 PM : Sending message to server
+DEBUG : 04/01/2014 12:18:37 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:18:37 PM : Logging into server
+DEBUG : 04/01/2014 12:18:37 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:18:37 PM : Login server text:  
+DEBUG : 04/01/2014 12:18:37 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:18:37 PM : Status code: 500 
+DEBUG : 04/01/2014 12:18:37 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:18:37 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:19:23 PM : Added {"operation_id": "957fc049-d8ff-4850-9fa5-453a34651433-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 04/01/2014 12:19:24 PM : Popping {"operation_id": "957fc049-d8ff-4850-9fa5-453a34651433-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 04/01/2014 12:19:24 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "957fc049-d8ff-4850-9fa5-453a34651433-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '957fc049-d8ff-4850-9fa5-453a34651433-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '957fc049-d8ff-4850-9fa5-453a34651433-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 04/01/2014 12:19:24 PM : Adding operation 957fc049-d8ff-4850-9fa5-453a34651433-agent.
+DEBUG : 04/01/2014 12:19:24 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 04/01/2014 12:19:24 PM : Gathering monitoring data.
+DEBUG : 04/01/2014 12:19:24 PM : Done gathering monitoring data.
+DEBUG : 04/01/2014 12:19:24 PM : Added result / a6a2caa1-0f26-44fa-97b5-38d5e54a2bec-agent to OpQueue.
+DEBUG : 04/01/2014 12:19:25 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x7ffda004df38>]
+DEBUG : 04/01/2014 12:19:25 PM : Sending message to server
+DEBUG : 04/01/2014 12:19:25 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 04/01/2014 12:19:25 PM : Logging into server
+DEBUG : 04/01/2014 12:19:25 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:19:25 PM : Login server text:  
+DEBUG : 04/01/2014 12:19:25 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 04/01/2014 12:19:25 PM : Status code: 200 
+DEBUG : 04/01/2014 12:19:25 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 04/01/2014 12:19:25 PM : Adding result_op 957fc049-d8ff-4850-9fa5-453a34651433-agent.
+DEBUG : 04/01/2014 12:19:37 PM : Sending message to server
+DEBUG : 04/01/2014 12:19:37 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:19:37 PM : Logging into server
+DEBUG : 04/01/2014 12:19:37 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:19:37 PM : Login server text:  
+DEBUG : 04/01/2014 12:19:37 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:19:37 PM : Status code: 500 
+DEBUG : 04/01/2014 12:19:37 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:19:37 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:20:37 PM : Sending message to server
+DEBUG : 04/01/2014 12:20:37 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:20:37 PM : Logging into server
+DEBUG : 04/01/2014 12:20:38 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:20:38 PM : Login server text:  
+DEBUG : 04/01/2014 12:20:38 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:20:38 PM : Status code: 500 
+DEBUG : 04/01/2014 12:20:38 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:20:38 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:21:38 PM : Sending message to server
+DEBUG : 04/01/2014 12:21:38 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:21:38 PM : Logging into server
+DEBUG : 04/01/2014 12:21:38 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:21:38 PM : Login server text:  
+DEBUG : 04/01/2014 12:21:38 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:21:38 PM : Status code: 500 
+DEBUG : 04/01/2014 12:21:38 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:21:38 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:22:38 PM : Sending message to server
+DEBUG : 04/01/2014 12:22:38 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:22:38 PM : Logging into server
+DEBUG : 04/01/2014 12:22:38 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:22:38 PM : Login server text:  
+DEBUG : 04/01/2014 12:22:38 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:22:38 PM : Status code: 500 
+DEBUG : 04/01/2014 12:22:38 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:22:38 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:23:38 PM : Sending message to server
+DEBUG : 04/01/2014 12:23:38 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:23:38 PM : Logging into server
+DEBUG : 04/01/2014 12:23:39 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:23:39 PM : Login server text:  
+DEBUG : 04/01/2014 12:23:39 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:23:39 PM : Status code: 500 
+DEBUG : 04/01/2014 12:23:39 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:23:39 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:24:23 PM : Added {"operation_id": "eeb0d2c3-ec1e-4ffe-ba30-09721850c6dc-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 04/01/2014 12:24:24 PM : Popping {"operation_id": "eeb0d2c3-ec1e-4ffe-ba30-09721850c6dc-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 04/01/2014 12:24:24 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "eeb0d2c3-ec1e-4ffe-ba30-09721850c6dc-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': 'eeb0d2c3-ec1e-4ffe-ba30-09721850c6dc-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': 'eeb0d2c3-ec1e-4ffe-ba30-09721850c6dc-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 04/01/2014 12:24:24 PM : Adding operation eeb0d2c3-ec1e-4ffe-ba30-09721850c6dc-agent.
+DEBUG : 04/01/2014 12:24:24 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 04/01/2014 12:24:24 PM : Gathering monitoring data.
+DEBUG : 04/01/2014 12:24:24 PM : Done gathering monitoring data.
+DEBUG : 04/01/2014 12:24:24 PM : Added result / 54931334-5bb3-44ef-9048-6e365c7817ff-agent to OpQueue.
+DEBUG : 04/01/2014 12:24:25 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x7ffda004bef0>]
+DEBUG : 04/01/2014 12:24:25 PM : Sending message to server
+DEBUG : 04/01/2014 12:24:25 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 04/01/2014 12:24:25 PM : Logging into server
+DEBUG : 04/01/2014 12:24:26 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:24:26 PM : Login server text:  
+DEBUG : 04/01/2014 12:24:26 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 04/01/2014 12:24:26 PM : Status code: 200 
+DEBUG : 04/01/2014 12:24:26 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 04/01/2014 12:24:26 PM : Adding result_op eeb0d2c3-ec1e-4ffe-ba30-09721850c6dc-agent.
+DEBUG : 04/01/2014 12:24:39 PM : Sending message to server
+DEBUG : 04/01/2014 12:24:39 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:24:39 PM : Logging into server
+DEBUG : 04/01/2014 12:24:39 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:24:39 PM : Login server text:  
+DEBUG : 04/01/2014 12:24:39 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:24:39 PM : Status code: 500 
+DEBUG : 04/01/2014 12:24:39 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:24:39 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:25:39 PM : Sending message to server
+DEBUG : 04/01/2014 12:25:39 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:25:39 PM : Logging into server
+DEBUG : 04/01/2014 12:25:39 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:25:39 PM : Login server text:  
+DEBUG : 04/01/2014 12:25:39 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:25:39 PM : Status code: 500 
+DEBUG : 04/01/2014 12:25:39 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:25:39 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:26:39 PM : Sending message to server
+DEBUG : 04/01/2014 12:26:39 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:26:39 PM : Logging into server
+DEBUG : 04/01/2014 12:26:40 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:26:40 PM : Login server text:  
+DEBUG : 04/01/2014 12:26:40 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:26:40 PM : Status code: 500 
+DEBUG : 04/01/2014 12:26:40 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:26:40 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:27:40 PM : Sending message to server
+DEBUG : 04/01/2014 12:27:40 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:27:40 PM : Logging into server
+DEBUG : 04/01/2014 12:27:40 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:27:40 PM : Login server text:  
+DEBUG : 04/01/2014 12:27:40 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:27:40 PM : Status code: 500 
+DEBUG : 04/01/2014 12:27:40 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:27:40 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:28:40 PM : Sending message to server
+DEBUG : 04/01/2014 12:28:40 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:28:40 PM : Logging into server
+DEBUG : 04/01/2014 12:28:40 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:28:40 PM : Login server text:  
+DEBUG : 04/01/2014 12:28:40 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:28:40 PM : Status code: 500 
+DEBUG : 04/01/2014 12:28:40 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:28:40 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:29:23 PM : Added {"operation_id": "2c4f1731-0a32-445e-986c-d7d0baa63d24-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 04/01/2014 12:29:24 PM : Popping {"operation_id": "2c4f1731-0a32-445e-986c-d7d0baa63d24-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 04/01/2014 12:29:24 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "2c4f1731-0a32-445e-986c-d7d0baa63d24-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '2c4f1731-0a32-445e-986c-d7d0baa63d24-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '2c4f1731-0a32-445e-986c-d7d0baa63d24-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 04/01/2014 12:29:24 PM : Adding operation 2c4f1731-0a32-445e-986c-d7d0baa63d24-agent.
+DEBUG : 04/01/2014 12:29:24 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 04/01/2014 12:29:24 PM : Gathering monitoring data.
+DEBUG : 04/01/2014 12:29:24 PM : Done gathering monitoring data.
+DEBUG : 04/01/2014 12:29:24 PM : Added result / 4e5ae31b-0009-44b9-81ee-41aba3492c47-agent to OpQueue.
+DEBUG : 04/01/2014 12:29:26 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x7ffda003dcf8>]
+DEBUG : 04/01/2014 12:29:26 PM : Sending message to server
+DEBUG : 04/01/2014 12:29:26 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 04/01/2014 12:29:26 PM : Logging into server
+DEBUG : 04/01/2014 12:29:26 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:29:26 PM : Login server text:  
+DEBUG : 04/01/2014 12:29:26 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 04/01/2014 12:29:26 PM : Status code: 200 
+DEBUG : 04/01/2014 12:29:26 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 04/01/2014 12:29:26 PM : Adding result_op 2c4f1731-0a32-445e-986c-d7d0baa63d24-agent.
+DEBUG : 04/01/2014 12:29:40 PM : Sending message to server
+DEBUG : 04/01/2014 12:29:40 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:29:40 PM : Logging into server
+DEBUG : 04/01/2014 12:29:41 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:29:41 PM : Login server text:  
+DEBUG : 04/01/2014 12:29:41 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:29:41 PM : Status code: 500 
+DEBUG : 04/01/2014 12:29:41 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:29:41 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:30:41 PM : Sending message to server
+DEBUG : 04/01/2014 12:30:41 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:30:41 PM : Logging into server
+DEBUG : 04/01/2014 12:30:41 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:30:41 PM : Login server text:  
+DEBUG : 04/01/2014 12:30:41 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:30:41 PM : Status code: 500 
+DEBUG : 04/01/2014 12:30:41 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:30:41 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:31:41 PM : Sending message to server
+DEBUG : 04/01/2014 12:31:41 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:31:41 PM : Logging into server
+DEBUG : 04/01/2014 12:31:41 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:31:41 PM : Login server text:  
+DEBUG : 04/01/2014 12:31:41 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:31:41 PM : Status code: 500 
+DEBUG : 04/01/2014 12:31:41 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:31:41 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:32:41 PM : Sending message to server
+DEBUG : 04/01/2014 12:32:41 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:32:41 PM : Logging into server
+DEBUG : 04/01/2014 12:32:42 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:32:42 PM : Login server text:  
+DEBUG : 04/01/2014 12:32:42 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:32:42 PM : Status code: 500 
+DEBUG : 04/01/2014 12:32:42 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:32:42 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:33:42 PM : Sending message to server
+DEBUG : 04/01/2014 12:33:42 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:33:42 PM : Logging into server
+DEBUG : 04/01/2014 12:33:42 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:33:42 PM : Login server text:  
+DEBUG : 04/01/2014 12:33:42 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:33:42 PM : Status code: 500 
+DEBUG : 04/01/2014 12:33:42 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:33:42 PM : Could not check-in to server. See logs for details.
+DEBUG : 04/01/2014 12:34:23 PM : Added {"operation_id": "0f7961d9-1d69-407a-87cd-a874c4fbfebd-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 04/01/2014 12:34:25 PM : Popping {"operation_id": "0f7961d9-1d69-407a-87cd-a874c4fbfebd-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 04/01/2014 12:34:25 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "0f7961d9-1d69-407a-87cd-a874c4fbfebd-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '0f7961d9-1d69-407a-87cd-a874c4fbfebd-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '0f7961d9-1d69-407a-87cd-a874c4fbfebd-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 04/01/2014 12:34:25 PM : Adding operation 0f7961d9-1d69-407a-87cd-a874c4fbfebd-agent.
+DEBUG : 04/01/2014 12:34:25 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 04/01/2014 12:34:25 PM : Gathering monitoring data.
+DEBUG : 04/01/2014 12:34:25 PM : Done gathering monitoring data.
+DEBUG : 04/01/2014 12:34:25 PM : Added result / bba4c072-7287-4810-a39a-f2719f5ee19c-agent to OpQueue.
+DEBUG : 04/01/2014 12:34:27 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x7ffda002b128>]
+DEBUG : 04/01/2014 12:34:27 PM : Sending message to server
+DEBUG : 04/01/2014 12:34:27 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 04/01/2014 12:34:27 PM : Logging into server
+DEBUG : 04/01/2014 12:34:27 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:34:27 PM : Login server text:  
+DEBUG : 04/01/2014 12:34:27 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 04/01/2014 12:34:27 PM : Status code: 200 
+DEBUG : 04/01/2014 12:34:27 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 04/01/2014 12:34:27 PM : Adding result_op 0f7961d9-1d69-407a-87cd-a874c4fbfebd-agent.
+DEBUG : 04/01/2014 12:34:42 PM : Sending message to server
+DEBUG : 04/01/2014 12:34:42 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 04/01/2014 12:34:42 PM : Logging into server
+DEBUG : 04/01/2014 12:34:42 PM : Login status code: 200 
+DEBUG : 04/01/2014 12:34:42 PM : Login server text:  
+DEBUG : 04/01/2014 12:34:42 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 04/01/2014 12:34:42 PM : Status code: 500 
+DEBUG : 04/01/2014 12:34:42 PM : Server text: {"rv_status_code": 1013, "message": "admin - check_in 58f3209f-336b-4d7a-a0b7-689f15742d8d broke: 'tuple' object has no attribute 'get'", "http_method": "GET", "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "http_status": 500} 
+ERROR : 04/01/2014 12:34:42 PM : Could not check-in to server. See logs for details.

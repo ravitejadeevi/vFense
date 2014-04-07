@@ -1,0 +1,1496 @@
+ERROR : 03/28/2014 07:34:49 PM : Unable to save vine password.
+ERROR : 03/28/2014 07:34:49 PM : Exception: [Errno 8] Exec format error
+DEBUG : 03/28/2014 07:34:49 PM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/plugins/ra/vine/__init__.py", line 198, in _vine_set_password
+    stderr=subprocess.PIPE
+  File "/usr/lib/python2.7/subprocess.py", line 679, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1249, in _execute_child
+    raise child_exception
+OSError: [Errno 8] Exec format error
+
+DEBUG : 03/28/2014 07:34:49 PM : Unable to import module rv.rvsofoperation. Skipping.
+ERROR : 03/28/2014 07:34:49 PM : Exception: __init__() takes exactly 12 arguments (1 given)
+DEBUG : 03/28/2014 07:34:49 PM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/core.py", line 103, in load_plugins
+    plug = _class()
+TypeError: __init__() takes exactly 12 arguments (1 given)
+
+DEBUG : 03/28/2014 07:34:49 PM : Unable to import module rv.rvsofoperation. Skipping.
+ERROR : 03/28/2014 07:34:49 PM : Exception: __new__() takes exactly 4 arguments (1 given)
+DEBUG : 03/28/2014 07:34:49 PM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/core.py", line 103, in load_plugins
+    plug = _class()
+TypeError: __new__() takes exactly 4 arguments (1 given)
+
+DEBUG : 03/28/2014 07:34:49 PM : Unable to import module rv.rvsofoperation. Skipping.
+ERROR : 03/28/2014 07:34:49 PM : Exception: 'str' object has no attribute 'get'
+DEBUG : 03/28/2014 07:34:49 PM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/core.py", line 103, in load_plugins
+    plug = _class()
+  File "/opt/TopPatch/agent/plugins/rv/rvsofoperation.py", line 220, in __init__
+    self.cpu_priority = self._get_cpu_priority()
+  File "/opt/TopPatch/agent/plugins/rv/rvsofoperation.py", line 241, in _get_cpu_priority
+    return self.json_message.get(
+AttributeError: 'str' object has no attribute 'get'
+
+DEBUG : 03/28/2014 07:34:49 PM : Unable to import module rv.rvsofoperation. Skipping.
+ERROR : 03/28/2014 07:34:49 PM : Exception: __new__() takes exactly 7 arguments (1 given)
+DEBUG : 03/28/2014 07:34:49 PM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/core.py", line 103, in load_plugins
+    plug = _class()
+TypeError: __new__() takes exactly 7 arguments (1 given)
+
+DEBUG : 03/28/2014 07:34:49 PM : Using DebianHandler.
+DEBUG : 03/28/2014 07:34:49 PM : Unable to import module rv.rvsofoperation. Skipping.
+ERROR : 03/28/2014 07:34:49 PM : Exception: __init__() takes exactly 12 arguments (1 given)
+DEBUG : 03/28/2014 07:34:49 PM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/core.py", line 103, in load_plugins
+    plug = _class()
+TypeError: __init__() takes exactly 12 arguments (1 given)
+
+DEBUG : 03/28/2014 07:34:49 PM : Unable to import module utils. Skipping.
+ERROR : 03/28/2014 07:34:49 PM : Exception: __init__() takes at least 3 arguments (1 given)
+DEBUG : 03/28/2014 07:34:49 PM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/core.py", line 103, in load_plugins
+    plug = _class()
+TypeError: __init__() takes at least 3 arguments (1 given)
+
+DEBUG : 03/28/2014 07:34:49 PM : Unable to import module rv.rvsofoperation. Skipping.
+ERROR : 03/28/2014 07:34:49 PM : Exception: 'str' object has no attribute 'get'
+DEBUG : 03/28/2014 07:34:49 PM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/core.py", line 103, in load_plugins
+    plug = _class()
+  File "/opt/TopPatch/agent/plugins/rv/rvsofoperation.py", line 220, in __init__
+    self.cpu_priority = self._get_cpu_priority()
+  File "/opt/TopPatch/agent/plugins/rv/rvsofoperation.py", line 241, in _get_cpu_priority
+    return self.json_message.get(
+AttributeError: 'str' object has no attribute 'get'
+
+DEBUG : 03/28/2014 07:34:49 PM : Unable to import module utils. Skipping.
+ERROR : 03/28/2014 07:34:49 PM : Exception: __init__() takes at least 3 arguments (1 given)
+DEBUG : 03/28/2014 07:34:49 PM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/core.py", line 103, in load_plugins
+    plug = _class()
+TypeError: __init__() takes at least 3 arguments (1 given)
+
+INFO : 03/28/2014 07:34:49 PM : Starting agent.
+DEBUG : 03/28/2014 07:34:50 PM : Internet connection detected.
+INFO : 03/28/2014 07:34:50 PM : Sending initial data.
+INFO : 03/28/2014 07:34:50 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': '', 'type': 'new_agent', 'raw_result': '', 'raw_operation': '{"operation_id": "c1ca7425-373b-4c56-98f0-ab242f091329-agent", "operation": "new_agent", "plugin": ""}', 'json_message': {'operation_id': 'c1ca7425-373b-4c56-98f0-ab242f091329-agent', 'operation': 'new_agent', 'plugin': ''}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': 'c1ca7425-373b-4c56-98f0-ab242f091329-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 07:34:50 PM : Adding operation c1ca7425-373b-4c56-98f0-ab242f091329-agent.
+DEBUG : 03/28/2014 07:34:50 PM : System info sent: {"os_code": "linux", "version": "3.2.0-60-generic", "bit_type": "64", "host_name": "", "computer_name": "parallels-Parallels-Virtual-Platform", "os_string": "Ubuntu 12.04"}
+DEBUG : 03/28/2014 07:34:50 PM : Hardware info sent: {'nic': [{'mac': '001c42d5c06a', 'ip_address': '10.211.55.3', 'name': 'eth1'}], 'display': [{'speed_mhz': '66', 'name': 'Parallels, Inc. Accelerated Virtual Video Adapter (prog-if 00 [VGA controller])', 'ram_kb': 32768}], 'storage': [{'free_size_kb': 29960220, 'name': '/dev/sda1', 'size_kb': 61719820, 'file_system': 'ext4'}, {'free_size_kb': 2014424, 'name': 'udev', 'size_kb': 2014428, 'file_system': 'devtmpfs'}, {'free_size_kb': 2014424, 'name': 'udev', 'size_kb': 2014428, 'file_system': 'devtmpfs'}], 'cpu': [{'cpu_id': 0, 'speed_mhz': 2294.0, 'bit_type': 64, 'name': 'Intel(R) Core(TM) i7-3615QM CPU @ 2.30GHz', 'cache_kb': 6144.0, 'cores': 4}], 'memory': 4046472.0}
+INFO : 03/28/2014 07:34:50 PM : Checking if agent updated.
+INFO : 03/28/2014 07:34:50 PM : Getting available updates.
+DEBUG : 03/28/2014 07:34:50 PM : Updating index.
+DEBUG : 03/28/2014 07:34:50 PM : Done updating index.
+DEBUG : 03/28/2014 07:35:00 PM : Done getting info for 1 out of 1. Package name: vfense-server
+DEBUG : 03/28/2014 07:35:00 PM : Sending initial ra data.
+DEBUG : 03/28/2014 07:35:01 PM : Done with initial ra data.
+DEBUG : 03/28/2014 07:35:01 PM : Getting initial monitoring data.
+DEBUG : 03/28/2014 07:35:01 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 07:35:01 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 07:35:01 PM : Done with initial monitoring data.
+DEBUG : 03/28/2014 07:35:01 PM : Added result / e1d39f6b-8759-4e0b-9611-9389aa7c6a9e-agent to OpQueue.
+INFO : 03/28/2014 07:35:01 PM : Ready up.
+DEBUG : 03/28/2014 07:35:02 PM : e1d39f6b-8759-4e0b-9611-9389aa7c6a9e-agent / result will not be saved.
+DEBUG : 03/28/2014 07:35:02 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x376dcb0>]
+DEBUG : 03/28/2014 07:35:02 PM : Sending message to server
+DEBUG : 03/28/2014 07:35:02 PM : https://10.211.55.3/rvl/v1/core/newagent
+DEBUG : 03/28/2014 07:35:02 PM : Logging into server
+DEBUG : 03/28/2014 07:35:02 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:35:02 PM : Login server text:  
+DEBUG : 03/28/2014 07:35:03 PM : Url: https://10.211.55.3/rvl/v1/core/newagent 
+DEBUG : 03/28/2014 07:35:03 PM : Status code: 200 
+DEBUG : 03/28/2014 07:35:03 PM : Server text: {
+    "uri": "/rvl/v1/core/newagent", 
+    "rv_status_code": 3001, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - operation new_agent succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d ", 
+    "data": [
+        {
+            "operation_id": "", 
+            "operation": "new_agent_id", 
+            "agent_id": "58f3209f-336b-4d7a-a0b7-689f15742d8d"
+        }
+    ]
+} 
+DEBUG : 03/28/2014 07:35:03 PM : Added new_agent_id /  to OpQueue.
+DEBUG : 03/28/2014 07:35:03 PM : Adding result_op c1ca7425-373b-4c56-98f0-ab242f091329-agent.
+DEBUG : 03/28/2014 07:35:06 PM : Popping  from OpQueue.
+INFO : 03/28/2014 07:35:06 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': '', 'type': 'new_agent_id', 'raw_result': '', 'raw_operation': '{"operation_id": "", "operation": "new_agent_id", "agent_id": "58f3209f-336b-4d7a-a0b7-689f15742d8d"}', 'json_message': {'operation_id': '', 'operation': 'new_agent_id', 'agent_id': '58f3209f-336b-4d7a-a0b7-689f15742d8d'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 07:35:06 PM : Adding operation .
+DEBUG : 03/28/2014 07:36:01 PM : Sending message to server
+DEBUG : 03/28/2014 07:36:01 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:36:01 PM : Logging into server
+DEBUG : 03/28/2014 07:36:01 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:36:01 PM : Login server text:  
+DEBUG : 03/28/2014 07:36:01 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:36:01 PM : Status code: 200 
+DEBUG : 03/28/2014 07:36:01 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:37:01 PM : Sending message to server
+DEBUG : 03/28/2014 07:37:01 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:37:01 PM : Logging into server
+DEBUG : 03/28/2014 07:37:02 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:37:02 PM : Login server text:  
+DEBUG : 03/28/2014 07:37:02 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:37:02 PM : Status code: 200 
+DEBUG : 03/28/2014 07:37:02 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:38:02 PM : Sending message to server
+DEBUG : 03/28/2014 07:38:02 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:38:02 PM : Logging into server
+DEBUG : 03/28/2014 07:38:02 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:38:02 PM : Login server text:  
+DEBUG : 03/28/2014 07:38:02 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:38:02 PM : Status code: 200 
+DEBUG : 03/28/2014 07:38:02 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:39:03 PM : Sending message to server
+DEBUG : 03/28/2014 07:39:03 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:39:03 PM : Logging into server
+DEBUG : 03/28/2014 07:39:04 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:39:04 PM : Login server text:  
+DEBUG : 03/28/2014 07:39:05 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:39:05 PM : Status code: 200 
+DEBUG : 03/28/2014 07:39:05 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:40:01 PM : Added {"operation_id": "f89f3d27-25cb-4d7c-88dd-01baecc7fbe8-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 07:40:05 PM : Popping {"operation_id": "f89f3d27-25cb-4d7c-88dd-01baecc7fbe8-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 07:40:05 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "f89f3d27-25cb-4d7c-88dd-01baecc7fbe8-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': 'f89f3d27-25cb-4d7c-88dd-01baecc7fbe8-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': 'f89f3d27-25cb-4d7c-88dd-01baecc7fbe8-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 07:40:05 PM : Adding operation f89f3d27-25cb-4d7c-88dd-01baecc7fbe8-agent.
+DEBUG : 03/28/2014 07:40:05 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 07:40:05 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 07:40:05 PM : Sending message to server
+DEBUG : 03/28/2014 07:40:05 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:40:05 PM : Logging into server
+DEBUG : 03/28/2014 07:40:05 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 07:40:05 PM : Added result / f50f3f1c-f9b3-43a5-8e19-3d33f4979911-agent to OpQueue.
+DEBUG : 03/28/2014 07:40:06 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:40:06 PM : Login server text:  
+DEBUG : 03/28/2014 07:40:06 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:40:06 PM : Status code: 200 
+DEBUG : 03/28/2014 07:40:06 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:40:09 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31eb320>]
+DEBUG : 03/28/2014 07:40:09 PM : Sending message to server
+DEBUG : 03/28/2014 07:40:09 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 07:40:09 PM : Logging into server
+DEBUG : 03/28/2014 07:40:09 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:40:09 PM : Login server text:  
+DEBUG : 03/28/2014 07:40:09 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 07:40:09 PM : Status code: 200 
+DEBUG : 03/28/2014 07:40:09 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 07:40:09 PM : Adding result_op f89f3d27-25cb-4d7c-88dd-01baecc7fbe8-agent.
+DEBUG : 03/28/2014 07:41:06 PM : Sending message to server
+DEBUG : 03/28/2014 07:41:06 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:41:06 PM : Logging into server
+DEBUG : 03/28/2014 07:41:06 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:41:06 PM : Login server text:  
+DEBUG : 03/28/2014 07:41:07 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:41:07 PM : Status code: 200 
+DEBUG : 03/28/2014 07:41:07 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:42:07 PM : Sending message to server
+DEBUG : 03/28/2014 07:42:07 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:42:07 PM : Logging into server
+DEBUG : 03/28/2014 07:42:07 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:42:07 PM : Login server text:  
+DEBUG : 03/28/2014 07:42:07 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:42:07 PM : Status code: 200 
+DEBUG : 03/28/2014 07:42:07 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:43:07 PM : Sending message to server
+DEBUG : 03/28/2014 07:43:07 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:43:07 PM : Logging into server
+DEBUG : 03/28/2014 07:43:07 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:43:07 PM : Login server text:  
+DEBUG : 03/28/2014 07:43:08 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:43:08 PM : Status code: 200 
+DEBUG : 03/28/2014 07:43:08 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:44:08 PM : Sending message to server
+DEBUG : 03/28/2014 07:44:08 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:44:08 PM : Logging into server
+DEBUG : 03/28/2014 07:44:08 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:44:08 PM : Login server text:  
+DEBUG : 03/28/2014 07:44:08 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:44:08 PM : Status code: 200 
+DEBUG : 03/28/2014 07:44:08 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:45:01 PM : Added {"operation_id": "c61a7c8e-d8e7-44a1-b398-13b28d6d6b49-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 07:45:02 PM : Popping {"operation_id": "c61a7c8e-d8e7-44a1-b398-13b28d6d6b49-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 07:45:02 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "c61a7c8e-d8e7-44a1-b398-13b28d6d6b49-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': 'c61a7c8e-d8e7-44a1-b398-13b28d6d6b49-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': 'c61a7c8e-d8e7-44a1-b398-13b28d6d6b49-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 07:45:02 PM : Adding operation c61a7c8e-d8e7-44a1-b398-13b28d6d6b49-agent.
+DEBUG : 03/28/2014 07:45:02 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 07:45:02 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 07:45:02 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 07:45:02 PM : Added result / 1b6e00d7-bc19-41b3-8568-264180e0f692-agent to OpQueue.
+DEBUG : 03/28/2014 07:45:06 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31e04d0>]
+DEBUG : 03/28/2014 07:45:06 PM : Sending message to server
+DEBUG : 03/28/2014 07:45:06 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 07:45:06 PM : Logging into server
+DEBUG : 03/28/2014 07:45:06 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:45:06 PM : Login server text:  
+DEBUG : 03/28/2014 07:45:06 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 07:45:06 PM : Status code: 200 
+DEBUG : 03/28/2014 07:45:06 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 07:45:06 PM : Adding result_op c61a7c8e-d8e7-44a1-b398-13b28d6d6b49-agent.
+DEBUG : 03/28/2014 07:45:08 PM : Sending message to server
+DEBUG : 03/28/2014 07:45:08 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:45:08 PM : Logging into server
+DEBUG : 03/28/2014 07:45:08 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:45:08 PM : Login server text:  
+DEBUG : 03/28/2014 07:45:08 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:45:08 PM : Status code: 200 
+DEBUG : 03/28/2014 07:45:08 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:46:08 PM : Sending message to server
+DEBUG : 03/28/2014 07:46:08 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:46:08 PM : Logging into server
+DEBUG : 03/28/2014 07:46:09 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:46:09 PM : Login server text:  
+DEBUG : 03/28/2014 07:46:09 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:46:09 PM : Status code: 200 
+DEBUG : 03/28/2014 07:46:09 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:47:09 PM : Sending message to server
+DEBUG : 03/28/2014 07:47:09 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:47:09 PM : Logging into server
+DEBUG : 03/28/2014 07:47:09 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:47:09 PM : Login server text:  
+DEBUG : 03/28/2014 07:47:09 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:47:09 PM : Status code: 200 
+DEBUG : 03/28/2014 07:47:09 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:48:09 PM : Sending message to server
+DEBUG : 03/28/2014 07:48:09 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:48:09 PM : Logging into server
+DEBUG : 03/28/2014 07:48:09 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:48:09 PM : Login server text:  
+DEBUG : 03/28/2014 07:48:09 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:48:09 PM : Status code: 200 
+DEBUG : 03/28/2014 07:48:09 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:49:09 PM : Sending message to server
+DEBUG : 03/28/2014 07:49:09 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:49:09 PM : Logging into server
+DEBUG : 03/28/2014 07:49:10 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:49:10 PM : Login server text:  
+DEBUG : 03/28/2014 07:49:10 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:49:10 PM : Status code: 200 
+DEBUG : 03/28/2014 07:49:10 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:50:01 PM : Added {"operation_id": "6ba2d827-6227-438f-8827-2a299ff7ecbd-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 07:50:02 PM : Popping {"operation_id": "6ba2d827-6227-438f-8827-2a299ff7ecbd-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 07:50:02 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "6ba2d827-6227-438f-8827-2a299ff7ecbd-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '6ba2d827-6227-438f-8827-2a299ff7ecbd-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '6ba2d827-6227-438f-8827-2a299ff7ecbd-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 07:50:02 PM : Adding operation 6ba2d827-6227-438f-8827-2a299ff7ecbd-agent.
+DEBUG : 03/28/2014 07:50:02 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 07:50:02 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 07:50:02 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 07:50:02 PM : Added result / f1456d23-a309-4bff-ac02-4d04a8befac5-agent to OpQueue.
+DEBUG : 03/28/2014 07:50:06 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31e1fc8>]
+DEBUG : 03/28/2014 07:50:06 PM : Sending message to server
+DEBUG : 03/28/2014 07:50:06 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 07:50:06 PM : Logging into server
+DEBUG : 03/28/2014 07:50:07 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:50:07 PM : Login server text:  
+DEBUG : 03/28/2014 07:50:07 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 07:50:07 PM : Status code: 200 
+DEBUG : 03/28/2014 07:50:07 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 07:50:07 PM : Adding result_op 6ba2d827-6227-438f-8827-2a299ff7ecbd-agent.
+DEBUG : 03/28/2014 07:50:10 PM : Sending message to server
+DEBUG : 03/28/2014 07:50:10 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:50:10 PM : Logging into server
+DEBUG : 03/28/2014 07:50:10 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:50:10 PM : Login server text:  
+DEBUG : 03/28/2014 07:50:10 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:50:10 PM : Status code: 200 
+DEBUG : 03/28/2014 07:50:10 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:51:10 PM : Sending message to server
+DEBUG : 03/28/2014 07:51:10 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:51:10 PM : Logging into server
+DEBUG : 03/28/2014 07:51:10 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:51:10 PM : Login server text:  
+DEBUG : 03/28/2014 07:51:10 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:51:10 PM : Status code: 200 
+DEBUG : 03/28/2014 07:51:10 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:52:10 PM : Sending message to server
+DEBUG : 03/28/2014 07:52:10 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:52:10 PM : Logging into server
+DEBUG : 03/28/2014 07:52:11 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:52:11 PM : Login server text:  
+DEBUG : 03/28/2014 07:52:11 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:52:11 PM : Status code: 200 
+DEBUG : 03/28/2014 07:52:11 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:53:11 PM : Sending message to server
+DEBUG : 03/28/2014 07:53:11 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:53:11 PM : Logging into server
+DEBUG : 03/28/2014 07:53:11 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:53:11 PM : Login server text:  
+DEBUG : 03/28/2014 07:53:11 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:53:11 PM : Status code: 200 
+DEBUG : 03/28/2014 07:53:11 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:54:11 PM : Sending message to server
+DEBUG : 03/28/2014 07:54:11 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:54:11 PM : Logging into server
+DEBUG : 03/28/2014 07:54:12 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:54:12 PM : Login server text:  
+DEBUG : 03/28/2014 07:54:12 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:54:12 PM : Status code: 200 
+DEBUG : 03/28/2014 07:54:12 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:55:01 PM : Added {"operation_id": "b471199f-d8ae-4abd-b68b-995de0cb2307-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 07:55:02 PM : Popping {"operation_id": "b471199f-d8ae-4abd-b68b-995de0cb2307-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 07:55:02 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "b471199f-d8ae-4abd-b68b-995de0cb2307-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': 'b471199f-d8ae-4abd-b68b-995de0cb2307-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': 'b471199f-d8ae-4abd-b68b-995de0cb2307-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 07:55:02 PM : Adding operation b471199f-d8ae-4abd-b68b-995de0cb2307-agent.
+DEBUG : 03/28/2014 07:55:02 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 07:55:02 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 07:55:02 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 07:55:02 PM : Added result / 7fed6643-a531-4821-8052-4f57018cc099-agent to OpQueue.
+DEBUG : 03/28/2014 07:55:03 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31e39e0>]
+DEBUG : 03/28/2014 07:55:03 PM : Sending message to server
+DEBUG : 03/28/2014 07:55:03 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 07:55:03 PM : Logging into server
+DEBUG : 03/28/2014 07:55:03 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:55:03 PM : Login server text:  
+DEBUG : 03/28/2014 07:55:03 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 07:55:03 PM : Status code: 200 
+DEBUG : 03/28/2014 07:55:03 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 07:55:03 PM : Adding result_op b471199f-d8ae-4abd-b68b-995de0cb2307-agent.
+DEBUG : 03/28/2014 07:55:12 PM : Sending message to server
+DEBUG : 03/28/2014 07:55:12 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:55:12 PM : Logging into server
+DEBUG : 03/28/2014 07:55:12 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:55:12 PM : Login server text:  
+DEBUG : 03/28/2014 07:55:12 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:55:12 PM : Status code: 200 
+DEBUG : 03/28/2014 07:55:12 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:56:12 PM : Sending message to server
+DEBUG : 03/28/2014 07:56:12 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:56:12 PM : Logging into server
+DEBUG : 03/28/2014 07:56:12 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:56:12 PM : Login server text:  
+DEBUG : 03/28/2014 07:56:12 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:56:12 PM : Status code: 200 
+DEBUG : 03/28/2014 07:56:12 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:57:12 PM : Sending message to server
+DEBUG : 03/28/2014 07:57:12 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:57:12 PM : Logging into server
+DEBUG : 03/28/2014 07:57:13 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:57:13 PM : Login server text:  
+DEBUG : 03/28/2014 07:57:13 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:57:13 PM : Status code: 200 
+DEBUG : 03/28/2014 07:57:13 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:58:13 PM : Sending message to server
+DEBUG : 03/28/2014 07:58:13 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:58:13 PM : Logging into server
+DEBUG : 03/28/2014 07:58:13 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:58:13 PM : Login server text:  
+DEBUG : 03/28/2014 07:58:13 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:58:13 PM : Status code: 200 
+DEBUG : 03/28/2014 07:58:13 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 07:59:13 PM : Sending message to server
+DEBUG : 03/28/2014 07:59:13 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 07:59:13 PM : Logging into server
+DEBUG : 03/28/2014 07:59:13 PM : Login status code: 200 
+DEBUG : 03/28/2014 07:59:13 PM : Login server text:  
+DEBUG : 03/28/2014 07:59:13 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 07:59:13 PM : Status code: 200 
+DEBUG : 03/28/2014 07:59:13 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:00:01 PM : Added {"operation_id": "dcb3a9cb-b387-4c73-bdac-4ef279d54258-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 08:00:03 PM : Popping {"operation_id": "dcb3a9cb-b387-4c73-bdac-4ef279d54258-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 08:00:03 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "dcb3a9cb-b387-4c73-bdac-4ef279d54258-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': 'dcb3a9cb-b387-4c73-bdac-4ef279d54258-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': 'dcb3a9cb-b387-4c73-bdac-4ef279d54258-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 08:00:03 PM : Adding operation dcb3a9cb-b387-4c73-bdac-4ef279d54258-agent.
+DEBUG : 03/28/2014 08:00:03 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 08:00:03 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 08:00:03 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 08:00:03 PM : Added result / 9bc968cf-ccb0-4880-8bf3-ff0e6b53431a-agent to OpQueue.
+DEBUG : 03/28/2014 08:00:04 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31e5440>]
+DEBUG : 03/28/2014 08:00:04 PM : Sending message to server
+DEBUG : 03/28/2014 08:00:04 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 08:00:04 PM : Logging into server
+DEBUG : 03/28/2014 08:00:04 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:00:04 PM : Login server text:  
+DEBUG : 03/28/2014 08:00:04 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 08:00:04 PM : Status code: 200 
+DEBUG : 03/28/2014 08:00:04 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 08:00:04 PM : Adding result_op dcb3a9cb-b387-4c73-bdac-4ef279d54258-agent.
+DEBUG : 03/28/2014 08:00:13 PM : Sending message to server
+DEBUG : 03/28/2014 08:00:13 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:00:13 PM : Logging into server
+DEBUG : 03/28/2014 08:00:14 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:00:14 PM : Login server text:  
+DEBUG : 03/28/2014 08:00:14 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:00:14 PM : Status code: 200 
+DEBUG : 03/28/2014 08:00:14 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:01:14 PM : Sending message to server
+DEBUG : 03/28/2014 08:01:14 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:01:14 PM : Logging into server
+DEBUG : 03/28/2014 08:01:14 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:01:14 PM : Login server text:  
+DEBUG : 03/28/2014 08:01:14 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:01:14 PM : Status code: 200 
+DEBUG : 03/28/2014 08:01:14 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:02:14 PM : Sending message to server
+DEBUG : 03/28/2014 08:02:14 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:02:14 PM : Logging into server
+DEBUG : 03/28/2014 08:02:14 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:02:14 PM : Login server text:  
+DEBUG : 03/28/2014 08:02:14 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:02:14 PM : Status code: 200 
+DEBUG : 03/28/2014 08:02:14 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:03:14 PM : Sending message to server
+DEBUG : 03/28/2014 08:03:14 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:03:14 PM : Logging into server
+DEBUG : 03/28/2014 08:03:15 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:03:15 PM : Login server text:  
+DEBUG : 03/28/2014 08:03:15 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:03:15 PM : Status code: 200 
+DEBUG : 03/28/2014 08:03:15 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:04:15 PM : Sending message to server
+DEBUG : 03/28/2014 08:04:15 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:04:15 PM : Logging into server
+DEBUG : 03/28/2014 08:04:15 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:04:15 PM : Login server text:  
+DEBUG : 03/28/2014 08:04:15 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:04:15 PM : Status code: 200 
+DEBUG : 03/28/2014 08:04:15 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:05:01 PM : Added {"operation_id": "b5713b37-2bf7-4535-8d8b-915cb7497d2b-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 08:05:03 PM : Popping {"operation_id": "b5713b37-2bf7-4535-8d8b-915cb7497d2b-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 08:05:03 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "b5713b37-2bf7-4535-8d8b-915cb7497d2b-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': 'b5713b37-2bf7-4535-8d8b-915cb7497d2b-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': 'b5713b37-2bf7-4535-8d8b-915cb7497d2b-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 08:05:03 PM : Adding operation b5713b37-2bf7-4535-8d8b-915cb7497d2b-agent.
+DEBUG : 03/28/2014 08:05:03 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 08:05:03 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 08:05:03 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 08:05:03 PM : Added result / 2852cc9c-6339-44f6-886d-18ca5fe8a1c1-agent to OpQueue.
+DEBUG : 03/28/2014 08:05:04 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31e6dd0>]
+DEBUG : 03/28/2014 08:05:04 PM : Sending message to server
+DEBUG : 03/28/2014 08:05:04 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 08:05:04 PM : Logging into server
+DEBUG : 03/28/2014 08:05:04 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:05:04 PM : Login server text:  
+DEBUG : 03/28/2014 08:05:04 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 08:05:04 PM : Status code: 200 
+DEBUG : 03/28/2014 08:05:04 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 08:05:04 PM : Adding result_op b5713b37-2bf7-4535-8d8b-915cb7497d2b-agent.
+DEBUG : 03/28/2014 08:05:15 PM : Sending message to server
+DEBUG : 03/28/2014 08:05:15 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:05:15 PM : Logging into server
+DEBUG : 03/28/2014 08:05:15 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:05:15 PM : Login server text:  
+DEBUG : 03/28/2014 08:05:15 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:05:15 PM : Status code: 200 
+DEBUG : 03/28/2014 08:05:15 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:06:15 PM : Sending message to server
+DEBUG : 03/28/2014 08:06:15 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:06:15 PM : Logging into server
+DEBUG : 03/28/2014 08:06:16 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:06:16 PM : Login server text:  
+DEBUG : 03/28/2014 08:06:16 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:06:16 PM : Status code: 200 
+DEBUG : 03/28/2014 08:06:16 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:07:16 PM : Sending message to server
+DEBUG : 03/28/2014 08:07:16 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:07:16 PM : Logging into server
+DEBUG : 03/28/2014 08:07:16 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:07:16 PM : Login server text:  
+DEBUG : 03/28/2014 08:07:16 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:07:16 PM : Status code: 200 
+DEBUG : 03/28/2014 08:07:16 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:08:16 PM : Sending message to server
+DEBUG : 03/28/2014 08:08:16 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:08:16 PM : Logging into server
+DEBUG : 03/28/2014 08:08:16 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:08:16 PM : Login server text:  
+DEBUG : 03/28/2014 08:08:16 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:08:16 PM : Status code: 200 
+DEBUG : 03/28/2014 08:08:16 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:09:16 PM : Sending message to server
+DEBUG : 03/28/2014 08:09:16 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:09:16 PM : Logging into server
+DEBUG : 03/28/2014 08:09:17 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:09:17 PM : Login server text:  
+DEBUG : 03/28/2014 08:09:17 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:09:17 PM : Status code: 200 
+DEBUG : 03/28/2014 08:09:17 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:10:01 PM : Added {"operation_id": "1c3e8aac-9abd-4af1-96ec-6ec46117d578-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 08:10:03 PM : Popping {"operation_id": "1c3e8aac-9abd-4af1-96ec-6ec46117d578-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 08:10:03 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "1c3e8aac-9abd-4af1-96ec-6ec46117d578-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '1c3e8aac-9abd-4af1-96ec-6ec46117d578-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '1c3e8aac-9abd-4af1-96ec-6ec46117d578-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 08:10:03 PM : Adding operation 1c3e8aac-9abd-4af1-96ec-6ec46117d578-agent.
+DEBUG : 03/28/2014 08:10:03 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 08:10:03 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 08:10:03 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 08:10:03 PM : Added result / 1848cbf5-a37d-468d-a26c-3d7afee058ad-agent to OpQueue.
+DEBUG : 03/28/2014 08:10:05 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31db098>]
+DEBUG : 03/28/2014 08:10:05 PM : Sending message to server
+DEBUG : 03/28/2014 08:10:05 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 08:10:05 PM : Logging into server
+DEBUG : 03/28/2014 08:10:05 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:10:05 PM : Login server text:  
+DEBUG : 03/28/2014 08:10:05 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 08:10:05 PM : Status code: 200 
+DEBUG : 03/28/2014 08:10:05 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 08:10:05 PM : Adding result_op 1c3e8aac-9abd-4af1-96ec-6ec46117d578-agent.
+DEBUG : 03/28/2014 08:10:17 PM : Sending message to server
+DEBUG : 03/28/2014 08:10:17 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:10:17 PM : Logging into server
+DEBUG : 03/28/2014 08:10:17 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:10:17 PM : Login server text:  
+DEBUG : 03/28/2014 08:10:17 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:10:17 PM : Status code: 200 
+DEBUG : 03/28/2014 08:10:17 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:11:17 PM : Sending message to server
+DEBUG : 03/28/2014 08:11:17 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:11:17 PM : Logging into server
+DEBUG : 03/28/2014 08:11:18 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:11:18 PM : Login server text:  
+DEBUG : 03/28/2014 08:11:18 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:11:18 PM : Status code: 200 
+DEBUG : 03/28/2014 08:11:18 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:12:18 PM : Sending message to server
+DEBUG : 03/28/2014 08:12:18 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:12:18 PM : Logging into server
+DEBUG : 03/28/2014 08:12:18 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:12:18 PM : Login server text:  
+DEBUG : 03/28/2014 08:12:18 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:12:18 PM : Status code: 200 
+DEBUG : 03/28/2014 08:12:18 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:13:18 PM : Sending message to server
+DEBUG : 03/28/2014 08:13:18 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:13:18 PM : Logging into server
+DEBUG : 03/28/2014 08:13:18 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:13:18 PM : Login server text:  
+DEBUG : 03/28/2014 08:13:18 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:13:18 PM : Status code: 200 
+DEBUG : 03/28/2014 08:13:18 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:14:18 PM : Sending message to server
+DEBUG : 03/28/2014 08:14:18 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:14:18 PM : Logging into server
+DEBUG : 03/28/2014 08:14:19 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:14:19 PM : Login server text:  
+DEBUG : 03/28/2014 08:14:19 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:14:19 PM : Status code: 200 
+DEBUG : 03/28/2014 08:14:19 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:15:01 PM : Added {"operation_id": "c409000f-5a8c-4744-999f-109541331602-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 08:15:04 PM : Popping {"operation_id": "c409000f-5a8c-4744-999f-109541331602-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 08:15:04 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "c409000f-5a8c-4744-999f-109541331602-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': 'c409000f-5a8c-4744-999f-109541331602-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': 'c409000f-5a8c-4744-999f-109541331602-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 08:15:04 PM : Adding operation c409000f-5a8c-4744-999f-109541331602-agent.
+DEBUG : 03/28/2014 08:15:04 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 08:15:04 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 08:15:04 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 08:15:04 PM : Added result / 193f3a68-98ac-4ed8-a2a4-79886560c1c8-agent to OpQueue.
+DEBUG : 03/28/2014 08:15:05 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x28c5dd0>]
+DEBUG : 03/28/2014 08:15:05 PM : Sending message to server
+DEBUG : 03/28/2014 08:15:05 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 08:15:05 PM : Logging into server
+DEBUG : 03/28/2014 08:15:06 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:15:06 PM : Login server text:  
+DEBUG : 03/28/2014 08:15:06 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 08:15:06 PM : Status code: 200 
+DEBUG : 03/28/2014 08:15:06 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 08:15:06 PM : Adding result_op c409000f-5a8c-4744-999f-109541331602-agent.
+DEBUG : 03/28/2014 08:15:19 PM : Sending message to server
+DEBUG : 03/28/2014 08:15:19 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:15:19 PM : Logging into server
+DEBUG : 03/28/2014 08:15:19 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:15:19 PM : Login server text:  
+DEBUG : 03/28/2014 08:15:19 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:15:19 PM : Status code: 200 
+DEBUG : 03/28/2014 08:15:19 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:16:19 PM : Sending message to server
+DEBUG : 03/28/2014 08:16:19 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:16:19 PM : Logging into server
+DEBUG : 03/28/2014 08:16:19 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:16:19 PM : Login server text:  
+DEBUG : 03/28/2014 08:16:19 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:16:19 PM : Status code: 200 
+DEBUG : 03/28/2014 08:16:19 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:17:19 PM : Sending message to server
+DEBUG : 03/28/2014 08:17:19 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:17:19 PM : Logging into server
+DEBUG : 03/28/2014 08:17:20 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:17:20 PM : Login server text:  
+DEBUG : 03/28/2014 08:17:20 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:17:20 PM : Status code: 200 
+DEBUG : 03/28/2014 08:17:20 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:18:20 PM : Sending message to server
+DEBUG : 03/28/2014 08:18:20 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:18:20 PM : Logging into server
+DEBUG : 03/28/2014 08:18:20 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:18:20 PM : Login server text:  
+DEBUG : 03/28/2014 08:18:20 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:18:20 PM : Status code: 200 
+DEBUG : 03/28/2014 08:18:20 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:19:20 PM : Sending message to server
+DEBUG : 03/28/2014 08:19:20 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:19:20 PM : Logging into server
+DEBUG : 03/28/2014 08:19:21 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:19:21 PM : Login server text:  
+DEBUG : 03/28/2014 08:19:21 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:19:21 PM : Status code: 200 
+DEBUG : 03/28/2014 08:19:21 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:20:01 PM : Added {"operation_id": "3d01715a-c728-4970-b90a-3c2eec1eb9e3-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 08:20:04 PM : Popping {"operation_id": "3d01715a-c728-4970-b90a-3c2eec1eb9e3-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 08:20:04 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "3d01715a-c728-4970-b90a-3c2eec1eb9e3-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '3d01715a-c728-4970-b90a-3c2eec1eb9e3-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '3d01715a-c728-4970-b90a-3c2eec1eb9e3-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 08:20:04 PM : Adding operation 3d01715a-c728-4970-b90a-3c2eec1eb9e3-agent.
+DEBUG : 03/28/2014 08:20:04 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 08:20:04 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 08:20:04 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 08:20:04 PM : Added result / 3cb7d731-5b8f-4cb3-a40c-e2a745840485-agent to OpQueue.
+DEBUG : 03/28/2014 08:20:06 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31e7320>]
+DEBUG : 03/28/2014 08:20:06 PM : Sending message to server
+DEBUG : 03/28/2014 08:20:06 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 08:20:06 PM : Logging into server
+DEBUG : 03/28/2014 08:20:06 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:20:06 PM : Login server text:  
+DEBUG : 03/28/2014 08:20:06 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 08:20:06 PM : Status code: 200 
+DEBUG : 03/28/2014 08:20:06 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 08:20:06 PM : Adding result_op 3d01715a-c728-4970-b90a-3c2eec1eb9e3-agent.
+DEBUG : 03/28/2014 08:20:21 PM : Sending message to server
+DEBUG : 03/28/2014 08:20:21 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:20:21 PM : Logging into server
+DEBUG : 03/28/2014 08:20:21 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:20:21 PM : Login server text:  
+DEBUG : 03/28/2014 08:20:21 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:20:21 PM : Status code: 200 
+DEBUG : 03/28/2014 08:20:21 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:21:21 PM : Sending message to server
+DEBUG : 03/28/2014 08:21:21 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:21:21 PM : Logging into server
+DEBUG : 03/28/2014 08:21:21 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:21:21 PM : Login server text:  
+DEBUG : 03/28/2014 08:21:21 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:21:21 PM : Status code: 200 
+DEBUG : 03/28/2014 08:21:21 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:22:21 PM : Sending message to server
+DEBUG : 03/28/2014 08:22:21 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:22:21 PM : Logging into server
+DEBUG : 03/28/2014 08:22:22 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:22:22 PM : Login server text:  
+DEBUG : 03/28/2014 08:22:22 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:22:22 PM : Status code: 200 
+DEBUG : 03/28/2014 08:22:22 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:23:22 PM : Sending message to server
+DEBUG : 03/28/2014 08:23:22 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:23:22 PM : Logging into server
+DEBUG : 03/28/2014 08:23:22 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:23:22 PM : Login server text:  
+DEBUG : 03/28/2014 08:23:22 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:23:22 PM : Status code: 200 
+DEBUG : 03/28/2014 08:23:22 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:24:22 PM : Sending message to server
+DEBUG : 03/28/2014 08:24:22 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:24:22 PM : Logging into server
+DEBUG : 03/28/2014 08:24:22 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:24:22 PM : Login server text:  
+DEBUG : 03/28/2014 08:24:22 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:24:22 PM : Status code: 200 
+DEBUG : 03/28/2014 08:24:22 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:25:01 PM : Added {"operation_id": "d03fff3e-4519-40a7-8ef1-000a8d55e8ce-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 08:25:05 PM : Popping {"operation_id": "d03fff3e-4519-40a7-8ef1-000a8d55e8ce-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 08:25:05 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "d03fff3e-4519-40a7-8ef1-000a8d55e8ce-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': 'd03fff3e-4519-40a7-8ef1-000a8d55e8ce-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': 'd03fff3e-4519-40a7-8ef1-000a8d55e8ce-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 08:25:05 PM : Adding operation d03fff3e-4519-40a7-8ef1-000a8d55e8ce-agent.
+DEBUG : 03/28/2014 08:25:05 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 08:25:05 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 08:25:05 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 08:25:05 PM : Added result / 40309592-2dde-491d-9e39-ce09cec0f68d-agent to OpQueue.
+DEBUG : 03/28/2014 08:25:07 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31e9b48>]
+DEBUG : 03/28/2014 08:25:07 PM : Sending message to server
+DEBUG : 03/28/2014 08:25:07 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 08:25:07 PM : Logging into server
+DEBUG : 03/28/2014 08:25:07 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:25:07 PM : Login server text:  
+DEBUG : 03/28/2014 08:25:07 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 08:25:07 PM : Status code: 200 
+DEBUG : 03/28/2014 08:25:07 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 08:25:07 PM : Adding result_op d03fff3e-4519-40a7-8ef1-000a8d55e8ce-agent.
+DEBUG : 03/28/2014 08:25:22 PM : Sending message to server
+DEBUG : 03/28/2014 08:25:22 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:25:22 PM : Logging into server
+DEBUG : 03/28/2014 08:25:23 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:25:23 PM : Login server text:  
+DEBUG : 03/28/2014 08:25:23 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:25:23 PM : Status code: 200 
+DEBUG : 03/28/2014 08:25:23 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:26:23 PM : Sending message to server
+DEBUG : 03/28/2014 08:26:23 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:26:23 PM : Logging into server
+DEBUG : 03/28/2014 08:26:23 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:26:23 PM : Login server text:  
+DEBUG : 03/28/2014 08:26:23 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:26:23 PM : Status code: 200 
+DEBUG : 03/28/2014 08:26:23 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:27:23 PM : Sending message to server
+DEBUG : 03/28/2014 08:27:23 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:27:23 PM : Logging into server
+DEBUG : 03/28/2014 08:27:23 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:27:23 PM : Login server text:  
+DEBUG : 03/28/2014 08:27:23 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:27:23 PM : Status code: 200 
+DEBUG : 03/28/2014 08:27:23 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:28:23 PM : Sending message to server
+DEBUG : 03/28/2014 08:28:23 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:28:23 PM : Logging into server
+DEBUG : 03/28/2014 08:28:24 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:28:24 PM : Login server text:  
+DEBUG : 03/28/2014 08:28:24 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:28:24 PM : Status code: 200 
+DEBUG : 03/28/2014 08:28:24 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:29:24 PM : Sending message to server
+DEBUG : 03/28/2014 08:29:24 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:29:24 PM : Logging into server
+DEBUG : 03/28/2014 08:29:24 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:29:24 PM : Login server text:  
+DEBUG : 03/28/2014 08:29:24 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:29:24 PM : Status code: 200 
+DEBUG : 03/28/2014 08:29:24 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:30:01 PM : Added {"operation_id": "cbade84e-f715-4442-bb4a-50e87c1d9692-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 08:30:05 PM : Popping {"operation_id": "cbade84e-f715-4442-bb4a-50e87c1d9692-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 08:30:05 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "cbade84e-f715-4442-bb4a-50e87c1d9692-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': 'cbade84e-f715-4442-bb4a-50e87c1d9692-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': 'cbade84e-f715-4442-bb4a-50e87c1d9692-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 08:30:05 PM : Adding operation cbade84e-f715-4442-bb4a-50e87c1d9692-agent.
+DEBUG : 03/28/2014 08:30:06 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 08:30:06 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 08:30:06 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 08:30:06 PM : Added result / 5144f445-d987-4418-a306-cb0322c1dc94-agent to OpQueue.
+DEBUG : 03/28/2014 08:30:07 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31db128>]
+DEBUG : 03/28/2014 08:30:07 PM : Sending message to server
+DEBUG : 03/28/2014 08:30:07 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 08:30:07 PM : Logging into server
+DEBUG : 03/28/2014 08:30:08 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:30:08 PM : Login server text:  
+DEBUG : 03/28/2014 08:30:08 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 08:30:08 PM : Status code: 200 
+DEBUG : 03/28/2014 08:30:08 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 08:30:08 PM : Adding result_op cbade84e-f715-4442-bb4a-50e87c1d9692-agent.
+DEBUG : 03/28/2014 08:30:24 PM : Sending message to server
+DEBUG : 03/28/2014 08:30:24 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:30:24 PM : Logging into server
+DEBUG : 03/28/2014 08:30:25 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:30:25 PM : Login server text:  
+DEBUG : 03/28/2014 08:30:25 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:30:25 PM : Status code: 200 
+DEBUG : 03/28/2014 08:30:25 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:31:25 PM : Sending message to server
+DEBUG : 03/28/2014 08:31:25 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:31:25 PM : Logging into server
+DEBUG : 03/28/2014 08:31:25 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:31:25 PM : Login server text:  
+DEBUG : 03/28/2014 08:31:25 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:31:25 PM : Status code: 200 
+DEBUG : 03/28/2014 08:31:25 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:32:25 PM : Sending message to server
+DEBUG : 03/28/2014 08:32:25 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:32:25 PM : Logging into server
+DEBUG : 03/28/2014 08:32:26 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:32:26 PM : Login server text:  
+DEBUG : 03/28/2014 08:32:26 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:32:26 PM : Status code: 200 
+DEBUG : 03/28/2014 08:32:26 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:33:26 PM : Sending message to server
+DEBUG : 03/28/2014 08:33:26 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:33:26 PM : Logging into server
+DEBUG : 03/28/2014 08:33:26 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:33:26 PM : Login server text:  
+DEBUG : 03/28/2014 08:33:26 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:33:26 PM : Status code: 200 
+DEBUG : 03/28/2014 08:33:26 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:34:26 PM : Sending message to server
+DEBUG : 03/28/2014 08:34:26 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:34:26 PM : Logging into server
+DEBUG : 03/28/2014 08:34:26 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:34:26 PM : Login server text:  
+DEBUG : 03/28/2014 08:34:26 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:34:26 PM : Status code: 200 
+DEBUG : 03/28/2014 08:34:26 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:35:01 PM : Added {"operation_id": "752ff55c-3a34-43d6-b22f-ce4022640d4e-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 08:35:02 PM : Popping {"operation_id": "752ff55c-3a34-43d6-b22f-ce4022640d4e-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 08:35:02 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "752ff55c-3a34-43d6-b22f-ce4022640d4e-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '752ff55c-3a34-43d6-b22f-ce4022640d4e-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '752ff55c-3a34-43d6-b22f-ce4022640d4e-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 08:35:02 PM : Adding operation 752ff55c-3a34-43d6-b22f-ce4022640d4e-agent.
+DEBUG : 03/28/2014 08:35:02 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 08:35:02 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 08:35:02 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 08:35:02 PM : Added result / 6a92e0d5-8f4c-4962-b320-75fe2013e950-agent to OpQueue.
+DEBUG : 03/28/2014 08:35:04 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31e6320>]
+DEBUG : 03/28/2014 08:35:04 PM : Sending message to server
+DEBUG : 03/28/2014 08:35:04 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 08:35:04 PM : Logging into server
+DEBUG : 03/28/2014 08:35:04 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:35:04 PM : Login server text:  
+DEBUG : 03/28/2014 08:35:04 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 08:35:04 PM : Status code: 200 
+DEBUG : 03/28/2014 08:35:04 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 08:35:04 PM : Adding result_op 752ff55c-3a34-43d6-b22f-ce4022640d4e-agent.
+DEBUG : 03/28/2014 08:35:26 PM : Sending message to server
+DEBUG : 03/28/2014 08:35:26 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:35:26 PM : Logging into server
+DEBUG : 03/28/2014 08:35:27 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:35:27 PM : Login server text:  
+DEBUG : 03/28/2014 08:35:27 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:35:27 PM : Status code: 200 
+DEBUG : 03/28/2014 08:35:27 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:36:27 PM : Sending message to server
+DEBUG : 03/28/2014 08:36:27 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:36:27 PM : Logging into server
+DEBUG : 03/28/2014 08:36:27 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:36:27 PM : Login server text:  
+DEBUG : 03/28/2014 08:36:27 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:36:27 PM : Status code: 200 
+DEBUG : 03/28/2014 08:36:27 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:37:27 PM : Sending message to server
+DEBUG : 03/28/2014 08:37:27 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:37:27 PM : Logging into server
+DEBUG : 03/28/2014 08:37:27 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:37:27 PM : Login server text:  
+DEBUG : 03/28/2014 08:37:27 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:37:27 PM : Status code: 200 
+DEBUG : 03/28/2014 08:37:27 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:38:27 PM : Sending message to server
+DEBUG : 03/28/2014 08:38:27 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:38:27 PM : Logging into server
+DEBUG : 03/28/2014 08:38:28 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:38:28 PM : Login server text:  
+DEBUG : 03/28/2014 08:38:28 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:38:28 PM : Status code: 200 
+DEBUG : 03/28/2014 08:38:28 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:39:28 PM : Sending message to server
+DEBUG : 03/28/2014 08:39:28 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:39:28 PM : Logging into server
+DEBUG : 03/28/2014 08:39:28 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:39:28 PM : Login server text:  
+DEBUG : 03/28/2014 08:39:28 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:39:28 PM : Status code: 200 
+DEBUG : 03/28/2014 08:39:28 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:40:01 PM : Added {"operation_id": "b6913ad2-88f9-438e-a370-f5171bcbdbe0-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 08:40:02 PM : Popping {"operation_id": "b6913ad2-88f9-438e-a370-f5171bcbdbe0-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 08:40:02 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "b6913ad2-88f9-438e-a370-f5171bcbdbe0-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': 'b6913ad2-88f9-438e-a370-f5171bcbdbe0-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': 'b6913ad2-88f9-438e-a370-f5171bcbdbe0-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 08:40:02 PM : Adding operation b6913ad2-88f9-438e-a370-f5171bcbdbe0-agent.
+DEBUG : 03/28/2014 08:40:02 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 08:40:02 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 08:40:02 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 08:40:02 PM : Added result / 4f9a23db-3b6f-415d-b5ab-7fdd8b6deae2-agent to OpQueue.
+DEBUG : 03/28/2014 08:40:05 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31e2998>]
+DEBUG : 03/28/2014 08:40:05 PM : Sending message to server
+DEBUG : 03/28/2014 08:40:05 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 08:40:05 PM : Logging into server
+DEBUG : 03/28/2014 08:40:05 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:40:05 PM : Login server text:  
+DEBUG : 03/28/2014 08:40:05 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 08:40:05 PM : Status code: 200 
+DEBUG : 03/28/2014 08:40:05 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 08:40:05 PM : Adding result_op b6913ad2-88f9-438e-a370-f5171bcbdbe0-agent.
+DEBUG : 03/28/2014 08:40:28 PM : Sending message to server
+DEBUG : 03/28/2014 08:40:28 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:40:28 PM : Logging into server
+DEBUG : 03/28/2014 08:40:28 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:40:28 PM : Login server text:  
+DEBUG : 03/28/2014 08:40:28 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:40:28 PM : Status code: 200 
+DEBUG : 03/28/2014 08:40:28 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:41:28 PM : Sending message to server
+DEBUG : 03/28/2014 08:41:28 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:41:28 PM : Logging into server
+DEBUG : 03/28/2014 08:41:29 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:41:29 PM : Login server text:  
+DEBUG : 03/28/2014 08:41:29 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:41:29 PM : Status code: 200 
+DEBUG : 03/28/2014 08:41:29 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:42:29 PM : Sending message to server
+DEBUG : 03/28/2014 08:42:29 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:42:29 PM : Logging into server
+DEBUG : 03/28/2014 08:42:29 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:42:29 PM : Login server text:  
+DEBUG : 03/28/2014 08:42:29 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:42:29 PM : Status code: 200 
+DEBUG : 03/28/2014 08:42:29 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:43:29 PM : Sending message to server
+DEBUG : 03/28/2014 08:43:29 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:43:29 PM : Logging into server
+DEBUG : 03/28/2014 08:43:30 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:43:30 PM : Login server text:  
+DEBUG : 03/28/2014 08:43:30 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:43:30 PM : Status code: 200 
+DEBUG : 03/28/2014 08:43:30 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:44:30 PM : Sending message to server
+DEBUG : 03/28/2014 08:44:30 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:44:30 PM : Logging into server
+DEBUG : 03/28/2014 08:44:30 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:44:30 PM : Login server text:  
+DEBUG : 03/28/2014 08:44:30 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:44:30 PM : Status code: 200 
+DEBUG : 03/28/2014 08:44:30 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:45:01 PM : Added {"operation_id": "1ecf51ce-ee8e-4979-b453-4ffb749e5777-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 08:45:03 PM : Popping {"operation_id": "1ecf51ce-ee8e-4979-b453-4ffb749e5777-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 08:45:03 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "1ecf51ce-ee8e-4979-b453-4ffb749e5777-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '1ecf51ce-ee8e-4979-b453-4ffb749e5777-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '1ecf51ce-ee8e-4979-b453-4ffb749e5777-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 08:45:03 PM : Adding operation 1ecf51ce-ee8e-4979-b453-4ffb749e5777-agent.
+DEBUG : 03/28/2014 08:45:03 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 08:45:03 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 08:45:03 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 08:45:03 PM : Added result / 2ea8c38c-8023-4e5f-8e77-73f23c68ded2-agent to OpQueue.
+DEBUG : 03/28/2014 08:45:05 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x29a1bd8>]
+DEBUG : 03/28/2014 08:45:05 PM : Sending message to server
+DEBUG : 03/28/2014 08:45:05 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 08:45:05 PM : Logging into server
+DEBUG : 03/28/2014 08:45:06 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:45:06 PM : Login server text:  
+DEBUG : 03/28/2014 08:45:06 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 08:45:06 PM : Status code: 200 
+DEBUG : 03/28/2014 08:45:06 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 08:45:06 PM : Adding result_op 1ecf51ce-ee8e-4979-b453-4ffb749e5777-agent.
+DEBUG : 03/28/2014 08:45:30 PM : Sending message to server
+DEBUG : 03/28/2014 08:45:30 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:45:30 PM : Logging into server
+DEBUG : 03/28/2014 08:45:31 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:45:31 PM : Login server text:  
+DEBUG : 03/28/2014 08:45:31 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:45:31 PM : Status code: 200 
+DEBUG : 03/28/2014 08:45:31 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:46:31 PM : Sending message to server
+DEBUG : 03/28/2014 08:46:31 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:46:31 PM : Logging into server
+DEBUG : 03/28/2014 08:46:31 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:46:31 PM : Login server text:  
+DEBUG : 03/28/2014 08:46:31 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:46:31 PM : Status code: 200 
+DEBUG : 03/28/2014 08:46:31 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:47:31 PM : Sending message to server
+DEBUG : 03/28/2014 08:47:31 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:47:31 PM : Logging into server
+DEBUG : 03/28/2014 08:47:31 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:47:31 PM : Login server text:  
+DEBUG : 03/28/2014 08:47:31 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:47:31 PM : Status code: 200 
+DEBUG : 03/28/2014 08:47:31 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:48:31 PM : Sending message to server
+DEBUG : 03/28/2014 08:48:31 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:48:31 PM : Logging into server
+DEBUG : 03/28/2014 08:48:32 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:48:32 PM : Login server text:  
+DEBUG : 03/28/2014 08:48:32 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:48:32 PM : Status code: 200 
+DEBUG : 03/28/2014 08:48:32 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:49:32 PM : Sending message to server
+DEBUG : 03/28/2014 08:49:32 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:49:32 PM : Logging into server
+DEBUG : 03/28/2014 08:49:32 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:49:32 PM : Login server text:  
+DEBUG : 03/28/2014 08:49:32 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:49:32 PM : Status code: 200 
+DEBUG : 03/28/2014 08:49:32 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:50:01 PM : Added {"operation_id": "4b37724d-97bf-42e2-b8e5-bead32a04ba7-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 08:50:03 PM : Popping {"operation_id": "4b37724d-97bf-42e2-b8e5-bead32a04ba7-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 08:50:03 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "4b37724d-97bf-42e2-b8e5-bead32a04ba7-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '4b37724d-97bf-42e2-b8e5-bead32a04ba7-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '4b37724d-97bf-42e2-b8e5-bead32a04ba7-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 08:50:03 PM : Adding operation 4b37724d-97bf-42e2-b8e5-bead32a04ba7-agent.
+DEBUG : 03/28/2014 08:50:03 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 08:50:03 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 08:50:03 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 08:50:03 PM : Added result / a9a4b013-aa9e-438e-8e85-7da3d154f6d7-agent to OpQueue.
+DEBUG : 03/28/2014 08:50:06 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31e07e8>]
+DEBUG : 03/28/2014 08:50:06 PM : Sending message to server
+DEBUG : 03/28/2014 08:50:06 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 08:50:06 PM : Logging into server
+DEBUG : 03/28/2014 08:50:06 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:50:06 PM : Login server text:  
+DEBUG : 03/28/2014 08:50:06 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 08:50:06 PM : Status code: 200 
+DEBUG : 03/28/2014 08:50:06 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 08:50:06 PM : Adding result_op 4b37724d-97bf-42e2-b8e5-bead32a04ba7-agent.
+DEBUG : 03/28/2014 08:50:32 PM : Sending message to server
+DEBUG : 03/28/2014 08:50:32 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:50:32 PM : Logging into server
+DEBUG : 03/28/2014 08:50:33 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:50:33 PM : Login server text:  
+DEBUG : 03/28/2014 08:50:33 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:50:33 PM : Status code: 200 
+DEBUG : 03/28/2014 08:50:33 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:51:33 PM : Sending message to server
+DEBUG : 03/28/2014 08:51:33 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:51:33 PM : Logging into server
+DEBUG : 03/28/2014 08:51:33 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:51:33 PM : Login server text:  
+DEBUG : 03/28/2014 08:51:33 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:51:33 PM : Status code: 200 
+DEBUG : 03/28/2014 08:51:33 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:52:33 PM : Sending message to server
+DEBUG : 03/28/2014 08:52:33 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:52:33 PM : Logging into server
+DEBUG : 03/28/2014 08:52:33 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:52:33 PM : Login server text:  
+DEBUG : 03/28/2014 08:52:33 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:52:33 PM : Status code: 200 
+DEBUG : 03/28/2014 08:52:33 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:53:33 PM : Sending message to server
+DEBUG : 03/28/2014 08:53:33 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:53:33 PM : Logging into server
+DEBUG : 03/28/2014 08:53:34 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:53:34 PM : Login server text:  
+DEBUG : 03/28/2014 08:53:34 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:53:34 PM : Status code: 200 
+DEBUG : 03/28/2014 08:53:34 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:54:34 PM : Sending message to server
+DEBUG : 03/28/2014 08:54:34 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:54:34 PM : Logging into server
+DEBUG : 03/28/2014 08:54:34 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:54:34 PM : Login server text:  
+DEBUG : 03/28/2014 08:54:34 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:54:34 PM : Status code: 200 
+DEBUG : 03/28/2014 08:54:34 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:55:01 PM : Added {"operation_id": "3bfe640e-cb90-4990-9d69-4002d132fcb6-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 08:55:01 PM : Popping {"operation_id": "3bfe640e-cb90-4990-9d69-4002d132fcb6-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 08:55:01 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "3bfe640e-cb90-4990-9d69-4002d132fcb6-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '3bfe640e-cb90-4990-9d69-4002d132fcb6-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '3bfe640e-cb90-4990-9d69-4002d132fcb6-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 08:55:01 PM : Adding operation 3bfe640e-cb90-4990-9d69-4002d132fcb6-agent.
+DEBUG : 03/28/2014 08:55:02 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 08:55:02 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 08:55:02 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 08:55:02 PM : Added result / 75d1c48e-55db-4e49-a6b7-99ff49ac128a-agent to OpQueue.
+DEBUG : 03/28/2014 08:55:05 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31ea710>]
+DEBUG : 03/28/2014 08:55:05 PM : Sending message to server
+DEBUG : 03/28/2014 08:55:05 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 08:55:05 PM : Logging into server
+DEBUG : 03/28/2014 08:55:05 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:55:05 PM : Login server text:  
+DEBUG : 03/28/2014 08:55:05 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 08:55:05 PM : Status code: 200 
+DEBUG : 03/28/2014 08:55:05 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 08:55:05 PM : Adding result_op 3bfe640e-cb90-4990-9d69-4002d132fcb6-agent.
+DEBUG : 03/28/2014 08:55:34 PM : Sending message to server
+DEBUG : 03/28/2014 08:55:34 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:55:34 PM : Logging into server
+DEBUG : 03/28/2014 08:55:34 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:55:34 PM : Login server text:  
+DEBUG : 03/28/2014 08:55:34 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:55:34 PM : Status code: 200 
+DEBUG : 03/28/2014 08:55:34 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:56:35 PM : Sending message to server
+DEBUG : 03/28/2014 08:56:35 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:56:35 PM : Logging into server
+DEBUG : 03/28/2014 08:56:35 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:56:35 PM : Login server text:  
+DEBUG : 03/28/2014 08:56:35 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:56:35 PM : Status code: 200 
+DEBUG : 03/28/2014 08:56:35 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:57:35 PM : Sending message to server
+DEBUG : 03/28/2014 08:57:35 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:57:35 PM : Logging into server
+DEBUG : 03/28/2014 08:57:35 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:57:35 PM : Login server text:  
+DEBUG : 03/28/2014 08:57:35 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:57:35 PM : Status code: 200 
+DEBUG : 03/28/2014 08:57:35 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:58:35 PM : Sending message to server
+DEBUG : 03/28/2014 08:58:35 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:58:35 PM : Logging into server
+DEBUG : 03/28/2014 08:58:35 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:58:35 PM : Login server text:  
+DEBUG : 03/28/2014 08:58:36 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:58:36 PM : Status code: 200 
+DEBUG : 03/28/2014 08:58:36 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 08:59:36 PM : Sending message to server
+DEBUG : 03/28/2014 08:59:36 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 08:59:36 PM : Logging into server
+DEBUG : 03/28/2014 08:59:36 PM : Login status code: 200 
+DEBUG : 03/28/2014 08:59:36 PM : Login server text:  
+DEBUG : 03/28/2014 08:59:36 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 08:59:36 PM : Status code: 200 
+DEBUG : 03/28/2014 08:59:36 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:00:01 PM : Added {"operation_id": "67d8eec4-bc35-4822-bb2b-040e2917758d-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 09:00:02 PM : Popping {"operation_id": "67d8eec4-bc35-4822-bb2b-040e2917758d-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 09:00:02 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "67d8eec4-bc35-4822-bb2b-040e2917758d-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '67d8eec4-bc35-4822-bb2b-040e2917758d-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '67d8eec4-bc35-4822-bb2b-040e2917758d-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 09:00:02 PM : Adding operation 67d8eec4-bc35-4822-bb2b-040e2917758d-agent.
+DEBUG : 03/28/2014 09:00:02 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 09:00:02 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 09:00:02 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 09:00:02 PM : Added result / 8c6ba0df-5f05-442a-b4d3-9818ab5f3bb1-agent to OpQueue.
+DEBUG : 03/28/2014 09:00:05 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31dfb48>]
+DEBUG : 03/28/2014 09:00:05 PM : Sending message to server
+DEBUG : 03/28/2014 09:00:05 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 09:00:05 PM : Logging into server
+DEBUG : 03/28/2014 09:00:06 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:00:06 PM : Login server text:  
+DEBUG : 03/28/2014 09:00:06 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 09:00:06 PM : Status code: 200 
+DEBUG : 03/28/2014 09:00:06 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 09:00:06 PM : Adding result_op 67d8eec4-bc35-4822-bb2b-040e2917758d-agent.
+DEBUG : 03/28/2014 09:00:36 PM : Sending message to server
+DEBUG : 03/28/2014 09:00:36 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:00:36 PM : Logging into server
+DEBUG : 03/28/2014 09:00:36 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:00:36 PM : Login server text:  
+DEBUG : 03/28/2014 09:00:36 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:00:36 PM : Status code: 200 
+DEBUG : 03/28/2014 09:00:36 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:01:36 PM : Sending message to server
+DEBUG : 03/28/2014 09:01:36 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:01:36 PM : Logging into server
+DEBUG : 03/28/2014 09:01:37 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:01:37 PM : Login server text:  
+DEBUG : 03/28/2014 09:01:37 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:01:37 PM : Status code: 200 
+DEBUG : 03/28/2014 09:01:37 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:02:37 PM : Sending message to server
+DEBUG : 03/28/2014 09:02:37 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:02:37 PM : Logging into server
+DEBUG : 03/28/2014 09:02:37 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:02:37 PM : Login server text:  
+DEBUG : 03/28/2014 09:02:37 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:02:37 PM : Status code: 200 
+DEBUG : 03/28/2014 09:02:37 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:03:37 PM : Sending message to server
+DEBUG : 03/28/2014 09:03:37 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:03:37 PM : Logging into server
+DEBUG : 03/28/2014 09:03:37 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:03:37 PM : Login server text:  
+DEBUG : 03/28/2014 09:03:37 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:03:37 PM : Status code: 200 
+DEBUG : 03/28/2014 09:03:37 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:04:37 PM : Sending message to server
+DEBUG : 03/28/2014 09:04:37 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:04:37 PM : Logging into server
+DEBUG : 03/28/2014 09:04:38 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:04:38 PM : Login server text:  
+DEBUG : 03/28/2014 09:04:41 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:04:41 PM : Status code: 200 
+DEBUG : 03/28/2014 09:04:41 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:05:01 PM : Added {"operation_id": "c903c089-76d3-49d5-91a9-98af4c4934f1-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 09:05:02 PM : Popping {"operation_id": "c903c089-76d3-49d5-91a9-98af4c4934f1-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 09:05:02 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "c903c089-76d3-49d5-91a9-98af4c4934f1-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': 'c903c089-76d3-49d5-91a9-98af4c4934f1-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': 'c903c089-76d3-49d5-91a9-98af4c4934f1-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 09:05:02 PM : Adding operation c903c089-76d3-49d5-91a9-98af4c4934f1-agent.
+DEBUG : 03/28/2014 09:05:02 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 09:05:02 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 09:05:02 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 09:05:02 PM : Added result / 57ef32fd-699b-4f77-bb8f-5e1d38d33be1-agent to OpQueue.
+DEBUG : 03/28/2014 09:05:06 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31e3248>]
+DEBUG : 03/28/2014 09:05:06 PM : Sending message to server
+DEBUG : 03/28/2014 09:05:06 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 09:05:06 PM : Logging into server
+DEBUG : 03/28/2014 09:05:06 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:05:06 PM : Login server text:  
+DEBUG : 03/28/2014 09:05:06 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 09:05:06 PM : Status code: 200 
+DEBUG : 03/28/2014 09:05:06 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 09:05:06 PM : Adding result_op c903c089-76d3-49d5-91a9-98af4c4934f1-agent.
+DEBUG : 03/28/2014 09:05:41 PM : Sending message to server
+DEBUG : 03/28/2014 09:05:41 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:05:41 PM : Logging into server
+DEBUG : 03/28/2014 09:05:41 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:05:41 PM : Login server text:  
+DEBUG : 03/28/2014 09:05:41 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:05:41 PM : Status code: 200 
+DEBUG : 03/28/2014 09:05:41 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:06:41 PM : Sending message to server
+DEBUG : 03/28/2014 09:06:41 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:06:41 PM : Logging into server
+DEBUG : 03/28/2014 09:06:42 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:06:42 PM : Login server text:  
+DEBUG : 03/28/2014 09:06:42 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:06:42 PM : Status code: 200 
+DEBUG : 03/28/2014 09:06:42 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:07:42 PM : Sending message to server
+DEBUG : 03/28/2014 09:07:42 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:07:42 PM : Logging into server
+DEBUG : 03/28/2014 09:07:42 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:07:42 PM : Login server text:  
+DEBUG : 03/28/2014 09:07:42 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:07:42 PM : Status code: 200 
+DEBUG : 03/28/2014 09:07:42 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:08:42 PM : Sending message to server
+DEBUG : 03/28/2014 09:08:42 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:08:42 PM : Logging into server
+DEBUG : 03/28/2014 09:08:43 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:08:43 PM : Login server text:  
+DEBUG : 03/28/2014 09:08:43 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:08:43 PM : Status code: 200 
+DEBUG : 03/28/2014 09:08:43 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:09:43 PM : Sending message to server
+DEBUG : 03/28/2014 09:09:43 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:09:43 PM : Logging into server
+DEBUG : 03/28/2014 09:09:43 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:09:43 PM : Login server text:  
+DEBUG : 03/28/2014 09:09:43 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:09:43 PM : Status code: 200 
+DEBUG : 03/28/2014 09:09:43 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:10:01 PM : Added {"operation_id": "bb0041a7-867d-449a-aa56-33f267904803-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 09:10:02 PM : Popping {"operation_id": "bb0041a7-867d-449a-aa56-33f267904803-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 09:10:02 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "bb0041a7-867d-449a-aa56-33f267904803-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': 'bb0041a7-867d-449a-aa56-33f267904803-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': 'bb0041a7-867d-449a-aa56-33f267904803-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 09:10:02 PM : Adding operation bb0041a7-867d-449a-aa56-33f267904803-agent.
+DEBUG : 03/28/2014 09:10:02 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 09:10:02 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 09:10:02 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 09:10:02 PM : Added result / 9902e503-d757-421d-80c1-4aaadd30c378-agent to OpQueue.
+DEBUG : 03/28/2014 09:10:03 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31e8320>]
+DEBUG : 03/28/2014 09:10:03 PM : Sending message to server
+DEBUG : 03/28/2014 09:10:03 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 09:10:03 PM : Logging into server
+DEBUG : 03/28/2014 09:10:03 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:10:03 PM : Login server text:  
+DEBUG : 03/28/2014 09:10:03 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 09:10:03 PM : Status code: 200 
+DEBUG : 03/28/2014 09:10:03 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 09:10:03 PM : Adding result_op bb0041a7-867d-449a-aa56-33f267904803-agent.
+DEBUG : 03/28/2014 09:10:43 PM : Sending message to server
+DEBUG : 03/28/2014 09:10:43 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:10:43 PM : Logging into server
+DEBUG : 03/28/2014 09:10:43 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:10:43 PM : Login server text:  
+DEBUG : 03/28/2014 09:10:43 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:10:43 PM : Status code: 200 
+DEBUG : 03/28/2014 09:10:43 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:11:43 PM : Sending message to server
+DEBUG : 03/28/2014 09:11:43 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:11:43 PM : Logging into server
+DEBUG : 03/28/2014 09:11:44 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:11:44 PM : Login server text:  
+DEBUG : 03/28/2014 09:11:44 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:11:44 PM : Status code: 200 
+DEBUG : 03/28/2014 09:11:44 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:12:44 PM : Sending message to server
+DEBUG : 03/28/2014 09:12:44 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:12:44 PM : Logging into server
+DEBUG : 03/28/2014 09:12:44 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:12:44 PM : Login server text:  
+DEBUG : 03/28/2014 09:12:44 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:12:44 PM : Status code: 200 
+DEBUG : 03/28/2014 09:12:44 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:13:44 PM : Sending message to server
+DEBUG : 03/28/2014 09:13:44 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:13:44 PM : Logging into server
+DEBUG : 03/28/2014 09:13:44 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:13:44 PM : Login server text:  
+DEBUG : 03/28/2014 09:13:44 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:13:44 PM : Status code: 200 
+DEBUG : 03/28/2014 09:13:44 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:14:44 PM : Sending message to server
+DEBUG : 03/28/2014 09:14:44 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:14:44 PM : Logging into server
+DEBUG : 03/28/2014 09:14:45 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:14:45 PM : Login server text:  
+DEBUG : 03/28/2014 09:14:45 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:14:45 PM : Status code: 200 
+DEBUG : 03/28/2014 09:14:45 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:15:01 PM : Added {"operation_id": "78bd7b58-fd84-46a1-b7fb-4a7ee8a87419-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 09:15:03 PM : Popping {"operation_id": "78bd7b58-fd84-46a1-b7fb-4a7ee8a87419-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 09:15:03 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "78bd7b58-fd84-46a1-b7fb-4a7ee8a87419-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': '78bd7b58-fd84-46a1-b7fb-4a7ee8a87419-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': '78bd7b58-fd84-46a1-b7fb-4a7ee8a87419-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 09:15:03 PM : Adding operation 78bd7b58-fd84-46a1-b7fb-4a7ee8a87419-agent.
+DEBUG : 03/28/2014 09:15:03 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 09:15:03 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 09:15:03 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 09:15:03 PM : Added result / 1dfef64d-e8d4-4bff-a80e-07c6f90f10a6-agent to OpQueue.
+DEBUG : 03/28/2014 09:15:07 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31e7368>]
+DEBUG : 03/28/2014 09:15:07 PM : Sending message to server
+DEBUG : 03/28/2014 09:15:07 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 09:15:07 PM : Logging into server
+DEBUG : 03/28/2014 09:15:08 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:15:08 PM : Login server text:  
+DEBUG : 03/28/2014 09:15:08 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata 
+DEBUG : 03/28/2014 09:15:08 PM : Status code: 200 
+DEBUG : 03/28/2014 09:15:08 PM : Server text: {
+    "uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata", 
+    "rv_status_code": 1008, 
+    "http_method": "POST", 
+    "http_status": 200, 
+    "message": "admin - monitoring data 58f3209f-336b-4d7a-a0b7-689f15742d8d was updated", 
+    "data": []
+} 
+DEBUG : 03/28/2014 09:15:08 PM : Adding result_op 78bd7b58-fd84-46a1-b7fb-4a7ee8a87419-agent.
+DEBUG : 03/28/2014 09:15:45 PM : Sending message to server
+DEBUG : 03/28/2014 09:15:45 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:15:45 PM : Logging into server
+DEBUG : 03/28/2014 09:15:45 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:15:45 PM : Login server text:  
+DEBUG : 03/28/2014 09:15:45 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:15:45 PM : Status code: 200 
+DEBUG : 03/28/2014 09:15:45 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:16:45 PM : Sending message to server
+DEBUG : 03/28/2014 09:16:45 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:16:45 PM : Logging into server
+DEBUG : 03/28/2014 09:16:45 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:16:45 PM : Login server text:  
+DEBUG : 03/28/2014 09:16:46 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:16:46 PM : Status code: 200 
+DEBUG : 03/28/2014 09:16:46 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:17:46 PM : Sending message to server
+DEBUG : 03/28/2014 09:17:46 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:17:46 PM : Logging into server
+DEBUG : 03/28/2014 09:17:46 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:17:46 PM : Login server text:  
+DEBUG : 03/28/2014 09:17:46 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:17:46 PM : Status code: 200 
+DEBUG : 03/28/2014 09:17:46 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:18:46 PM : Sending message to server
+DEBUG : 03/28/2014 09:18:46 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:18:46 PM : Logging into server
+DEBUG : 03/28/2014 09:18:46 PM : Login status code: 200 
+DEBUG : 03/28/2014 09:18:46 PM : Login server text:  
+DEBUG : 03/28/2014 09:18:46 PM : Url: https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin 
+DEBUG : 03/28/2014 09:18:46 PM : Status code: 200 
+DEBUG : 03/28/2014 09:18:46 PM : Server text: {"uri": "/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin", "rv_status_code": 3003, "http_method": "GET", "http_status": 200, "message": "admin - checkin succeeded for agent_id 58f3209f-336b-4d7a-a0b7-689f15742d8d", "data": []} 
+DEBUG : 03/28/2014 09:19:46 PM : Sending message to server
+DEBUG : 03/28/2014 09:19:46 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/core/checkin
+DEBUG : 03/28/2014 09:19:46 PM : Logging into server
+ERROR : 03/28/2014 09:19:46 PM : Agent was unable to login.
+ERROR : 03/28/2014 09:19:46 PM : Exception: HTTPSConnectionPool(host='10.211.55.3', port=443): Max retries exceeded with url: /rvl/login (Caused by <class 'socket.error'>: [Errno 111] Connection refused)
+DEBUG : 03/28/2014 09:19:47 PM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/net/netmanager.py", line 99, in login
+    timeout=30
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 425, in post
+    return self.request('POST', url, data=data, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 383, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 486, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 378, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='10.211.55.3', port=443): Max retries exceeded with url: /rvl/login (Caused by <class 'socket.error'>: [Errno 111] Connection refused)
+
+ERROR : 03/28/2014 09:19:47 PM : Agent was unable to login.
+ERROR : 03/28/2014 09:19:47 PM : Could not check-in to server. See logs for details.
+DEBUG : 03/28/2014 09:20:01 PM : Added {"operation_id": "a2f8c7cf-d324-41bb-be79-d3382b81d19f-agent", "operation": "monitor_data", "plugin": "monitor"} to OpQueue.
+DEBUG : 03/28/2014 09:20:05 PM : Popping {"operation_id": "a2f8c7cf-d324-41bb-be79-d3382b81d19f-agent", "operation": "monitor_data", "plugin": "monitor"} from OpQueue.
+INFO : 03/28/2014 09:20:05 PM : Process the following operation: {'core_data': {}, 'reboot_delay_seconds': 90, 'plugin': 'monitor', 'type': 'monitor_data', 'raw_result': '', 'raw_operation': '{"operation_id": "a2f8c7cf-d324-41bb-be79-d3382b81d19f-agent", "operation": "monitor_data", "plugin": "monitor"}', 'json_message': {'operation_id': 'a2f8c7cf-d324-41bb-be79-d3382b81d19f-agent', 'operation': 'monitor_data', 'plugin': 'monitor'}, 'request_method': '', 'urn_response': '', 'error': '', 'data': [], 'id': 'a2f8c7cf-d324-41bb-be79-d3382b81d19f-agent', 'shutdown_delay_seconds': 90, 'plugin_data': {}}
+DEBUG : 03/28/2014 09:20:05 PM : Adding operation a2f8c7cf-d324-41bb-be79-d3382b81d19f-agent.
+DEBUG : 03/28/2014 09:20:05 PM : agent-id: 58f3209f-336b-4d7a-a0b7-689f15742d8d, agent-version: 0.7.0
+DEBUG : 03/28/2014 09:20:05 PM : Gathering monitoring data.
+DEBUG : 03/28/2014 09:20:05 PM : Done gathering monitoring data.
+DEBUG : 03/28/2014 09:20:05 PM : Added result / 1a25d23d-ea4c-46f4-8588-cddd95594e66-agent to OpQueue.
+DEBUG : 03/28/2014 09:20:09 PM : Results to be sent: [<serveroperation.sofoperation.ResultOperation instance at 0x31eb9e0>]
+DEBUG : 03/28/2014 09:20:09 PM : Sending message to server
+DEBUG : 03/28/2014 09:20:09 PM : https://10.211.55.3/rvl/v1/58f3209f-336b-4d7a-a0b7-689f15742d8d/monitoring/monitordata
+DEBUG : 03/28/2014 09:20:09 PM : Logging into server
+ERROR : 03/28/2014 09:20:09 PM : Agent was unable to login.
+ERROR : 03/28/2014 09:20:09 PM : Exception: HTTPSConnectionPool(host='10.211.55.3', port=443): Max retries exceeded with url: /rvl/login (Caused by <class 'socket.error'>: [Errno 111] Connection refused)
+DEBUG : 03/28/2014 09:20:09 PM : Traceback (most recent call last):
+  File "/opt/TopPatch/agent/src/net/netmanager.py", line 99, in login
+    timeout=30
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 425, in post
+    return self.request('POST', url, data=data, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 383, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 486, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 378, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='10.211.55.3', port=443): Max retries exceeded with url: /rvl/login (Caused by <class 'socket.error'>: [Errno 111] Connection refused)
+
+ERROR : 03/28/2014 09:20:09 PM : Agent was unable to login.
