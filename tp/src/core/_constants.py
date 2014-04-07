@@ -9,6 +9,8 @@ class CommonKeys():
     USER = 'user'
     URI = 'uri'
     METHOD = 'method'
+    RESPONSE_URI = 'response_uri'
+    RESPONSE_METHOD = 'request_method'
 
 class DefaultStringLength():
     CUSTOMER_NAME = 36

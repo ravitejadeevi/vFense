@@ -4,7 +4,7 @@ from vFense.utils.common import *
 from vFense.operations.operation_manager import Operation
 from vFense.operations import *
 from vFense.core.agent import *
-from vFense.receiver.agent_queue import AgentQueue
+from vFense.core.queue.queue import AgentQueue
 from vFense.plugins.patching.rv_db_calls import *
 from vFense.plugins.patching import *
 from vFense.core.tag.tagManager import *
@@ -14,12 +14,15 @@ logger = logging.getLogger('rvapi')
 
 
 class StoreOperation(object):
-    def __init__(self, username, customer_name, uri, method, ttl=None):
+    def __init__(self, username, customer_name,
+                 uri, method, server_queue_ttl=None,
+                 agent_queue_ttl=None):
         self.customer_name = customer_name
         self.username = username
         self.uri = uri
         self.method = method
-        self.ttl = ttl
+        self.server_queue_ttl = server_queue_ttl
+        self.agent_queue_ttl = agent_queue_ttl
 
     def _store_in_agent_queue(self, operation):
         agent_queue = (
@@ -28,7 +31,7 @@ class StoreOperation(object):
                 self.customer_name
             )
         )
-        agent_queue.add(operation, self.ttl)
+        agent_queue.add(operation, self.server_queue_ttl, self.agent_queue_ttl)
 
     def generic_operation(self, oper_type, oper_plugin,
                           agentids=None, tag_id=None):
@@ -42,8 +45,7 @@ class StoreOperation(object):
 
         results = (
             operation.create_operation(
-                oper_type, oper_plugin, agentids,
-                tag_id
+                oper_type, oper_plugin, agentids, tag_id
             )
         )
 

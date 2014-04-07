@@ -3,9 +3,9 @@ import logging
 
 from vFense.scheduler.jobManager import start_scheduler, job_exists, remove_job
 from vFense.plugins.patching.supported_apps.syncer import get_agents_apps, get_supported_apps
-from vFense.plugins.cve.cve_parser import parse_cve_and_udpatedb
-from vFense.plugins.cve.bulletin_parser import parse_bulletin_and_updatedb
-from vFense.plugins.cve.get_all_ubuntu_usns import begin_usn_home_page_processing
+from vFense.plugins.vuln.cve.parser import parse_cve_and_udpatedb
+from vFense.plugins.vuln.windows.parser import parse_bulletin_and_updatedb
+from vFense.plugins.vuln.ubuntu.parser import begin_usn_home_page_processing
 
 from vFense.core.agent.agent_uptime_verifier import all_agent_status
 from vFense.jobs.jobs import remove_expired_jobs_and_update_operations

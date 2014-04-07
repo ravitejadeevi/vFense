@@ -3,14 +3,11 @@ import logging
 import logging.config
 from hashlib import sha256
 
-from vFense.db.client import db_create_close, r
+from vFense.db.client import r
 from vFense.errorz.status_codes import PackageCodes
 from vFense.plugins.patching.rv_db_calls import *
 from vFense.plugins.patching import *
-from vFense.plugins.cve import *
 from vFense.plugins.patching.downloader.downloader import download_all_files_in_app
-from vFense.utils.common import date_parser, hash_verifier, timestamp_verifier
-from datetime import datetime
 import re
 
 import redis

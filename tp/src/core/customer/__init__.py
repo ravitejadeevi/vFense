@@ -8,7 +8,8 @@ class CustomerKeys():
     NetThrottle = 'net_throttle'
     CpuThrottle = 'cpu_throttle'
     PackageUrl = 'package_download_url_base'
-    OperationTtl = 'operation_ttl'
+    ServerQueueTTL = 'server_queue_ttl' # in minutes
+    AgentQueueTTL = 'agent_queue_ttl' # in minutes
     Users = 'users' #Mapped Keys
     Groups = 'groups' #Mapped Keys
 

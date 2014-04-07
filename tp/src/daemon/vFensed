@@ -63,7 +63,7 @@ PROGRAM = 'python'
 PIDFILE = '/opt/TopPatch/var/tmp/process.pid'
 RVSCHEDULER_PIDFILE='/opt/TopPatch/var/tmp/rvscheduler-9002.pid'
 
-RECEIVER_DIR = '/opt/TopPatch/tp/src/receiver'
+WORKERS_DIR = '/opt/TopPatch/tp/src/receiver/rqworkers'
 PATH = '/opt/TopPatch/tp/'
 RVSCHEDULER='src/scheduler/rvscheduler.py'
 
@@ -94,7 +94,7 @@ def run(program, *args):
 def rqworker_starter():
     completed = True
     for queue in RQ_WORKER_QUEUES:
-        os.chdir(RECEIVER_DIR)
+        os.chdir(WORKERS_DIR)
         pid_file = '%sRQW_PID_%s.pid' % (PID_DIR, queue)
         rqw_settings = 'rqworker_%s_settings' % (queue)
         rqw = 'RqWorker Queue %s' % (queue)

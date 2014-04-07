@@ -143,10 +143,15 @@ class CustomerHandler(BaseHandler):
             if download_url:
                 data_to_send[CustomerKeys.PackageUrl] = download_url
 
-            ### Update Operation TTL for this customer
-            operation_ttl = self.arguments.get(ApiArguments.OPERATION_TTL, None)
-            if operation_ttl:
-                data_to_send[CustomerKeys.OperationTtl] = int(operation_ttl)
+            ### Update Server Queue TTL for this customer
+            server_queue_ttl = self.arguments.get(ApiArguments.SERVER_QUEUE_TTL, None)
+            if server_queue_ttl:
+                data_to_send[CustomerKeys.ServerQueueTTL] = int(server_queue_ttl)
+
+            ### Update Agent Queue TTL for this customer
+            agent_queue_ttl = self.arguments.get(ApiArguments.AGENT_QUEUE_TTL, None)
+            if agent_queue_ttl:
+                data_to_send[CustomerKeys.AgentQueueTTL] = int(agent_queue_ttl)
 
             ### Update Network Throttling for this customer
             net_throttle = self.arguments.get(ApiArguments.NET_THROTTLE, None)

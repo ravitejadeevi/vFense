@@ -2,7 +2,7 @@ import logging
 
 from vFense.operations.operation_manager import Operation
 from vFense.operations import *
-from vFense.receiver.agent_queue import AgentQueue
+from vFense.core.queue.queue import AgentQueue
 
 logging.config.fileConfig('/opt/TopPatch/conf/logging.config')
 logger = logging.getLogger('rvapi')

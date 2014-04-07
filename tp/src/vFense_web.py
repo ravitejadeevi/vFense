@@ -42,8 +42,8 @@ from vFense.plugins.patching.Api.custom_updates_handler import *
 from vFense.plugins.patching.Api.supported_updates_handler import *
 from vFense.plugins.mightymouse.api.relay_servers import *
 ##Vulnerability APIs
-from vFense.plugins.cve.api.vulnerability import *
-from vFense.plugins.cve.api.cve import *
+from vFense.plugins.vuln.api.vulnerability import *
+from vFense.plugins.vuln.api.cve import *
 
 from vFense.plugins.ra.api.status import RDStatusQueue
 from vFense.plugins.ra.api.rdsession import RDSession

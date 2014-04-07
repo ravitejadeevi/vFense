@@ -1,7 +1,7 @@
 import logging
 import logging.config
 
-from vFense.receiver.agent_queue import AgentQueue
+from vFense.core.queue.queue import AgentQueue
 from vFense.settings import Default
 from vFense.operations.operation_manager import Operation
 

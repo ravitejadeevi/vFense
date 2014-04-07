@@ -10,6 +10,5 @@ var/tmp
 *.adb
 *.last_uptime
 *.log
-agent/
 *.oqd
 *.rqd

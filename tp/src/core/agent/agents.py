@@ -319,27 +319,42 @@ def update_agent_status(agent_id, username=None, uri=None, method=None):
             'data': {'needs_reboot': 'no'}
         }
     """
-
+    status = update_agent_status.func_name + ' - '
     now = mktime(datetime.now().timetuple())
     agent_data = {
         AgentKey.LastAgentUpdate: r.epoch_time(now),
         AgentKey.AgentStatus: 'up'
     }
-    update_status = update_agent_data(agent_id, agent_data)
-    try:
-        agent_data[AgentKey.LastAgentUpdate] = now
-        results = (
-            update_status[0], agent_id, 'agent', agent_data, update_status[2],
-            username, uri, method
-        )
+    status_code, count, error, generated_ids = (
+        update_agent_data(agent_id, agent_data)
+    )
+    if status_code == DbCodes.Replaced:
+        msg = 'agent_id %s updated'
+        generic_status_code = GenericCodes.ObjectUpdated
+        vfense_status_code = AgentCodes.AgentsUpdated
 
-    except Exception as e:
-        agent_data[AgentKey.LastAgentUpdate] = now
-        results = (
-            update_status[0], agent_id, 'agent', agent_data, update_status[e],
-            username, uri, method
-        )
-        logger.exception(e)
+    elif status_code == DbCodes.Skipped:
+        msg = 'agent_id %s does not exist'
+        generic_status_code = GenericFailureCodes.FailedToUpdateObject
+        vfense_status_code = AgentFailureCodes.AgentsDoesNotExist
+
+    elif status_code == DbCodes.Errors:
+        msg = 'agent_id %s could not be updated'
+        generic_status_code = GenericFailureCodes.FailedToUpdateObject
+        vfense_status_code = AgentFailureCodes.AgentsFailedToUpdate
+
+    agent_data[AgentKey.LastAgentUpdate] = now
+
+    results = {
+        ApiResultKeys.DB_STATUS_CODE: status_code,
+        ApiResultKeys.GENERIC_STATUS_CODE: generic_status_code,
+        ApiResultKeys.VFENSE_STATUS_CODE: vfense_status_code,
+        ApiResultKeys.MESSAGE: status + msg,
+        ApiResultKeys.DATA: [],
+        ApiResultKeys.USERNAME: username,
+        ApiResultKeys.URI: uri,
+        ApiResultKeys.HTTP_METHOD: method
+    }
 
     return(results)
 

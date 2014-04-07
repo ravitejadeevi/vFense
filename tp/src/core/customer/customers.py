@@ -214,10 +214,9 @@ def _validate_customer_data(**kwargs):
 
         return(valid_pkg_url)
 
-
-    if kwargs.get(CustomerKeys.OperationTtl):
+    if kwargs.get(CustomerKeys.ServerQueueTTL):
         valid_operation_ttl = True
-        operation_queue_ttl = kwargs.get(CustomerKeys.OperationTtl)
+        operation_queue_ttl = kwargs.get(CustomerKeys.ServerQueueTTL)
         if not isinstance(operation_queue_ttl, int):
             try:
                 operation_queue_ttl = int(operation_queue_ttl)
@@ -226,6 +225,19 @@ def _validate_customer_data(**kwargs):
                 valid_operation_ttl = False
 
         return(valid_operation_ttl)
+
+    if kwargs.get(CustomerKeys.AgentQueueTTL):
+        valid_operation_ttl = True
+        operation_queue_ttl = kwargs.get(CustomerKeys.AgentQueueTTL)
+        if not isinstance(operation_queue_ttl, int):
+            try:
+                operation_queue_ttl = int(operation_queue_ttl)
+
+            except ValueError:
+                valid_operation_ttl = False
+
+        return(valid_operation_ttl)
+
 
     return(data_validated)
 
@@ -375,8 +387,8 @@ def create_customer(
     customer_name, username=None,
     http_application_url_location=None,
     net_throttle=0, cpu_throttle='normal',
-    operation_queue_ttl=10, init=False,
-    user_name=None, uri=None, method=None
+    server_queue_ttl=10, agent_queue_ttl=10,
+    init=False, user_name=None, uri=None, method=None
     ):
     """Create a new customer inside of vFense
     Args:
@@ -398,8 +410,11 @@ def create_customer(
             during any operation.
             Default=normal 
             possbile values (idle, below_normal, normal, above_noraml, high)
-        operation_queue_ttl (int):minutes until an operation is
-            considered expired inside the queue
+        server_queue_ttl (int):minutes until an operation is
+            considered expired inside the server queue
+            Default=10
+        agent_queue_ttl (int):minutes until an operation is
+            considered expired inside the agent queue
             Default=10
         init (boolean): Create the customer, without adding a user into it.
             Default=False
@@ -428,7 +443,8 @@ def create_customer(
             'data': {
                 'cpu_throttle': 'normal',
                 'package_download_url_base': 'https: //10.0.0.21/packages/',
-                'operation_ttl': 10,
+                'server_queue_ttl': 10,
+                'agent_queue_ttl': 10,
                 'net_throttle': 0,
                 'customer_name': 'vFense'
             }
@@ -443,7 +459,8 @@ def create_customer(
     data = {}
     generated_ids = []
     valid_net_throttle = True
-    valid_operation_ttl = True
+    valid_server_queue_ttl = True
+    valid_agent_queue_ttl = True
     valid_cpu_throttle = cpu_throttle in CPUThrottleValues.VALID_VALUES
     valid_customer_name = (
         re.search('((?:[A-Za-z0-9_-](?!\s+")|\s(?!\s*")){1,36})', customer_name)
@@ -458,14 +475,22 @@ def create_customer(
         except ValueError:
             valid_net_throttle = False
 
-    if not isinstance(operation_queue_ttl, int):
+    if not isinstance(server_queue_ttl, int):
         try:
-            operation_queue_ttl = int(operation_queue_ttl)
+            server_queue_ttl = int(server_queue_ttl)
 
         except ValueError:
-            valid_operation_ttl = False
+            valid_server_queue_ttl = False
 
-    if (not customer_exist and valid_operation_ttl and
+    if not isinstance(agent_queue_ttl, int):
+        try:
+            agent_queue_ttl = int(agent_queue_ttl)
+
+        except ValueError:
+            valid_agent_queue_ttl = False
+
+    if (not customer_exist and valid_server_queue_ttl and
+        valid_agent_queue_ttl and
         valid_net_throttle and valid_cpu_throttle and
         valid_customer_name and valid_customer_length):
 
@@ -482,7 +507,8 @@ def create_customer(
             CustomerKeys.PackageUrl: http_application_url_location,
             CustomerKeys.NetThrottle: net_throttle,
             CustomerKeys.CpuThrottle: cpu_throttle,
-            CustomerKeys.OperationTtl: operation_queue_ttl
+            CustomerKeys.ServerQueueTTL: server_queue_ttl,
+            CustomerKeys.AgentQueueTTL: agent_queue_ttl,
         }
         object_status, object_count, error, generated_ids = (
             insert_customer(data)
@@ -541,11 +567,20 @@ def create_customer(
         generic_status_code = GenericCodes.InvalidId
         vfense_status_code = CustomerFailureCodes.InvalidCpuThrottle
 
-    elif not valid_operation_ttl:
+    elif not valid_server_queue_ttl:
         status_code = DbCodes.Errors
         msg = (
-            'operation ttl was not given a valid value :%s' %
-            (operation_queue_ttl)
+            'server queue ttl was not given a valid value :%s' %
+            (server_queue_ttl)
+        )
+        generic_status_code = GenericCodes.InvalidId
+        vfense_status_code = CustomerFailureCodes.InvalidOperationTTL
+
+    elif not valid_agent_queue_ttl:
+        status_code = DbCodes.Errors
+        msg = (
+            'agent queue ttl was not given a valid value :%s' %
+            (agent_queue_ttl)
         )
         generic_status_code = GenericCodes.InvalidId
         vfense_status_code = CustomerFailureCodes.InvalidOperationTTL
@@ -588,8 +623,10 @@ def edit_customer(customer_name, **kwargs):
         cpu_throttle (int): Throttle how much CPU is being used
             during any operation.
             possbile values (idle, below_normal, normal, above_noraml, high)
-        operation_queue_ttl (int):minutes until an operation is
-            considered expired inside the queue
+        server_queue_ttl (int):minutes until an operation is
+            considered expired inside the server queue
+        agent_queue_ttl (int):minutes until an operation is
+            considered expired inside the agent queue
         user_name (str): The name of the user who called this function.
         uri (str): The uri that was used to call this function.
         method (str): The HTTP methos that was used to call this function.
@@ -597,7 +634,7 @@ def edit_customer(customer_name, **kwargs):
     Basic Usage:
         >>> from vFense.core.customer.customers edit_customer
         >>> customer_name = 'agent_api'
-        >>> edit_customer(customer_name, operation_queue_ttl=5)
+        >>> edit_customer(customer_name, server_queue_ttl=5)
 
     Returns:
         Dictionary of the status of the operation.
@@ -608,7 +645,7 @@ def edit_customer(customer_name, **kwargs):
             'http_status': 200,
             'message': 'None - customer modified - default was updated',
             'data': {
-                'operation_queue_ttl': 5
+                'server_queue_ttl': 5
             }
         }
     """

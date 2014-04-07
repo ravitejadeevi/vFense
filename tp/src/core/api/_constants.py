@@ -16,7 +16,8 @@ class ApiArguments():
     DOWNLOAD_URL = 'download_url'
     NET_THROTTLE = 'net_throttle'
     CPU_THROTTLE = 'cpu_throttle'
-    OPERATION_TTL = 'operation_ttl'
+    SERVER_QUEUE_TTL = 'server_queue_ttl'
+    AGENT_QUEUE_TTL = 'agent_queue_ttl'
     DELETE_ALL_AGENTS = 'delete_all_agents'
     MOVE_AGENTS_TO_CUSTOMER = 'move_agents_to_customer'
 

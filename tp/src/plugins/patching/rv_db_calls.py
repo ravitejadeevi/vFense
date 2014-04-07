@@ -7,9 +7,12 @@ import urllib
 from vFense.db.client import db_create_close, r, db_connect
 from vFense.plugins.patching import *
 from vFense.plugins.mightymouse import *
-from vFense.plugins.cve import *
-from vFense.plugins.cve.cve_db  import get_windows_bulletinid_and_cveids, \
-    get_vulnerability_categories, get_ubuntu_cveids
+
+from vFense.plugins.vuln import SecurityBulletinKey
+import vFense.plugins.vuln.windows.ms as ms
+import vFense.plugins.vuln.ubuntu.usn as usn
+import vFense.plugins.vuln.cve.cve as cve
+
 from vFense.plugins.mightymouse.mouse_db import get_mouse_addresses
 from vFense.errorz.error_messages import GenericResults, PackageResults
 from vFense.errorz.status_codes import PackageCodes
@@ -830,11 +833,11 @@ def update_vulnerability_info_app(
     app[AppsKey.VulnerabilityCategories] = []
 
     if app[AppsKey.Kb] != "" and os_string.find('Windows') == 0:
-        vuln_info = get_windows_bulletinid_and_cveids(app[AppsKey.Kb])
+        vuln_info = ms.get_vuln_ids(app[AppsKey.Kb])
 
     elif os_string.find('Ubuntu') == 0:
         vuln_info = (
-            get_ubuntu_cveids(
+            usn.get_vuln_ids(
                 app[AppsKey.Name],
                 app[AppsKey.Version],
                 os_string
@@ -845,7 +848,7 @@ def update_vulnerability_info_app(
         for cve_id in app[AppsKey.CveIds]:
             #cve_id = cve_id.replace('CVE-', '')
             app[AppsKey.VulnerabilityCategories] += (
-                get_vulnerability_categories(cve_id)
+                cve.get_vulnerability_categories(cve_id)
             )
 
         app[AppsKey.VulnerabilityCategories] = (

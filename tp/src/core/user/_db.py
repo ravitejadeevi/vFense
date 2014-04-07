@@ -30,7 +30,7 @@ def fetch_user(username, without_fields=None, conn=None):
         >>> username = 'admin'
         >>> fetch_user(username, without_fields=['password'])
 
-    Return:
+    Returns:
         Dictionary of user properties.
         {
             u'current_customer': u'default',
@@ -81,7 +81,7 @@ def fetch_user_and_all_properties(username, conn=None):
         >>> username = 'admin'
         >>> fetch_user_and_all_properties(username')
 
-    Return:
+    Returns:
         Dictionary of user properties.
         {
             "current_customer": "default", 
@@ -193,7 +193,7 @@ def fetch_users_and_all_properties(customer_name=None, conn=None):
         >>> customer_name = 'default'
         >>> fetch_user_and_all_properties(username')
 
-    Return:
+    Returns:
         List of users and their properties.
         [
             {
@@ -332,7 +332,7 @@ def user_status_toggle(username, conn=None):
         >>> username = 'tester'
         >>> status_toggle(username)
 
-    Return:
+    Returns:
         Tuple (status_code, count, error, generated ids)
         >>> (2001, 1, None, [])
     """
@@ -528,7 +528,7 @@ def insert_user(user_data, conn=None):
         >>> user_data = {'customer_name': 'vFense', 'needs_reboot': 'no'}
         >>> insert_user_data(user_data)
 
-    Return:
+    Returns:
         Tuple (status_code, count, error, generated ids)
         >>> (2001, 1, None, [])
     """
@@ -562,7 +562,7 @@ def update_user(username, user_data, conn=None):
         >>> data = {'production_level': 'Development', 'needs_reboot': 'no'}
         >>> update_user(username, data)
 
-    Return:
+    Returns:
         Tuple (status_code, count, error, generated ids)
         >>> (2001, 1, None, [])
     """
@@ -595,7 +595,7 @@ def delete_user(username, conn=None):
         >>> username = 'admin'
         >>> delete_user(username)
 
-    Return:
+    Returns:
         Tuple (status_code, count, error, generated ids)
         >>> (2001, 1, None, [])
     """
@@ -623,12 +623,12 @@ def delete_users(usernames, conn=None):
     Args:
         usernames (list): username of the user you are deleteing.
 
-    Basic Usage::
+    Basic Usage:
         >>> from vFense.user._db import delete_users
         >>> usernames = ['admin', 'foo', 'bar']
         >>> delete_users(usernames)
 
-    Return:
+    Returns:
         Tuple (status_code, count, error, generated ids)
         >>> (2001, 1, None, [])
     """
