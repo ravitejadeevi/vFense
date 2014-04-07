@@ -164,7 +164,8 @@ def fetch_properties_for_customer(customer_name, conn=None):
             CustomerKeys.CustomerName: x[CustomerKeys.CustomerName],
             CustomerKeys.CpuThrottle: x[CustomerKeys.CpuThrottle],
             CustomerKeys.NetThrottle: x[CustomerKeys.NetThrottle],
-            CustomerKeys.OperationTtl: x[CustomerKeys.OperationTtl],
+            CustomerKeys.ServerQueueTTL: x[CustomerKeys.ServerQueueTTL],
+            CustomerKeys.AgentQueueTTL: x[CustomerKeys.AgentQueueTTL],
             CustomerKeys.Users: (
                 r
                 .table(CustomerCollections.CustomersPerUser)
@@ -243,7 +244,8 @@ def fetch_properties_for_all_customers(username=None, conn=None):
             CustomerKeys.CustomerName: x[CustomerKeys.CustomerName],
             CustomerKeys.CpuThrottle: x[CustomerKeys.CpuThrottle],
             CustomerKeys.NetThrottle: x[CustomerKeys.NetThrottle],
-            CustomerKeys.OperationTtl: x[CustomerKeys.OperationTtl],
+            CustomerKeys.ServerQueueTTL: x[CustomerKeys.ServerQueueTTL],
+            CustomerKeys.AgentQueueTTL: x[CustomerKeys.AgentQueueTTL],
             CustomerKeys.Users: (
                 r
                 .table(CustomerCollections.CustomersPerUser)
