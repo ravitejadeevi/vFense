@@ -184,7 +184,7 @@ define(
                     _.each(filterOptions, function (option) {
                         filterValueFragment.appendChild(
 
-                                crel('option', {value: option}, option)
+                            crel('option', {value: option}, option)
 
                         );
                     });
@@ -223,8 +223,8 @@ define(
                         crel('span', {class: 'span2'}, 'Vulnerabilities'),
                         crel('span', {class: 'span2'}, 'Last Updated on')
                         /*crel('span', {class: 'span1 need alignLeft'}, 'OS'),
-                        crel('span', {class: 'span1 done alignLeft'}, 'Custom'),
-                        crel('span', {class: 'span1 pend alignRight'}, 'Supported')*/
+                         crel('span', {class: 'span1 done alignLeft'}, 'Custom'),
+                         crel('span', {class: 'span1 pend alignRight'}, 'Supported')*/
                     );
                     return this;
                 },
@@ -263,8 +263,8 @@ define(
                                 crel('span', {class: 'span2'}, item.get('available_vulnerabilities')),
                                 crel('span', {class: 'span2'}, this.formatDate(lastAgentUpdate))
                                 /*crel('span', {class: 'span1 need'}, _.findWhere(stats, {name: 'OS'}).count),
-                                crel('span', {class: 'span1 done'}, _.findWhere(stats, {name: 'Custom'}).count),
-                                crel('span', {class: 'span1 pend alignRight'}, _.findWhere(stats, {name: 'Supported'}).count)*/
+                                 crel('span', {class: 'span1 done'}, _.findWhere(stats, {name: 'Custom'}).count),
+                                 crel('span', {class: 'span1 pend alignRight'}, _.findWhere(stats, {name: 'Supported'}).count)*/
                             )
                         )
                     );
@@ -330,13 +330,14 @@ define(
                 },
                 showAgentTagsModal: function (event) {
                     event.preventDefault();
-                        var agentName = $(event.currentTarget).data('agentName'),
-                            tags = $(event.currentTarget).data('tags');
 
-                        this.agentTagsModal = new AgentTagsPanel.View({
-                            agentName: agentName,
-                            tags: tags
-                        });
+                    var agentName = $(event.currentTarget).data('agentName'),
+                        tags = $(event.currentTarget).data('tags');
+
+                    this.agentTagsModal = new AgentTagsPanel.View({
+                   	 agentName: agentName,
+                         tags: tags
+                    });
 
                     this.agentTagsModal.open();
                     return this;
@@ -344,8 +345,8 @@ define(
                 deleteAgents: function (event) {
                     event.preventDefault();
                     var params = {
-                            agent_ids: this.getSelectedAgents()
-                        };
+                        agent_ids: this.getSelectedAgents()
+                    };
                     if (!params.agent_ids.length) {
                         app.notifyOSD.createNotification('!', 'Error', 'You must select at least one agent.');
                     } else {
@@ -370,7 +371,7 @@ define(
                     }
                 },
                 editCustomer: function () {
-                     var $select = this.$('select'),
+                    var $select = this.$('select'),
                         $message = $select.siblings('.help-online'),
                         url = '/api/v1/agents',
                         params = {customer_name: $select.val(), agent_ids: this.options.parentView.getSelectedAgents()},
@@ -400,13 +401,13 @@ define(
                         select.appendChild(crel('option', helpers.getSelectedCustomer(customer.customer_name, current), customer.customer_name));
                     });
                     return crel('form', {id: 'changeCustomer', class: 'form-horizontal'},
-                            crel('div', {class: 'control-group noMargin'},
-                                crel('label', {class: 'control-label'}, 'Customer:'),
-                                crel('div', {class: 'controls'},
-                                    select, crel('br'),
-                                    crel('div', {class: 'help-online', style: 'margin-top: 5px;', 'data-name': 'message'})
-                                )
+                        crel('div', {class: 'control-group noMargin'},
+                            crel('label', {class: 'control-label'}, 'Customer:'),
+                            crel('div', {class: 'controls'},
+                                select, crel('br'),
+                                crel('div', {class: 'help-online', style: 'margin-top: 5px;', 'data-name': 'message'})
                             )
+                        )
                     );
                 }
             })
