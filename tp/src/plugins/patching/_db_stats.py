@@ -3,12 +3,13 @@ import logging
 from vFense import VFENSE_LOGGING_CONFIG
 from vFense.db.client import db_create_close, r
 from vFense.core.decorators import time_it
+from vFense.core._constants import CommonKeys
 from vFense.core.tag import (
     TagCollections, TagsPerAgentKey, TagsPerAgentIndexes
 )
 from vFense.plugins.patching import (
     AppCollections, DbCommonAppPerAgentIndexes,
-    DbCommonAppPerAgentKeys
+    DbCommonAppPerAgentKeys, DbCommonAppKeys
 )
 from vFense.plugins.patching._constants import CommonAppKeys
 
@@ -158,7 +159,16 @@ def get_all_app_stats_by_tagid(tag_id, conn=None):
                 r.table(AppCollections.AppsPerAgent),
                 index=DbCommonAppPerAgentIndexes.StatusAndAgentId
             )
-            .pluck({'right': DbCommonAppPerAgentKeys.AppId})
+            .eq_join(lambda x: x['right'][DbCommonAppPerAgentKeys.AppId], r.table(AppCollections.UniqueApplications))
+            .filter(
+                lambda y: y['right'][DbCommonAppKeys.Hidden] == CommonKeys.NO
+            )
+            .map(
+                {
+                    DbCommonAppPerAgentKeys.AppId: r.row['right'][DbCommonAppPerAgentKeys.AppId],
+                }
+            )
+            .pluck(DbCommonAppPerAgentKeys.AppId)
             .distinct()
             .count()
             .run(conn)
@@ -307,7 +317,16 @@ def get_all_avail_stats_by_tagid(tag_id, conn=None):
                 r.table(AppCollections.AppsPerAgent),
                 index=DbCommonAppPerAgentIndexes.StatusAndAgentId
             )
-            .pluck({'right': DbCommonAppPerAgentKeys.AppId})
+            .eq_join(lambda x: x['right'][DbCommonAppPerAgentKeys.AppId], r.table(AppCollections.UniqueApplications))
+            .filter(
+                lambda y: y['right'][DbCommonAppKeys.Hidden] == CommonKeys.NO
+            )
+            .map(
+                {
+                    DbCommonAppPerAgentKeys.AppId: r.row['right'][DbCommonAppPerAgentKeys.AppId],
+                }
+            )
+            .pluck(DbCommonAppPerAgentKeys.AppId)
             .distinct()
             .count()
             .run(conn)
@@ -426,6 +445,15 @@ def get_all_app_stats_by_customer(customer_name, conn=None):
                     CommonAppKeys.AVAILABLE, customer_name
                 ],
                 index=DbCommonAppPerAgentIndexes.StatusAndCustomer
+            )
+            .eq_join(DbCommonAppKeys.AppId, r.table(AppCollections.UniqueApplications))
+            .filter(
+                lambda x: x['right'][DbCommonAppKeys.Hidden] == CommonKeys.NO
+            )
+            .map(
+                {
+                    DbCommonAppPerAgentKeys.AppId: r.row['left'][DbCommonAppPerAgentKeys.AppId],
+                }
             )
             .pluck(DbCommonAppPerAgentKeys.AppId)
             .distinct()

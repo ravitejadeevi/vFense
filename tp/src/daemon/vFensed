@@ -99,7 +99,7 @@ def rqworker_starter():
     completed = True
     for queue in RQ_WORKER_QUEUES:
         os.chdir(WORKERS_DIR)
-        pid_file = '%sRQW_PID_%s.pid' % (PID_DIR, queue)
+        pid_file = os.path.join(PID_DIR, 'RQW_PID_%s.pid' % (queue))
         rqw_settings = 'rqworker_%s_settings' % (queue)
         rqw = 'RqWorker Queue %s' % (queue)
         rqworker_start = (
@@ -133,7 +133,7 @@ def rqworker_stop():
     completed = True
 
     for queue in RQ_WORKER_QUEUES:
-        pid_file = '%sRQW_PID_%s.pid' % (PID_DIR, queue)
+        pid_file = os.path.join(PID_DIR, 'RQW_PID_%s.pid' % (queue))
         rqw = 'RqWorker Queue %s' % (queue)
         if os.path.exists(pid_file):
             pid_exists = open(pid_file, 'r').read()

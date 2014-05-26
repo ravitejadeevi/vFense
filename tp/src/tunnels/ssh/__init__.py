@@ -2,11 +2,9 @@ import os
 
 import tunnels
 
-#home = expanduser('~')
-#_known_host = home + '/.ssh/known_hosts'
-#_authorized_keys = home + '/.ssh/authorized_keys'
-_known_host = '/home/toppatch/.ssh/known_hosts'
-_authorized_keys = '/home/toppatch/.ssh/authorized_keys'
+HOME_DIR = os.getenv('HOME')
+_known_host = os.path.join(HOME_DIR, '.ssh', 'known_hosts')
+_authorized_keys = os.path.join('.ssh', 'authorized_key')
 
 
 def add_authorized_key(agent_id, key):

@@ -214,7 +214,7 @@ def update_supported_app_data_by_agentid_and_appid(agent_id, app_id, app_data):
 
 @time_it
 def remove_os_apps_for_agent_by_customer(customer_name):
-    """Delete all apps for all agents by customer for 
+    """Delete all apps for all agents by customer for
     Args:
         customer_name (str): Name of the customer.
 
@@ -723,7 +723,7 @@ def get_vulnerability_info_for_app(
     vuln_data[AppsKey.VulnerabilityId] = ""
     vuln_data[AppsKey.VulnerabilityCategories] = []
 
-    if kb != "" and os_string.find('Windows') == 0:
+    if kb != "" and re.search(r'Windows', os_string, re.IGNORECASE):
         vuln_info = ms.get_vuln_ids(kb)
 
     elif (
