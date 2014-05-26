@@ -180,7 +180,7 @@ define(
                     $icon.append(this.renderIcon(model));
                     $info.append(this.renderSystemInfo(model));
                     $buttons.append(this.renderControlButtons());
-                    this.customerModal.setContentHTML(this.customerPanelLayout(app.user.toJSON()['customers'], model.get('customer_name')));
+                    this.customerModal.setContentHTML(this.customerPanelLayout(app.user.toJSON().customers, model.get('customer_name')));
                 },
                 renderIcon: function (model) {
                     var operatingSystem = model.get('os_string');
@@ -298,7 +298,7 @@ define(
                 customerPanelLayout: function (customers, current) {
                     var select =  crel('select', {'required': 'required'});
                     _.each(customers, function (customer) {
-                        select.appendChild(crel('option', helpers.getSelectedCustomer(customer.name, current), customer.name));
+                        select.appendChild(crel('option', helpers.getSelectedCustomer(customer.customer_name, current), customer.customer_name));
                     });
                     return crel('form', {id: 'changeCustomer', class: 'form-horizontal'},
                             crel('div', {class: 'control-group noMargin'},
