@@ -7,6 +7,7 @@ from vFense import VFENSE_LOGGING_CONFIG
 from vFense.db.client import db_create_close, r
 from vFense.core.tag import *
 from vFense.core.agent import *
+from vFense.core._constants import CommonKeys
 from vFense.plugins.patching import *
 from vFense.plugins.patching._constants import CommonAppKeys, CommonSeverityKeys
 from vFense.errorz.error_messages import GenericResults
@@ -40,6 +41,16 @@ def customer_stats_by_os(username, customer_name,
                 [CommonAppKeys.AVAILABLE, customer_name],
                 index=AppsPerAgentIndexes.StatusAndCustomer
             )
+            .eq_join(AppsKey.AppId, r.table(AppCollections.UniqueApplications))
+            .filter(
+                lambda x: x['right'][AppsKey.Hidden] == CommonKeys.NO
+            )
+            .map(
+                {
+                    AppsPerAgentKey.AppId: r.row['left'][AppsPerAgentKey.AppId],
+                    AppsPerAgentKey.AgentId: r.row['left'][AppsPerAgentKey.AgentId],
+                }
+            )
             .eq_join(AgentKey.AgentId, r.table(AgentCollections.Agents))
             .map(
                 {
@@ -52,18 +63,25 @@ def customer_stats_by_os(username, customer_name,
             .group(AgentKey.OsString)
             .count()
             .ungroup()
-            .order_by(r.desc('reduction'))
+            .map(
+                lambda x:
+                {
+                    'os': x['group'],
+                    'count': x['reduction']
+                }
+            )
+            .order_by(r.desc('count'))
             .limit(count)
             .run(conn)
         )
         data = []
-        if stats:
-            data = app_stats_by_os(stats)
+        #if stats:
+        #    data = app_stats_by_os(stats)
 
         results = (
             GenericResults(
                 username, uri, method
-            ).information_retrieved(data, count)
+            ).information_retrieved(stats, count)
         )
 
     except Exception as e:
@@ -98,24 +116,36 @@ def tag_stats_by_os(username, customer_name,
             .zip()
             .eq_join(AgentKey.AgentId, r.table(AgentCollections.Agents))
             .zip()
+            .eq_join(AppsPerAgentKey.AppId, r.table(AppCollections.UniqueApplications))
+            .filter(
+                lambda x: x['right'][AppsKey.Hidden] == CommonKeys.NO
+            )
+            .zip()
             .pluck(CommonAppKeys.APP_ID, AgentKey.OsString)
             .distinct()
             .group(AgentKey.OsString)
             .count()
             .ungroup()
-            .order_by(r.desc('reduction'))
+            .map(
+                lambda x:
+                {
+                    'os': x['group'],
+                    'count': x['reduction']
+                }
+            )
+            .order_by(r.desc('count'))
             .limit(count)
             .run(conn)
         )
 
-        data = []
-        if stats:
-            data = app_stats_by_os(stats)
+        #data = []
+        #if stats:
+        #    data = app_stats_by_os(stats)
 
         results = (
             GenericResults(
                 username, uri, method
-            ).information_retrieved(data, count)
+            ).information_retrieved(stats, count)
         )
 
     except Exception as e:
@@ -219,6 +249,9 @@ def get_severity_bar_chart_stats_for_customer(username, customer_name,
             .pluck(AppsKey.AppId)
             .distinct()
             .eq_join(AppsKey.AppId, r.table(AppCollections.UniqueApplications))
+            .filter(
+                lambda x: x['right'][AppsKey.Hidden] == CommonKeys.NO
+            )
             .map(
                 {
                     AppsKey.AppId: r.row['right'][AppsKey.AppId],
@@ -262,6 +295,9 @@ def get_severity_bar_chart_stats_for_agent(username, customer_name,
                 index=AppsPerAgentIndexes.StatusAndAgentId
             )
             .eq_join(AppsKey.AppId, r.table(AppCollections.UniqueApplications))
+            .filter(
+                lambda x: x['right'][AppsKey.Hidden] == CommonKeys.NO
+            )
             .map(
                 {
                     AppsKey.AppId: r.row['right'][AppsKey.AppId],
@@ -316,6 +352,9 @@ def get_severity_bar_chart_stats_for_tag(username, customer_name,
                 }
             )
             .eq_join(AppsKey.AppId, r.table(AppCollections.UniqueApplications))
+            .filter(
+                lambda x: x['right'][AppsKey.Hidden] == CommonKeys.NO
+            )
             .map(
                 {
                     AppsKey.AppId: r.row['right'][AppsKey.AppId],
@@ -354,55 +393,48 @@ def top_packages_needed(username, customer_name,
     apps_needed=[]
     
     try:
-        appid_needed = (
+        data = (
             r
             .table(AppCollections.AppsPerAgent)
             .get_all(
                 [CommonAppKeys.AVAILABLE, customer_name],
                 index=AppsPerAgentIndexes.StatusAndCustomer
             )
-            .group(AppsPerAgentKey.AppId)
+            .eq_join(AppsKey.AppId, r.table(AppCollections.UniqueApplications))
+            .filter(
+                lambda x: x['right'][AppsKey.Hidden] == CommonKeys.NO
+            )
+            .map(
+                lambda x:
+                {
+                    AppsKey.Name: x['right'][AppsKey.Name],
+                    AppsKey.AppId: x['right'][AppsKey.AppId],
+                    AppsKey.RvSeverity: x['right'][AppsKey.RvSeverity],
+                    AppsKey.ReleaseDate: x['right'][AppsKey.ReleaseDate].to_epoch_time(),
+                }
+            )
+            .group(AppsKey.Name, AppsKey.AppId, AppsKey.RvSeverity, AppsKey.ReleaseDate)
             .count()
             .ungroup()
-            .order_by(r.desc('reduction'))
+            .map(
+                lambda x:
+                {
+                    AppsKey.Name: x['group'][0],
+                    AppsKey.AppId: x['group'][1],
+                    AppsKey.RvSeverity: x['group'][2],
+                    AppsKey.ReleaseDate: x['group'][3],
+                    'count': x['reduction'],
+                }
+            )
+            .order_by(r.desc('count'), r.desc(AppsKey.ReleaseDate))
+            .limit(count)
             .run(conn)
         )
-
-        for i in xrange(len(appid_needed)):
-            app_info = (
-                r
-                .table(AppCollections.UniqueApplications)
-                .get_all(
-                    appid_needed[i]['group'],
-                    index=AppsIndexes.AppId)
-                .pluck(
-                    AppsKey.Name, AppsKey.AppId,
-                    AppsKey.RvSeverity, AppsKey.ReleaseDate,
-                    AppsKey.Hidden,
-                )
-                .map(
-                    {
-                        AppsKey.Name: r.row[AppsKey.Name],
-                        AppsKey.AppId: r.row[AppsKey.AppId],
-                        AppsKey.Hidden: r.row[AppsKey.Hidden],
-                        AppsKey.RvSeverity: r.row[AppsKey.RvSeverity],
-                        AppsKey.ReleaseDate: r.row[AppsKey.ReleaseDate].to_epoch_time(),
-                        'count': appid_needed[i]['reduction']
-                    }
-                )
-                .run(conn)[0]
-            )
-
-            if app_info[AppsKey.Hidden] == 'no':
-                apps_needed.append(app_info)
-
-            if len(apps_needed) == count:
-                break;
 
         results = (
             GenericResults(
                 username, uri, method
-            ).information_retrieved(apps_needed, count)
+            ).information_retrieved(data, count)
         )
 
     except Exception as e:
@@ -420,7 +452,7 @@ def top_packages_needed(username, customer_name,
 def recently_released_packages(username, customer_name,
                                uri, method, count=5, conn=None):
 
-    app_needed=[]
+    data=[]
 
     try:
         data = list(
@@ -434,18 +466,23 @@ def recently_released_packages(username, customer_name,
             )
             .eq_join(AppsKey.AppId, r.table(AppCollections.UniqueApplications))
             .map(
+                lambda x:
                 {
-                    AppsKey.Name: r.row['right'][AppsKey.Name],
-                    AppsKey.AppId: r.row['right'][AppsKey.AppId],
-                    AppsKey.RvSeverity: r.row['right'][AppsKey.RvSeverity],
-                    AppsKey.Hidden: r.row['right'][AppsKey.Hidden],
-                    AppsKey.ReleaseDate: r.row['right'][AppsKey.ReleaseDate].to_epoch_time(),
+                    AppsKey.Name: x['right'][AppsKey.Name],
+                    AppsKey.AppId: x['right'][AppsKey.AppId],
+                    AppsKey.RvSeverity: x['right'][AppsKey.RvSeverity],
+                    AppsKey.Hidden: x['right'][AppsKey.Hidden],
+                    AppsKey.ReleaseDate: x['right'][AppsKey.ReleaseDate].to_epoch_time(),
                     'count': (
                         r
                         .table(AppCollections.AppsPerAgent)
                         .get_all(
-                            [r.row['right'][AppsKey.AppId], CommonAppKeys.AVAILABLE],
+                            [x['right'][AppsKey.AppId], CommonAppKeys.AVAILABLE],
                             index=AppsPerAgentIndexes.AppIdAndStatus
+                        )
+                        .eq_join(AppsKey.AppId, r.table(AppCollections.UniqueApplications))
+                        .filter(
+                            lambda y: y['right'][AppsKey.Hidden] == CommonKeys.NO
                         )
                         .count()
                     )
@@ -456,20 +493,14 @@ def recently_released_packages(username, customer_name,
                 AppsKey.RvSeverity, AppsKey.ReleaseDate, 'count'
             )
             .order_by(r.desc(AppsKey.ReleaseDate))
+            .limit(count)
             .run(conn)
         )
 
-        for i in xrange(len(data)):
-            if data[i][AppsKey.Hidden] == 'no':
-                app_needed.append(data[i])
-            if len(app_needed) == count:
-                break;
-                
-        
         results = (
             GenericResults(
                 username, uri, method
-            ).information_retrieved(app_needed, count)
+            ).information_retrieved(data, count)
         )
 
     except Exception as e:

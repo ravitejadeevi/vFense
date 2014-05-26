@@ -2,7 +2,7 @@
 
 NAME="vFense"
 DESC="vFense"
-USERNAME="toppatch"
+USERNAME="vfense"
 DAEMON="/usr/local/bin/vFensed"
 DEPENDENCIES_RUNNING="true"
 NGINX_RUNNING=`pidof nginx`

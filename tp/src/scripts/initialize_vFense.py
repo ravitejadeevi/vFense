@@ -12,7 +12,8 @@ from vFense import (
     VFENSE_LOG_PATH, VFENSE_CONF_PATH,
     VFENSE_LOGGING_CONFIG, VFENSE_VULN_PATH,
     VFENSE_APP_TMP_PATH, VFENSE_SCHEDULER_PATH,
-    VFENSE_TMP_PATH
+    VFENSE_TMP_PATH, VFENSED_SYMLINK, VFENSED,
+    VFENSE_INIT_D
 )
 from vFense.core.logger.logger import vFenseLogger
 vfense_logger = vFenseLogger()
@@ -129,6 +130,13 @@ ncc.nginx_config_builder(
     rvweb_count=int(args.web_count)
 )
 
+if not os.path.exists(VFENSED_SYMLINK):
+    subprocess.Popen(
+        [
+            'ln', '-s', VFENSED, VFENSED_SYMLINK
+        ],
+    )
+
 def initialize_db():
     os.umask(0)
     if not os.path.exists(VFENSE_TMP_PATH):
@@ -176,9 +184,9 @@ def initialize_db():
                 [
                     'ln', '-s',
                     os.path.join(VFENSE_BASE_SRC_PATH,'daemon/vFense'),
-                    '/etc/init.d/vFense'
+                    VFENSE_INIT_D
                 ],
-        )
+            )
 
     if get_distro() in REDHAT_DISTROS:
         if os.path.exists('/usr/bin/rqworker'):
