@@ -144,6 +144,8 @@ define(
                                 return this.baseUrl + id + exports.keys[that.page].urlSuffix + that.patchType + '?' + $.param(this.params);
                             },
                             _defaultParams: {
+                                offset: 0,
+                                count: 20,
                                 sort_by: 'vulnerability_id',
                                 sort: 'desc'
                             }
@@ -184,17 +186,19 @@ define(
                     $.ajaxSetup({ traditional: true });
                 },
                 events: {
-                    'click [data-action=toggleDependenciesPanel]': 'toggleDependenciesPanel',
-                    'click button[data-submit=operation]'   : 'submitOperation',
-                    'click li a[data-toggle=tab]'           : 'changeTab',
-                    'click input[data-toggle=all]'          : 'selectAll',
-                    'click input[data-update]'              : 'togglePatch',
-                    'click input[data-id=schedule]'         : 'toggleSchedule',
-                    'keyup input[data-id=search]'           : 'debouncedSearch',
-                    'change select[data-id=filter]'         : 'filterBySeverity',
-                    'click button[data-id=addSchedule]'     : 'addSchedule',
-                    'click button[data-action=toggleOptions]': 'toggleOptions',
-                    'click #showHidden'                     :   'showHidden'
+                    'click [data-action=toggleDependenciesPanel]'   :   'toggleDependenciesPanel',
+                    'click button[data-submit=operation]'           :   'submitOperation',
+                    'click li a[data-toggle=tab]'                   :   'changeTab',
+                    'click input[data-toggle=all]'                  :   'selectAll',
+                    'click input[data-update]'                      :   'togglePatch',
+                    'click input[data-id=schedule]'                 :   'toggleSchedule',
+                    'keyup input[data-id=search]'                   :   'debouncedSearch',
+                    'change select[data-id=filter]'                 :   'filterBySeverity',
+                    'click button[data-id=addSchedule]'             :   'addSchedule',
+                    'click button[data-action=toggleOptions]'       :   'toggleOptions',
+                    'click #showHidden'                             :   'showHidden',
+                    'change select[name=sort]'                      :   'sortBy',
+                    'click a[name=order]'                           :   'orderBy'
                 },
                 beforeRender: $.noop,
                 onRender: $.noop,
@@ -288,7 +292,7 @@ define(
                     $tabContent.append(listView.$el);
                 },
                 layoutHeader: function ($left, $right) {
-                    var $select, $cpuThrottle = [], $netThrottle = [], $restart = [],
+                    var $select, dateOption, $cpuThrottle = [], $netThrottle = [], $restart = [],
                         titles = exports.keys[this.page].titles,
                         spans = ['span3', 'span2', 'span2', 'span2', 'span2', 'span1 alignRight'],
                         $header = this.$el.find('header'),
@@ -332,6 +336,12 @@ define(
                             titles.splice(1, 0, releaseDateTitle);
                         }
 
+                        if (this.tab === '#softwareinventory') {
+                            dateOption = crel('option', {value: 'install_date'}, 'Installed Date');
+                        } else {
+                            dateOption = crel('option', {value: 'release_date'}, 'Release Date');
+                        }
+
                         $select = $(crel('select', {'data-id': 'operation'}));
                         var that = this;
                         _.each(options[this.tab], function (option) {
@@ -341,7 +351,7 @@ define(
                             crel('small', 'Sort By '),
                             crel('Select', {name: 'sort'},
                                 crel('option', {value: 'app_name'}, 'Application Name'),
-                                crel('option', {value: 'release_date'}, 'Release Date'),
+                                dateOption,
                                 crel('option', {value: 'vulnerability_id', selected: 'selected'}, 'Vulnerability ID')
                             ),
                             crel('span', ' '),
@@ -361,7 +371,6 @@ define(
                     }
 
                     _.each(titles, function (title, i) {
-                        console.log(title);
                         if (title !== 'Severity') {
                             if (title === 'Name') {
                                 $(legend).append(crel('strong',{class: spans[i]}, crel('input', {type: 'checkbox', 'data-toggle': 'all'}), ' ' + title));
@@ -733,3 +742,4 @@ define(
         return exports;
     }
 );
+
