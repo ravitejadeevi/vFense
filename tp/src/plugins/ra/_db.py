@@ -31,7 +31,7 @@ def ra_initialization(conn=None):
 
     try:
 
-        r.db('toppatch_server').table_create(
+        r.db('vFense').table_create(
             Collection.KnownConnections,
             primary_key=CollectionKeys.AgentId,
         ).run(conn)

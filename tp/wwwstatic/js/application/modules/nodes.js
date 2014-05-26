@@ -330,12 +330,13 @@ define(
                 },
                 showAgentTagsModal: function (event) {
                     event.preventDefault();
+
                     var agentName = $(event.currentTarget).data('agentName'),
                         tags = $(event.currentTarget).data('tags');
 
                     this.agentTagsModal = new AgentTagsPanel.View({
-                        agentName: agentName,
-                        tags: tags
+                   	 agentName: agentName,
+                         tags: tags
                     });
 
                     this.agentTagsModal.open();
