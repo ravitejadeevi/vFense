@@ -184,7 +184,7 @@ define(
                     _.each(filterOptions, function (option) {
                         filterValueFragment.appendChild(
 
-                                crel('option', {value: option}, option)
+                            crel('option', {value: option}, option)
 
                         );
                     });
@@ -223,8 +223,8 @@ define(
                         crel('span', {class: 'span2'}, 'Vulnerabilities'),
                         crel('span', {class: 'span2'}, 'Last Updated on')
                         /*crel('span', {class: 'span1 need alignLeft'}, 'OS'),
-                        crel('span', {class: 'span1 done alignLeft'}, 'Custom'),
-                        crel('span', {class: 'span1 pend alignRight'}, 'Supported')*/
+                         crel('span', {class: 'span1 done alignLeft'}, 'Custom'),
+                         crel('span', {class: 'span1 pend alignRight'}, 'Supported')*/
                     );
                     return this;
                 },
@@ -237,13 +237,11 @@ define(
                         osIcon              = this.printOsIcon(item.get('os_string')),
                         displayName         = this.displayName(item),
                         status              = this.getStatus(item),
+                        tags                = item.get('tags'),
                         updates             = item.get('available_updates'),
                         lastAgentUpdate     = item.get('last_agent_update'),
                         vulnerabilities     = item.get('available_vulnerabilities');
 //                        stats               = helpers.sortStats(item.get('basic_rv_stats'));
-
-                    this.tags = item.get('tags');
-                    this.agentName = displayName;
 
                     fragment.appendChild(
                         crel('div', {class: 'item row-fluid'},
@@ -259,14 +257,14 @@ define(
                                 crel('span', {class: 'span2'}, item.get('os_string')),
                                 crel('span', {class: 'span1'}, item.get('os_code')),
                                 crel('span', {class: 'span1'},
-                                    this.tags.length === 0 ? 0 : crel('button', {name: 'agentTags', title: 'Click to see the Tags of this Agent', class: 'btn btn-mini btn-info', 'data-toggle': 'modal'}, this.tags.length)
+                                    tags.length === 0 ? 0 : crel('button', {name: 'agentTags', 'data-agent-name': displayName, 'data-tags': JSON.stringify(tags), title: 'Click to see the Tags of this Agent', class: 'btn btn-mini btn-info', 'data-toggle': 'modal'}, tags.length)
                                 ),
                                 crel('span', {class: 'span1'}, item.get('available_updates')),
                                 crel('span', {class: 'span2'}, item.get('available_vulnerabilities')),
                                 crel('span', {class: 'span2'}, this.formatDate(lastAgentUpdate))
                                 /*crel('span', {class: 'span1 need'}, _.findWhere(stats, {name: 'OS'}).count),
-                                crel('span', {class: 'span1 done'}, _.findWhere(stats, {name: 'Custom'}).count),
-                                crel('span', {class: 'span1 pend alignRight'}, _.findWhere(stats, {name: 'Supported'}).count)*/
+                                 crel('span', {class: 'span1 done'}, _.findWhere(stats, {name: 'Custom'}).count),
+                                 crel('span', {class: 'span1 pend alignRight'}, _.findWhere(stats, {name: 'Supported'}).count)*/
                             )
                         )
                     );
@@ -332,21 +330,22 @@ define(
                 },
                 showAgentTagsModal: function (event) {
                     event.preventDefault();
-                    if (!this.agentTagsModal) {
-                        var that = this;
-                        this.agentTagsModal = new AgentTagsPanel.View({
-                            agentName: that.agentName,
-                            tags: that.tags
-                        });
-                    }
+                    var agentName = $(event.currentTarget).data('agentName'),
+                        tags = $(event.currentTarget).data('tags');
+
+                    this.agentTagsModal = new AgentTagsPanel.View({
+                        agentName: agentName,
+                        tags: tags
+                    });
+
                     this.agentTagsModal.open();
                     return this;
                 },
                 deleteAgents: function (event) {
                     event.preventDefault();
                     var params = {
-                            agent_ids: this.getSelectedAgents()
-                        };
+                        agent_ids: this.getSelectedAgents()
+                    };
                     if (!params.agent_ids.length) {
                         app.notifyOSD.createNotification('!', 'Error', 'You must select at least one agent.');
                     } else {
@@ -371,7 +370,7 @@ define(
                     }
                 },
                 editCustomer: function () {
-                     var $select = this.$('select'),
+                    var $select = this.$('select'),
                         $message = $select.siblings('.help-online'),
                         url = '/api/v1/agents',
                         params = {customer_name: $select.val(), agent_ids: this.options.parentView.getSelectedAgents()},
@@ -401,13 +400,13 @@ define(
                         select.appendChild(crel('option', helpers.getSelectedCustomer(customer.customer_name, current), customer.customer_name));
                     });
                     return crel('form', {id: 'changeCustomer', class: 'form-horizontal'},
-                            crel('div', {class: 'control-group noMargin'},
-                                crel('label', {class: 'control-label'}, 'Customer:'),
-                                crel('div', {class: 'controls'},
-                                    select, crel('br'),
-                                    crel('div', {class: 'help-online', style: 'margin-top: 5px;', 'data-name': 'message'})
-                                )
+                        crel('div', {class: 'control-group noMargin'},
+                            crel('label', {class: 'control-label'}, 'Customer:'),
+                            crel('div', {class: 'controls'},
+                                select, crel('br'),
+                                crel('div', {class: 'help-online', style: 'margin-top: 5px;', 'data-name': 'message'})
                             )
+                        )
                     );
                 }
             })
