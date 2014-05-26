@@ -240,8 +240,7 @@ define(
                         tags                = item.get('tags'),
                         updates             = item.get('available_updates'),
                         lastAgentUpdate     = item.get('last_agent_update'),
-                        vulnerabilities     = item.get('available_vulnerabilities'),
-                        tagsObject          = {tags: tags};
+                        vulnerabilities     = item.get('available_vulnerabilities');
 //                        stats               = helpers.sortStats(item.get('basic_rv_stats'));
 
                     fragment.appendChild(
